@@ -1,8 +1,8 @@
-#ifndef MATRIZ_H
-#define MATRIZ_H
+#ifndef VETOR_H
+#define VETOR_H
 
 /* ------------------------------------------------------------- */
-/*                       Constantes Matriz                       */
+/*                       Constantes  Vetor                       */
 /* ------------------------------------------------------------- */
 
 
@@ -10,35 +10,28 @@
 /*                     Prototype definitions                     */
 /* ------------------------------------------------------------- */
 
-/* Matriz */
-typedef struct strMatriz Matriz;
+/* Vetor */
+typedef struct strVetor Vetor;
 
 /* ------------------------------------------------------------- */
-/*                       Matriz Structure                        */
+/*                       Vetor  Structure                        */
 /* ------------------------------------------------------------- */
 
-typedef struct strMatriz{
-	/* Dimensões da matriz */
-	int n_linhas;
-	int n_colunas;
+typedef struct strVetor{
+	/* Dimensão do vetor */
+	int dimensao;
 
-	/* Conteúdo da matriz */
-	double *celulas;
-
-	/* Estruturas da matriz */
-	double **linhas;
-	double **colunas;
-	double **diagonais_principais;
-	double **diagonais_secundarias;
-} Matriz, *ptrMatriz;
+	/* Dados */
+	double *coordenadas;
+} Vetor, *ptrVetor;
 
 /* ------------------ Token Structure Methods ------------------ */
 
-/* Cria uma nova matriz */
-Matriz* newMatriz(int linhas, int colunas);
+/* Cria um novo vetor */
+Matriz* newVetor(int dimensao);
 
 /* Desaloca uma matriz */
-bool deleteMatriz(ptrMatriz *matriz);
+bool deleteVetor(ptrVetor *vetor);
 
 /* ------------------------------------------------------------- */
 
