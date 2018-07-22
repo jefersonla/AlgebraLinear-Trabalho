@@ -4,7 +4,7 @@
 /* ------------------------------------------------------------- */
 /*                       Constantes Matriz                       */
 /* ------------------------------------------------------------- */
-
+#define TIPO_CELULAS double
 
 /* ------------------------------------------------------------- */
 /*                     Prototype definitions                     */
@@ -21,15 +21,13 @@ typedef struct strMatriz{
 	/* Dimensões da matriz */
 	int n_linhas;
 	int n_colunas;
+	int n_celulas;
 
 	/* Conteúdo da matriz */
-	double *celulas;
+	TIPO_CELULAS *celulas;
 
 	/* Estruturas da matriz */
-	double **linhas;
-	double **colunas;
-	double **diagonais_principais;
-	double **diagonais_secundarias;
+	TIPO_CELULAS **linhas;
 } Matriz, *ptrMatriz;
 
 /* ------------------ Token Structure Methods ------------------ */
