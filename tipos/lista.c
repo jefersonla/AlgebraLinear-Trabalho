@@ -215,6 +215,9 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
 
         /* Adiciona o item a lista como sendo o próximo item do último item */
         _ultimo_item_lista->prox = _new_no_lista;
+
+        /* Configura o anterior como sendo o nó anterior a este */
+        _new_no_lista->ante = _ultimo_item_lista;
     }
 
     /* Incrementa o contador de items */
@@ -376,25 +379,29 @@ bool deleteNoLista(ptrNoLista *noLista){
         }
     }
 
-    /* Reposiciona a navegabilidade de acordo com os seguintes casos */
-    if((*noLista)->ante == NULL && (*noLista)->prox == NULL){
-        /* Se a lista está vazia insere nulo no pai */
-        (*noLista)->pai->filho = NULL;
-    } else if ((*noLista)->ante == NULL && (*noLista)->prox != NULL) {
-        /* Se existe próximo, porém somos o primeiro item da lista */
-        (*noLista)->pai->filho = (*noLista)->prox;
-        (*noLista)->prox->ante = NULL;
-    } else if ((*noLista)->ante != NULL && (*noLista)->prox == NULL){
-        /* Se não existe próximo porém existe anterior */
-        (*noLista)->ante->prox = NULL;
-    } else {
-        /* Se existe próximo e anterior */
-        (*noLista)->ante->prox = (*noLista)->prox;
-        (*noLista)->prox->ante = (*noLista)->ante;
-    }
+    Lista *pai_lista = (*noLista)->pai;
+    NoLista *prox_no = (*noLista)->prox;
+    NoLista *ante_no = (*noLista)->ante;
 
     /* Desaloca o item atual da lista */
     secureFree((*noLista));
+
+    /* Reposiciona a navegabilidade de acordo com os seguintes casos */
+    if(ante_no == NULL && prox_no == NULL){
+        /* Se a lista está vazia insere nulo no pai */
+        pai_lista->filho = NULL;
+    } else if (ante_no == NULL && prox_no != NULL) {
+        /* Se existe próximo, porém somos o primeiro item da lista */
+        pai_lista->filho = prox_no;
+        prox_no->ante = NULL;
+    } else if (ante_no != NULL && prox_no == NULL){
+        /* Se não existe próximo porém existe anterior */
+        ante_no->prox = NULL;
+    } else {
+        /* Se existe próximo e anterior */
+        ante_no->prox = prox_no;
+        prox_no->ante = ante_no;
+    }
 
     return true;
 }
