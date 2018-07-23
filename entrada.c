@@ -75,8 +75,7 @@ void inserirMatriz(Lista *listaMatrizes){
     for(i = 0; i < nLinhas; i++)
         for(j = 0; j < nColunas; j++)
             scanf("%lf", &nova_matriz->linhas[i][j]);
-
-    printf("\n");
+    quebraLinha();
 
     /* Adiciona a matriz construida a lista */
     adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, nova_matriz, false);
@@ -98,6 +97,7 @@ void listarMatrizes(Lista *listaMatrizes){
 
     /* Lista todas as matrizes */
     exibeTodasMatrizesLista(listaMatrizes);
+    quebraLinha();
 }
 
 /* Deletar matriz presentes na memória */

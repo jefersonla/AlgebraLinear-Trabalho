@@ -18,7 +18,7 @@
 #define MATRIZ_TIPO_MAX 3
 
 /* Tamanho do espaçador */
-#define TAM_ESPACADOR 6
+#define TAM_ESPACADOR 3
 
 /* ------------------------------------------------------------- */
 /*                     Prototype definitions                     */

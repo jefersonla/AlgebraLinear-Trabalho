@@ -262,6 +262,8 @@ bool removeNoLista(Lista *lista, int idItem){
 void exibeNoRecursivo(NoLista *noLista){
     // Verifica se o nó da lista existe
     if(noLista != NULL){
+        quebraLinha();
+        printf("Matriz ID = %d\n", noLista->idItem);
         exibeNoLista(noLista);
         exibeNoRecursivo(noLista->prox);
     }

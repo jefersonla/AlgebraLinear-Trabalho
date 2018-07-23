@@ -220,18 +220,19 @@ void imprimeMatriz(Matriz* matriz){
 
     /* Verifica o nome de digitos do maior número da matriz */
     /* Obrigado SF - https://stackoverflow.com/questions/8257714/how-to-convert-an-int-to-string-in-c/23840699 */
-    int numDigitos = snprintf(NULL, 0, "%.2lf", matriz->maiorValor) + TAM_ESPACADOR;
+    int numDigitos = snprintf(NULL, 0, "%.2lf", matriz->maiorValor) + TAM_ESPACADOR + 1;
+
+    /* Buffer para cada string com tamanho formatado */
+    char *buf = malloc(sizeof (char) * (size_t)numDigitos);
 
     /* Imprime a matriz formatada */
     int i, j;
     for(i = 0; i < matriz->nLinhas; i++){
-        for(j = 0; j < matriz->nColunas - 1; j++)
-            printf("%1$.2lf", numDigitos, matriz->linhas[i][j]);
+        for(j = 0; j < matriz->nColunas; j++){
+            imprimeColunaFixa(buf, matriz->linhas[i][j], numDigitos);
+        }
 
-        printf("%1$.2lf", numDigitos, matriz->linhas[matriz->nLinhas - 1][matriz->nColunas - 1]);
-
-        /* Quebra a linha após imprimir cada coluna */
+        /* Quebra a linha após imprimir cada coluna de cada linha */
         printf("\n");
     }
-
 }

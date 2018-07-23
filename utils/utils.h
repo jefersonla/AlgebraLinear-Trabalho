@@ -40,7 +40,13 @@
 /* Print a nice formated info msg */
 #define printTodo(FORMAT, ...)              printMsg("TODO", FORMAT, ##__VA_ARGS__)
 
+/* Imprime uma linha vazia */
+#define quebraLinha()                       printf("\n");
+
 /* Troca os valores entre celulas da matriz */
 void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b);
+
+/* Imprime numeros com tamanho fixo de digitos */
+void imprimeColunaFixa(char *buf, MatrizCelula a, int tamColuna);
 
 #endif
