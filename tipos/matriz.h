@@ -1,10 +1,21 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
 
+#include <stdbool.h>
+
 /* ------------------------------------------------------------- */
 /*                       Constantes Matriz                       */
 /* ------------------------------------------------------------- */
-#define TIPO_CELULAS double
+
+/* Tipos de matriz */
+#define MATRIZ_VAZIA 0
+#define MATRIZ_CONSTANTE 1
+#define MATRIZ_IDENTIDADE 2
+#define MATRIZ_VALORES 3
+
+/* Tamanho do range de tipos */
+#define MATRIZ_TIPO_MIN 0
+#define MATRIZ_TIPO_MAX 3
 
 /* ------------------------------------------------------------- */
 /*                     Prototype definitions                     */
@@ -17,26 +28,31 @@ typedef struct strMatriz Matriz;
 /*                       Matriz Structure                        */
 /* ------------------------------------------------------------- */
 
+typedef double MatrizCelula;
+
 typedef struct strMatriz{
 	/* Dimensões da matriz */
-	int n_linhas;
-	int n_colunas;
-	int n_celulas;
+    int nLinhas;
+    int nColunas;
+    int nCelulas;
 
 	/* Conteúdo da matriz */
-	TIPO_CELULAS *celulas;
+    MatrizCelula *celulas;
 
 	/* Estruturas da matriz */
-	TIPO_CELULAS **linhas;
+    MatrizCelula **linhas;
 } Matriz, *ptrMatriz;
 
-/* ------------------ Token Structure Methods ------------------ */
+/* ------------------ Matriz Structure Methods ----------------- */
 
 /* Cria uma nova matriz */
-Matriz* newMatriz(int linhas, int colunas);
+Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[]);
 
 /* Desaloca uma matriz */
 bool deleteMatriz(ptrMatriz *matriz);
+
+/* Clona uma matriz */
+Matriz* cloneMatriz(Matriz* matriz);
 
 /* ------------------------------------------------------------- */
 
