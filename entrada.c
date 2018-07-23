@@ -220,7 +220,6 @@ void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
     /* Imprime a matriz resultante */
     quebraLinha();
     imprimeMatriz(noMatriz->conteudo);
-    quebraLinha();
 }
 
 /* Executa a operação de multiplicação de linha por escalar */
