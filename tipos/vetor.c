@@ -20,7 +20,7 @@
  * @param valores Valores do vetor
  * @return Ponteiro para o novo vetor
  */
-Vetor* newVetor(int dimensao, double valores[]){
+Vetor* newVetor(unsigned int dimensao, double valores[]){
     /* A dimensao de um vetor precisa ser maior que 1 */
     if(dimensao <= 0){
         printError("A DIMENSAO DE UM VETOR PRECISA SER MAIOR QUE ZERO!");

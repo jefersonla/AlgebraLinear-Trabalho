@@ -21,7 +21,7 @@ typedef struct strVetor Vetor;
 
 typedef struct strVetor{
 	/* Dimensão do vetor */
-	int dimensao;
+    unsigned int dimensao;
 
 	/* Dados */
 	double *coordenadas;
@@ -30,7 +30,7 @@ typedef struct strVetor{
 /* ------------------ Vetor Structure Methods ------------------ */
 
 /* Cria um novo vetor */
-Vetor* newVetor(int dimensao, double valores[]);
+Vetor* newVetor(unsigned int dimensao, double valores[]);
 
 /* Desaloca um vetor */
 bool deleteVetor(ptrVetor *vetor);
