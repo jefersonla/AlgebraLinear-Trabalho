@@ -5,6 +5,7 @@
 #include "entrada.h"
 
 #include <stdio.h>
+#include <math.h>
 
 /**
  *
@@ -157,34 +158,19 @@ void deletarMatriz(Lista *listaMatrizes){
  * @brief operacaoMatrizTrocaLinha Realiza a operação elementar de troca entre linhas
  * @param listaMatrizes Lista com todas as matrizes do sistema
  */
-void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
-    NoLista *noMatriz;
-    unsigned int idMatriz;
+void operacaoMatrizTrocaLinha(NoLista *noMatriz){
     unsigned int l1, l2;
 
-    /* Checa se a lista de matrizes é válida */
-    if(listaMatrizes == NULL){
-        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+    /* Checa se o no da matriz é válido */
+    if(noMatriz == NULL){
+        printError("NO DA MATRIZ INVALIDO! NAO E POSSIVEL REALIZAR A OPERACAO!");
         return;
     }
 
     /* Formato da operação */
-    printf("L1 <-> L2\n");
-
-    /* Recebe o numero de linhas */
     quebraLinha();
-    printf("Insira o indice da matriz => ");
-    scanf("%u", &idMatriz);
+    printf("Formato -- L1 <-> L2\n");
     quebraLinha();
-
-    /* Busca pelo id informado */
-    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
-
-    /* Checa se a matriz foi encontrada */
-    if(noMatriz == NULL){
-        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
-        return;
-    }
 
     /* Exibe a matriz */
     imprimeMatriz(noMatriz->conteudo);
@@ -212,7 +198,15 @@ void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
         } else if ((int)l2 > noMatriz->conteudo->nLinhas){
             printError("LINHA NAO PRESENTE NA MATRIZ!");
         }
-    } while(l1 == 0 || (int)l2 > noMatriz->conteudo->nLinhas);
+    } while(l2 == 0 || (int)l2 > noMatriz->conteudo->nLinhas);
+
+    /* Imprime matriz entrada */
+    quebraLinha();
+    imprimeMatriz(noMatriz->conteudo);
+
+    /* Imprime o formato da operação */
+    quebraLinha();
+    printf("L%u <-> L%u\n", l1, l2);
 
     /* Executa a operação */
     operacaoTrocaLinha(noMatriz->conteudo, l1, l2);
@@ -223,22 +217,158 @@ void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
 }
 
 /* Executa a operação de multiplicação de linha por escalar */
-void operacaoMatrizMultiplicaLinha(Lista *listaMatrizes){
+void operacaoMatrizMultiplicaLinha(NoLista *noMatriz){
+    unsigned int l1;
+    double escalar;
 
+    /* Checa se o no da matriz é válido */
+    if(noMatriz == NULL){
+        printError("NO DA MATRIZ INVALIDO! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Formato -- L1 <- E * L1\n");
+    quebraLinha();
+
+    /* Exibe a matriz */
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Pega a primeira linha da tabela */
+    do {
+        printf("Indice L1 => ");
+        scanf("%u", &l1);
+
+        if(l1 == 0){
+            printError("AS MATRIZES SAO INDEXADAS DE 1 A N!");
+        } else if ((int)l1 > noMatriz->conteudo->nLinhas){
+            printError("LINHA NAO PRESENTE NA MATRIZ!");
+        }
+    } while(l1 == 0 || (int)l1 > noMatriz->conteudo->nLinhas);
+
+    /* Pega o valor do escalar */
+    do {
+        printf("Escalar => ");
+        scanf("%lf", &escalar);
+
+        if(fabs(escalar) <= 10e-7){
+            printError("ESCALAR NAO PODE SER ZERO!");
+        }
+    } while(fabs(escalar) <= 10e-7);
+
+    /* Imprime matriz entrada */
+    quebraLinha();
+    imprimeMatriz(noMatriz->conteudo);
+
+    /* Imprime o formato da operação */
+    quebraLinha();
+    printf("L%u <- (L%u * %.2f)\n", l1, l1, escalar);
+
+    /* Executa a operação */
+    operacaoMultiplicaPorEscalar(noMatriz->conteudo, l1, escalar);
+
+    /* Imprime a matriz resultante */
+    quebraLinha();
+    imprimeMatriz(noMatriz->conteudo);
 }
 
 /* Executa a operação de soma entre linhas */
-void operacaoMatrizSomaLinha(Lista *listaMatrizes){
+void operacaoMatrizSomaLinha(NoLista *noMatriz){
+    unsigned int l1, l2;
+    double escalar;
 
+    /* Checa se o no da matriz é válido */
+    if(noMatriz == NULL){
+        printError("NO DA MATRIZ INVALIDO! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Formato -- L1 <- L1 + L2 * E\n");
+
+    /* Exibe a matriz */
+    quebraLinha();
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Pega a primeira linha da tabela */
+    do {
+        printf("Indice L1 => ");
+        scanf("%u", &l1);
+
+        if(l1 == 0){
+            printError("AS MATRIZES SAO INDEXADAS DE 1 A N!");
+        } else if ((int)l1 > noMatriz->conteudo->nLinhas){
+            printError("LINHA NAO PRESENTE NA MATRIZ!");
+        }
+    } while(l1 == 0 || (int)l1 > noMatriz->conteudo->nLinhas);
+
+    /* Pega a segunda linha da tabela */
+    do {
+        printf("Indice L2 => ");
+        scanf("%u", &l2);
+
+        if(l2 == 0){
+            printError("AS MATRIZES SAO INDEXADAS DE 1 A N!");
+        } else if ((int)l2 > noMatriz->conteudo->nLinhas){
+            printError("LINHA NAO PRESENTE NA MATRIZ!");
+        }
+    } while(l2 == 0 || (int)l2 > noMatriz->conteudo->nLinhas);
+
+    /* Pega o valor do escalar */
+    do {
+        printf("Escalar => ");
+        scanf("%lf", &escalar);
+
+        if(fabs(escalar) <= 10e-7){
+            printError("ESCALAR NAO PODE SER ZERO!");
+        }
+    } while(fabs(escalar) <= 10e-7);
+
+
+    /* Imprime matriz entrada */
+    quebraLinha();
+    imprimeMatriz(noMatriz->conteudo);
+
+    /* Imprime o formato da operação */
+    quebraLinha();
+    printf("L%u <- L%u + (L%u * %.2f)\n", l1, l1, l2, escalar);
+
+    /* Executa a operação */
+    operacaoSomaEntreLinhas(noMatriz->conteudo, l1, l2, escalar);
+
+    /* Imprime a matriz resultante */
+    quebraLinha();
+    imprimeMatriz(noMatriz->conteudo);
 }
 
 /* Executar operações elementares sobre a matriz */
 void operacoesMatriz(Lista *listaMatrizes){
+    NoLista *noMatriz;
     unsigned int operacao;
+    unsigned int idMatriz;
 
     /* Checa se a lista de matrizes é válida */
     if(listaMatrizes == NULL){
         printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+        return;
+    }
+
+    /* Recebe o indice da matriz */
+    quebraLinha();
+    printf("Insira o indice da matriz => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
         return;
     }
 
@@ -256,15 +386,15 @@ void operacoesMatriz(Lista *listaMatrizes){
         switch(operacao){
 
         case TROCA_LINHA_MENU:
-            operacaoMatrizTrocaLinha(listaMatrizes);
+            operacaoMatrizTrocaLinha(noMatriz);
             break;
 
         case MULTIPLICA_LINHA_MENU:
-            operacaoMatrizMultiplicaLinha(listaMatrizes);
+            operacaoMatrizMultiplicaLinha(noMatriz);
             break;
 
         case SOMA_LINHA_MENU:
-            operacaoMatrizSomaLinha(listaMatrizes);
+            operacaoMatrizSomaLinha(noMatriz);
             break;
 
         case VOLTAR_MENU:

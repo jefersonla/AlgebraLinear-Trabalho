@@ -50,13 +50,13 @@ void deletarMatriz(Lista *listaMatrizes);
 void operacoesMatriz(Lista *listaMatrizes);
 
 /* Executa a operação de troca entre linhas */
-void operacaoMatrizTrocaLinha(Lista *listaMatrizes);
+void operacaoMatrizTrocaLinha(NoLista *noMatriz);
 
 /* Executa a operação de multiplicação de linha por escalar */
-void operacaoMatrizMultiplicaLinha(Lista *listaMatrizes);
+void operacaoMatrizMultiplicaLinha(NoLista *noMatriz);
 
 /* Executa a operação de soma entre linhas */
-void operacaoMatrizSomaLinha(Lista *listaMatrizes);
+void operacaoMatrizSomaLinha(NoLista *noMatriz);
 
 /* ------------------------------------------------------------- */
 
