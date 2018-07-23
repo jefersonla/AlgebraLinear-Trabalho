@@ -77,6 +77,9 @@ void inserirMatriz(Lista *listaMatrizes){
             scanf("%lf", &nova_matriz->linhas[i][j]);
     quebraLinha();
 
+    /* Atualiza o maior valor da matriz */
+    atualizaMaiorValorMatriz(nova_matriz);
+
     /* Adiciona a matriz construida a lista */
     adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, nova_matriz, true);
 

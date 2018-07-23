@@ -1,5 +1,6 @@
 #include "./matriz.h"
 #include "../utils/utils.h"
+#include "../utils/ajuda.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -76,6 +77,9 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
 		_new_linhas[i] = &_new_celulas[i * colunas];
 	}
 
+    /* Inicializa o maior valor da matriz */
+    _new_matriz->maiorValor = 0;
+
     /* Checa o tipo de variavel e preenche a matriz conforme o pedido */
     switch(tipoValor){
         case MATRIZ_CONSTANTE:
@@ -92,9 +96,6 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
             /* Zera o vetor para evitar a presença de lixo */
             memset(_new_celulas, 0, (size_t) n_celulas);
 
-            /* Maior valor */
-            _new_matriz->maiorValor = 0;
-
         break;
 
         case MATRIZ_IDENTIDADE:
@@ -109,8 +110,6 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
         break;
 
         case MATRIZ_VALORES:
-            /* Inicializa o maior valor da matriz */
-            _new_matriz->maiorValor = 0;
 
             /* Completa a matriz com todos os valores */
             for(i = 0; i < linhas; i++)
@@ -118,7 +117,7 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
                     _new_linhas[i][j] = valores[i][j];
 
                     /* Maior valor */
-                    if(_new_matriz->maiorValor < _new_linhas[i][j])
+                    if(_new_matriz->maiorValor < fabs(_new_linhas[i][j]))
                         _new_matriz->maiorValor = fabs(_new_linhas[i][j]);
                 }
 
@@ -226,8 +225,10 @@ void imprimeMatriz(Matriz* matriz){
     /* Obrigado SF - https://stackoverflow.com/questions/8257714/how-to-convert-an-int-to-string-in-c/23840699 */
     int numDigitos = snprintf(NULL, 0, "%.2lf", matriz->maiorValor) + TAM_ESPACADOR + 1;
 
+#ifdef DEBUG
     printInfo("TAMANHO COLUNA");
     printf("=> %d, %lf\n", numDigitos, matriz->maiorValor);
+#endif
 
     /* Buffer para cada string com tamanho formatado */
     char *buf = malloc(sizeof (char) * (size_t)numDigitos);
@@ -245,4 +246,23 @@ void imprimeMatriz(Matriz* matriz){
 
     /* Limpa o buffer alocado anteriormente */
     free(buf);
+}
+
+/**
+ *
+ * Atualiza maior valor da lista. Essa informação é importante ao exibir
+ * os valores da lista visto que sabendo o maior valor é possível imprimir
+ * a lista de valores adequadamente.
+ *
+ * @brief atualizaMaiorValorMatriz Atualiza o maior valor da lista
+ * @param matriz Matriz cujo maior valor irá ser atualizado
+ */
+void atualizaMaiorValorMatriz(Matriz* matriz){
+    int i, j;
+
+    /* Maior valor */
+    for(i = 0; i < matriz->nLinhas; i++)
+        for(j = 0; j < matriz->nColunas; j++)
+            if(matriz->maiorValor < fabs(matriz->linhas[i][j]))
+                matriz->maiorValor = fabs(matriz->linhas[i][j]);
 }

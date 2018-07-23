@@ -61,6 +61,9 @@ bool deleteMatriz(ptrMatriz *matriz);
 /* Clona uma matriz */
 Matriz* cloneMatriz(Matriz* matriz);
 
+/* Atualiza maior valor */
+void atualizaMaiorValorMatriz(Matriz* matriz);
+
 /* Exibe a matriz formatada */
 void imprimeMatriz(Matriz* matriz);
 
