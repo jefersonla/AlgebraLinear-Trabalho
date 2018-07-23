@@ -1,7 +1,7 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#include "matriz.h"
+#include "../tipos/matriz.h"
 
 #include <stdarg.h>
 #include <stdbool.h>
@@ -11,7 +11,7 @@
 #define TO_STRING(VAR)                      QUOTE(VAR)
 
 /* Checa se um valor esta num range */
-#define variavelEntre(VAR, A, B) (A >= VAR && B <= VAR)
+#define variavelEntre(VAR, A, B) (A >= VAR && VAR <= B)
 
 /* Secure free memory */
 #define secureFree(VAR)                     do{ free(VAR); VAR = NULL; } while(false)
@@ -40,18 +40,7 @@
 /* Print a nice formated info msg */
 #define printTodo(FORMAT, ...)              printMsg("TODO", FORMAT, ##__VA_ARGS__)
 
-/**
- *
- * Troca o valor entre duas celulas
- *
- * @brief swapMatrizCelula Troca o valor de duas celulas
- * @param a Primeiro item
- * @param b Segundo item
- */
-void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b){
-    MatrizCelula aux = (*a);
-    (*a) = (*b);
-    (*b) = aux;
-}
+/* Troca os valores entre celulas da matriz */
+void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b);
 
 #endif

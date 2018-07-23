@@ -21,10 +21,11 @@
 /** **************************************************** **/
 /**         LEIA O README PARA MAIS INFORMAÇÔES          **/
 /** **************************************************** **/
+#include "utils/ajuda.h"
+#include "entrada.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "utils/ajuda.h"
 
 /* Código principal */
 int main(int argc, char *argv[]){
@@ -42,6 +43,10 @@ int main(int argc, char *argv[]){
 
     /* Verifica os parametros */
     switch(argc){
+        case 1:
+            loopModoCLI();
+        break;
+    
         default:
             printf( "Número incorreto de parametros!\n"   \
                     "\n"                                  \

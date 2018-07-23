@@ -11,5 +11,6 @@ tipos/operacoes_matriz.c
 tipos/operacoes_matriz.h
 utils/ajuda.c
 utils/ajuda.h
+utils/utils.c
 utils/utils.h
 Makefile

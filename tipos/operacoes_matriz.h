@@ -1,5 +1,5 @@
-#ifndef LISTA_H
-#define LISTA_H
+#ifndef OPERACOES_MATRIZ_H
+#define OPERACOES_MATRIZ_H
 
 #include "matriz.h"
 #include <stdbool.h>

@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 /*------------ Matriz Structure Methods ------------ */
 
@@ -30,6 +31,7 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
     /* Checa se o parametro do tipo de valor é válido */
     if(!variavelEntre(tipoValor, MATRIZ_TIPO_MIN, MATRIZ_TIPO_MAX)){
         printError("TIPO DE VALOR INCORRETO");
+        return NULL;
     }
 
     Matriz *_new_matriz;
@@ -80,11 +82,19 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
             /* Insere o valor em todas as celulas */
             for(i = 0; i < n_celulas; i++)
                 _new_celulas[i] = valores[0][0];
+
+            /* Maior valor */
+            _new_matriz->maiorValor = fabs(valores[0][0]);
+
         break;
 
         case MATRIZ_VAZIA:
             /* Zera o vetor para evitar a presença de lixo */
             memset(_new_celulas, 0, (size_t) n_celulas);
+
+            /* Maior valor */
+            _new_matriz->maiorValor = 0;
+
         break;
 
         case MATRIZ_IDENTIDADE:
@@ -92,13 +102,25 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
             for(i = 0; i < linhas; i++)
                 for(j = 0; j < colunas; j++)
                     _new_linhas[i][j] = (i == j)? 1 : 0;
+
+            /* Maior valor */
+            _new_matriz->maiorValor = 1;
+
         break;
 
         case MATRIZ_VALORES:
+            /* Inicializa o maior valor da matriz */
+            _new_matriz->maiorValor = 0;
+
             /* Completa a matriz com todos os valores */
             for(i = 0; i < linhas; i++)
-                for(j = 0; j < colunas; j++)
+                for(j = 0; j < colunas; j++){
                     _new_linhas[i][j] = valores[i][j];
+
+                    /* Maior valor */
+                    _new_matriz->maiorValor = fabs(_new_matriz->maiorValor);
+                }
+
         break;
 
         default:
@@ -179,4 +201,37 @@ Matriz* cloneMatriz(Matriz* matriz){
             _cloned_matriz->linhas[i][j] = matriz->linhas[i][j];
 
     return _cloned_matriz;
+}
+
+/**
+ *
+ * Imprime a matriz com as colunas com tamanho fixo e formatado, a precisão
+ * dos números é impressa com 2 digitos de precisão.
+ *
+ * @brief imprimeMatriz Imprime a matriz formatada
+ * @param matriz Matriz a ser impressa
+ */
+void imprimeMatriz(Matriz* matriz){
+    /* Checa se a matriz é válida */
+    if(matriz == NULL){
+        printError("MATRIZ INVALIDA NAO E POSSIVEL IMPRIMIR!");
+        return;
+    }
+
+    /* Verifica o nome de digitos do maior número da matriz */
+    /* Obrigado SF - https://stackoverflow.com/questions/8257714/how-to-convert-an-int-to-string-in-c/23840699 */
+    int numDigitos = snprintf(NULL, 0, "%.2lf", matriz->maiorValor) + TAM_ESPACADOR;
+
+    /* Imprime a matriz formatada */
+    int i, j;
+    for(i = 0; i < matriz->nLinhas; i++){
+        for(j = 0; j < matriz->nColunas - 1; j++)
+            printf("%1$.2lf", numDigitos, matriz->linhas[i][j]);
+
+        printf("%1$.2lf", numDigitos, matriz->linhas[matriz->nLinhas - 1][matriz->nColunas - 1]);
+
+        /* Quebra a linha após imprimir cada coluna */
+        printf("\n");
+    }
+
 }

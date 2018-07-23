@@ -168,7 +168,7 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
     }
 
     /* Checa se o id é válido */
-    if(idItem < 0){
+    if(idItem != INDICE_ALEATORIO && idItem < 0){
         printError("INDICE INVALIDO! INDICE NAO PODE SER MENOR QUE ZERO!");
         return false;
     }
@@ -180,9 +180,14 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
     }
 
     /* Checa se já existe algum item com o id indicado */
-    if(buscaNoLista(lista, idItem) != NULL){
+    if(idItem != INDICE_ALEATORIO && buscaNoLista(lista, idItem) != NULL){
         printError("ITEM EXISTENTE! NAO E POSSIVEL ADICIONAR A LISTA!");
         return false;
+    }
+
+    /* Se o indice não é necessário adiciona um indice qualquer */
+    if(idItem == INDICE_ALEATORIO){
+        idItem = lista->ultimoIndice++;
     }
 
     NoLista *_new_no_lista;
@@ -251,6 +256,34 @@ bool removeNoLista(Lista *lista, int idItem){
     ptrNoLista *_ptr_no_lista = &_no_lista;
 
     return deleteNoLista(_ptr_no_lista);
+}
+
+/* PRIVATE - Exibe as matrizes dos nós da lista recursivamente */
+void exibeNoRecursivo(NoLista *noLista){
+    // Verifica se o nó da lista existe
+    if(noLista != NULL){
+        exibeNoLista(noLista);
+        exibeNoRecursivo(noLista->prox);
+    }
+}
+
+/**
+ *
+ * Exibe todas as matrizes de uma lista.
+ *
+ * @brief exibeTodasMatrizesLista Exibe todas as matrizes de uma lista
+ * @param lista Lista a serem exibidas todas as matrizes
+ * @return Retorna true se foi possível exibir as listas, e falso em caso de erro
+ */
+void exibeTodasMatrizesLista(Lista *lista){
+    /* Lista inválida */
+    if(lista == NULL){
+        printError("LISTA INVALIDA! NAO E POSSIVEL EXIBIR!");
+        return;
+    }
+
+    /* Exibe cada matriz da lista recursivamente */
+    exibeNoRecursivo(lista->filho);
 }
 
 /**
@@ -359,4 +392,24 @@ bool deleteNoLista(ptrNoLista *noLista){
     secureFree((*noLista));
 
     return true;
+}
+
+/**
+ *
+ * Exibe a matriz de um nó da lista. A matriz será formatada para ser exibida
+ * corretamente no terminal do computador. Em caso de matrizes com muitas colunas
+ * ou valores de celulas com muitos digitos erros de exibição podem ocorrer.
+ *
+ * @brief exibeNoLista Exibe a matriz de um nó da lista
+ * @param noLista No da lista cuja matriz sera exibido
+ */
+void exibeNoLista(NoLista *noLista){
+    /* Nó da lista inválido ou inexistente */
+    if(noLista == NULL){
+        printError("NO DE LISTA INVALIDO! NAO SERA POSSIVEL EXIBIR");
+        return;
+    }
+
+    /* Exibe o conteúdo da matriz */
+    imprimeMatriz(noLista->conteudo);
 }

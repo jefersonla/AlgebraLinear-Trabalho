@@ -81,8 +81,13 @@ bool operacaoMultiplicaPorEscalar(Matriz *matriz, unsigned int linha, double esc
 
     /* Multiplica o valor das linhas pelo escalar */
     int i;
-    for(i = 0; i < matriz->nColunas; i++)
+    for(i = 0; i < matriz->nColunas; i++){
         matriz->linhas[linha][i] = matriz->linhas[linha][i] * escalar;
+
+        /* Se a operação resultante tiver um valor maior do que o anterior */
+        if(matriz->maiorValor < matriz->linhas[linha][i] )
+            matriz->maiorValor = fabs(matriz->linhas[linha][i]);
+    }
 
     return true;
 }
@@ -127,8 +132,13 @@ bool operacaoSomaEntreLinhas(Matriz *matriz, unsigned int linha_res, unsigned in
 
     /* Soma os valores da linha com os valores da outra multiplicada pelo escalar */
     int i;
-    for(i = 0; i < matriz->nColunas; i++)
+    for(i = 0; i < matriz->nColunas; i++){
         matriz->linhas[linha_res][i] = matriz->linhas[linha_res][i] + (matriz->linhas[linha_in][i] * escalar);
+
+        /* Se a operação resultante tiver um valor maior do que o anterior */
+        if(matriz->maiorValor < matriz->linhas[linha_res][i] )
+            matriz->maiorValor = fabs(matriz->linhas[linha_res][i]);
+    }
 
     return true;
 }

@@ -12,9 +12,9 @@ MAIN_SRC_FILE=main.c
 # Codigos fontes
 SOURCES=$(MAIN_SRC_FILE)
 # Libs sources
-LIBS_SRC=utils/ajuda.c tipos/matriz.c tipos/vetor.c entrada.c
+LIBS_SRC=utils/ajuda.c utils/utils.c tipos/matriz.c tipos/vetor.c tipos/lista.c tipos/operacoes_matriz.c entrada.c
 # Libs sources headers
-LIBS_HEADERS=utils/ajuda.h utils/utils.h tipos/matriz.h tipos/vetor.h entrada.h
+LIBS_HEADERS=utils/ajuda.h utils/utils.h tipos/matriz.h tipos/vetor.h tipos/lista.h tipos/operacoes_matriz.h entrada.h
 # Comment this to ignore TODO WARNINGS!
 TODO_WARN=-Wno-unused-parameter
 

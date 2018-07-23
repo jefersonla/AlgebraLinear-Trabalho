@@ -71,11 +71,17 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem);
 /* Remove item da matriz */
 bool removeNoLista(Lista *lista, int idItem);
 
+/* Exibe todas as matrizes de uma lista */
+void exibeTodasMatrizesLista(Lista *lista);
+
 /* Cria um novo nó para lista */
 NoLista* newNoLista(int idItem, Matriz *matriz, bool copiaItem);
 
 /* Desaloca um item da tabela */
 bool deleteNoLista(ptrNoLista *lista);
+
+/* Exibe no da lista */
+void exibeNoLista(NoLista *noLista);
 
 /* ------------------------------------------------------------- */
 

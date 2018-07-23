@@ -17,6 +17,9 @@
 #define MATRIZ_TIPO_MIN 0
 #define MATRIZ_TIPO_MAX 3
 
+/* Tamanho do espaçador */
+#define TAM_ESPACADOR 6
+
 /* ------------------------------------------------------------- */
 /*                     Prototype definitions                     */
 /* ------------------------------------------------------------- */
@@ -36,6 +39,9 @@ typedef struct strMatriz{
     int nColunas;
     int nCelulas;
 
+    /* Maior valor da matriz */
+    MatrizCelula maiorValor;
+
 	/* Conteúdo da matriz */
     MatrizCelula *celulas;
 
@@ -53,6 +59,9 @@ bool deleteMatriz(ptrMatriz *matriz);
 
 /* Clona uma matriz */
 Matriz* cloneMatriz(Matriz* matriz);
+
+/* Exibe a matriz formatada */
+void imprimeMatriz(Matriz* matriz);
 
 /* ------------------------------------------------------------- */
 
