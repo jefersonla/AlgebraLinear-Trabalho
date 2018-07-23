@@ -192,7 +192,7 @@ void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
 
     /* Pega a primeira linha da tabela */
     do {
-        printf("ID da primeira linha => ");
+        printf("Indice L1 => ");
         scanf("%u", &l1);
 
         if(l1 == 0){
@@ -204,7 +204,7 @@ void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
 
     /* Pega a segunda linha da tabela */
     do {
-        printf("ID da primeira linha => ");
+        printf("Indice L2 => ");
         scanf("%u", &l2);
 
         if(l2 == 0){
@@ -220,6 +220,7 @@ void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
     /* Imprime a matriz resultante */
     quebraLinha();
     imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
 }
 
 /* Executa a operação de multiplicação de linha por escalar */
@@ -244,6 +245,7 @@ void operacoesMatriz(Lista *listaMatrizes){
 
     do{
         /* Mostra menu de opções elementares */
+        quebraLinha();
         menuOpcoesElementares();
 
         /* Entrada de opção */
