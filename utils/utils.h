@@ -8,6 +8,9 @@
 #define QUOTE(_VAR)                         #_VAR
 #define TO_STRING(VAR)                      QUOTE(VAR)
 
+/* Checa se um valor esta num range */
+#define variavelEntre(VAR, A, B) (A >= VAR && B <= VAR)
+
 /* Secure free memory */
 #define secureFree(VAR)                     do{ free(VAR); VAR = NULL; } while(false)
 
@@ -16,18 +19,6 @@
 
 /* Secure  String Copy */
 #define secureStringCopy(DEST, SRC)         do{ strncpy(DEST, SRC, secureStringSize(SRC)); DEST[secureStringSize(SRC) - 1] = 0; }while(false)
-
-/* Correct way of call malloc */
-#define mallocIt(VAR)                       malloc(sizeof(*VAR))
-
-/* Correct way of call malloc for arrays */
-#define mallocItArray(VAR, SIZE)            malloc(sizeof(*VAR) * (SIZE))
-
-/* Correct way of call malloc for strings */
-#define mallocItString(VAR, VAR_LENGTH)     malloc(secureStringSize(VAR_LENGTH))
-
-/* Correct way of realloc an array */
-#define reallocItArray(VAR, NEW_SIZE)       realloc(VAR, sizeof(*VAR) * (NEW_SIZE))
 
 /* Print debug messages */
 #define printMsg(TYPE, FORMAT, ...)         fprintf(stderr, "[" TYPE "] [%s:%d] " FORMAT "\n", __FILE__, __LINE__, ##__VA_ARGS__)
