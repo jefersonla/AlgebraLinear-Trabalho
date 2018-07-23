@@ -42,7 +42,8 @@ void inserirMatriz(Lista *listaMatrizes){
 
     /* Recebe o numero de linhas */
     do {
-        printf("\nInsira o número de linhas da matriz => ");
+        quebraLinha();
+        printf("Insira o número de linhas da matriz => ");
         scanf("%d", &nLinhas);
 
         if(nLinhas == 0){
@@ -109,7 +110,27 @@ void listarMatrizes(Lista *listaMatrizes){
 
 /* Deletar matriz presentes na memória */
 void deletarMatriz(Lista *listaMatrizes){
-    printf("TODO!\n");
+    unsigned int indiceRemover;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+        return;
+    }
+
+    /* Pega a entrada do usuario */
+    do {
+        quebraLinha();
+        printf("ID do item a remover => ");
+        scanf("%d", &indiceRemover);
+
+        if(indiceRemover == 0){
+            printError("AS MATRIZES SAO INDEXADAS DE 1 A N!");
+        }
+    } while(indiceRemover == 0);
+    quebraLinha();
+
+    removeNoLista(listaMatrizes, (int)indiceRemover);
 }
 
 /* Executar operações elementares sobre a matriz */
