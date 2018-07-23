@@ -257,6 +257,9 @@ bool removeNoLista(Lista *lista, int idItem){
     /* Cria um ponteiro para remover o nó da lista */
     ptrNoLista *_ptr_no_lista = &_no_lista;
 
+    /* Decrementa o número de nós na lista */
+    lista->nItems--;
+
     return deleteNoLista(_ptr_no_lista);
 }
 
