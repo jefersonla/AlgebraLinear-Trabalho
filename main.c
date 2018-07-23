@@ -1,4 +1,5 @@
 /**           ******* Algebra Linear  *******            **/
+
 /** Desenvolvido por Alana Bispo                         **/
 /**              e   Jeferson Lima                       **/
 /** Versão      0.1                                      **/
