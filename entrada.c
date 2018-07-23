@@ -455,6 +455,21 @@ void loopModoCLI(void){
             operacoesMatriz(listaMatrizes);
             break;
 
+        // TODO
+        case METODO_GAUS_MATRIZ_MENU:
+            metodoGausJordanMatriz();
+            break;
+
+        // TODO
+        case ENCONTRAR_KERNEL_MATRIZ_MENU:
+            encontrarKernelMatriz();
+            break;
+
+        // TODO
+        case ENCONTRAR_BASE_MATRIZ:
+            encontrarBaseMatriz();
+            break;
+
         case SAIR_MENU:
             break;
 
