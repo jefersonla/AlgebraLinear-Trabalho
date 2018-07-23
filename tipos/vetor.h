@@ -1,6 +1,8 @@
 #ifndef VETOR_H
 #define VETOR_H
 
+#include <stdbool.h>
+
 /* ------------------------------------------------------------- */
 /*                       Constantes  Vetor                       */
 /* ------------------------------------------------------------- */
@@ -25,13 +27,16 @@ typedef struct strVetor{
 	double *coordenadas;
 } Vetor, *ptrVetor;
 
-/* ------------------ Token Structure Methods ------------------ */
+/* ------------------ Vetor Structure Methods ------------------ */
 
 /* Cria um novo vetor */
-Matriz* newVetor(int dimensao);
+Vetor* newVetor(int dimensao, double valores[]);
 
-/* Desaloca uma matriz */
+/* Desaloca um vetor */
 bool deleteVetor(ptrVetor *vetor);
+
+/* Clona um vetor */
+Vetor* cloneVetor(Vetor *vetor);
 
 /* ------------------------------------------------------------- */
 
