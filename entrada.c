@@ -23,6 +23,21 @@ void mostraMenu(void){
 
 /**
  *
+ * Menu de opções elementares, sobre as linhas de uma matriz.
+ * Essas opções são executadas conforme entrada do usuario.
+ *
+ * @brief menuOpcoesElementares Menu opções elementares
+ */
+void menuOpcoesElementares(void){
+    printf("::: Opções Elementares :::\n\n"
+           "1 > Troca entre linhas (L1 <-> L2)\n"
+           "2 > Multiplicar linha por escalar (L1 <- E * L1)\n"
+           "3 > Soma entre uma linha, com outra multiplicada por escalar (L1 <- L1 + E * L2)\n"
+           "0 > Voltar\n");
+}
+
+/**
+ *
  * Insere uma matriz definida pelo usuario a lista de matrizes.
  * Essa matriz poderá ser utilizada para fins futuros, como operações
  * entre matrizes, ou entre linhas de uma matriz.
@@ -44,7 +59,7 @@ void inserirMatriz(Lista *listaMatrizes){
     do {
         quebraLinha();
         printf("Insira o número de linhas da matriz => ");
-        scanf("%d", &nLinhas);
+        scanf("%u", &nLinhas);
 
         if(nLinhas == 0){
             printError("NUMERO DE LINHAS NAO PODE SER ZERO!");
@@ -54,7 +69,7 @@ void inserirMatriz(Lista *listaMatrizes){
     /* Recebe o número de colunas */
     do {
         printf("Insira o número de colunas da matriz => ");
-        scanf("%d", &nColunas);
+        scanf("%u", &nColunas);
 
         if(nColunas == 0){
             printError("NUMERO DE COLUNAS NAO PODE SER ZERO!");
@@ -122,7 +137,7 @@ void deletarMatriz(Lista *listaMatrizes){
     do {
         quebraLinha();
         printf("ID do item a remover => ");
-        scanf("%d", &indiceRemover);
+        scanf("%u", &indiceRemover);
 
         if(indiceRemover == 0){
             printError("AS MATRIZES SAO INDEXADAS DE 1 A N!");
@@ -133,9 +148,64 @@ void deletarMatriz(Lista *listaMatrizes){
     removeNoLista(listaMatrizes, (int)indiceRemover);
 }
 
+/* Executa a operação de troca entre linhas */
+void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
+
+}
+
+/* Executa a operação de multiplicação de linha por escalar */
+void operacaoMatrizMultiplicaLinha(Lista *listaMatrizes){
+
+}
+
+/* Executa a operação de soma entre linhas */
+void operacaoMatrizSomaLinha(Lista *listaMatrizes){
+
+}
+
 /* Executar operações elementares sobre a matriz */
 void operacoesMatriz(Lista *listaMatrizes){
-    printf("TODO!\n");
+    unsigned int operacao;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+        return;
+    }
+
+    do{
+        /* Mostra menu de opções elementares */
+        menuOpcoesElementares();
+
+        /* Entrada de opção */
+        quebraLinha();
+        printf("> ");
+        scanf("%u", &operacao);
+
+        /* Executa a opção escolhida no menu */
+        switch(operacao){
+
+        case TROCA_LINHA_MENU:
+            operacaoMatrizTrocaLinha(listaMatrizes);
+            break;
+
+        case MULTIPLICA_LINHA_MENU:
+            operacaoMatrizMultiplicaLinha(listaMatrizes);
+            break;
+
+        case SOMA_LINHA_MENU:
+            operacaoMatrizSomaLinha(listaMatrizes);
+            break;
+
+        case VOLTAR_MENU:
+            break;
+
+        default:
+            printError("OPCAO INVALIDA ESCOLHIDA! FAVOR ESCOLHER UMA OPCAO VALIDA!");
+        }
+
+    } while(operacao != SAIR_MENU);
+    quebraLinha();
 }
 
 /**
