@@ -211,7 +211,7 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
 
         /* Percore a lista até o último item */
         while(_ultimo_item_lista->prox != NULL)
-            _ultimo_item_lista->prox = _ultimo_item_lista->prox;
+            _ultimo_item_lista = _ultimo_item_lista->prox;
 
         /* Adiciona o item a lista como sendo o próximo item do último item */
         _ultimo_item_lista->prox = _new_no_lista;
