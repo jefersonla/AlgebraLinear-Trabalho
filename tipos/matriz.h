@@ -19,6 +19,7 @@
 
 /* Tamanho do espaçador */
 #define TAM_ESPACADOR 3
+#define TAM_PONTO_FLUTUANTE 3
 
 /* ------------------------------------------------------------- */
 /*                     Prototype definitions                     */

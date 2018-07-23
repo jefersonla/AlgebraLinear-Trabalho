@@ -190,10 +190,8 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
         idItem = lista->ultimoIndice++;
     }
 
-    NoLista *_new_no_lista;
-
     /* Tenta criar um novo nó da lista */
-    _new_no_lista = newNoLista(idItem, matriz, copiaItem);
+    NoLista *_new_no_lista = newNoLista(idItem, matriz, copiaItem);
 
     /* Para de adicionar caso não tenha sido possível alocar o item */
     if(_new_no_lista == NULL){
@@ -212,11 +210,15 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
         NoLista *_ultimo_item_lista = lista->filho;
 
         /* Percore a lista até o último item */
-        while(_ultimo_item_lista->prox != NULL);
+        while(_ultimo_item_lista->prox != NULL)
+            _ultimo_item_lista->prox = _ultimo_item_lista->prox;
 
         /* Adiciona o item a lista como sendo o próximo item do último item */
         _ultimo_item_lista->prox = _new_no_lista;
     }
+
+    /* Incrementa o contador de items */
+    lista->nItems++;
 
     return true;
 }
@@ -312,10 +314,8 @@ NoLista* newNoLista(int idItem, Matriz *matriz, bool copiaItem){
         return false;
     }
 
-    NoLista *_new_no_lista;
-
     /* Tenta alocar um novo nó de lista */
-    _new_no_lista = malloc(sizeof(NoLista));
+    NoLista *_new_no_lista = malloc(sizeof(NoLista));
 
     /* Verifica se foi possível alocar o nó da lista */
     if(_new_no_lista == NULL){

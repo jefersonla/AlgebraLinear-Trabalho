@@ -78,7 +78,11 @@ void inserirMatriz(Lista *listaMatrizes){
     quebraLinha();
 
     /* Adiciona a matriz construida a lista */
-    adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, nova_matriz, false);
+    adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, nova_matriz, true);
+
+    /* Deleta matriz temporária */
+    ptrMatriz *ptr_matriz = &nova_matriz;
+    deleteMatriz(ptr_matriz);
 }
 
 /**
@@ -165,6 +169,9 @@ void loopModoCLI(void){
         }
 
     } while(opcao != SAIR_MENU);
+
+    /* Desaloca a lista de matrizes */
+    deleteLista(&listaMatrizes);
 
     printf("::: Obrigado por utilizar a aplicação :::\n"
            "Desenvolvido por Alana Bispo e Jeferson Lima\n");

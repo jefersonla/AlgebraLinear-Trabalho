@@ -104,7 +104,7 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
                     _new_linhas[i][j] = (i == j)? 1 : 0;
 
             /* Maior valor */
-            _new_matriz->maiorValor = 1;
+            _new_matriz->maiorValor = 1.0;
 
         break;
 
@@ -118,7 +118,8 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
                     _new_linhas[i][j] = valores[i][j];
 
                     /* Maior valor */
-                    _new_matriz->maiorValor = fabs(_new_matriz->maiorValor);
+                    if(_new_matriz->maiorValor < _new_linhas[i][j])
+                        _new_matriz->maiorValor = fabs(_new_linhas[i][j]);
                 }
 
         break;
@@ -200,6 +201,9 @@ Matriz* cloneMatriz(Matriz* matriz){
         for(j = 0; j < matriz->nColunas; j++)
             _cloned_matriz->linhas[i][j] = matriz->linhas[i][j];
 
+    /* Copia o valor da variavel de maior valor para o clone */
+    _cloned_matriz->maiorValor = matriz->maiorValor;
+
     return _cloned_matriz;
 }
 
@@ -222,6 +226,9 @@ void imprimeMatriz(Matriz* matriz){
     /* Obrigado SF - https://stackoverflow.com/questions/8257714/how-to-convert-an-int-to-string-in-c/23840699 */
     int numDigitos = snprintf(NULL, 0, "%.2lf", matriz->maiorValor) + TAM_ESPACADOR + 1;
 
+    printInfo("TAMANHO COLUNA");
+    printf("=> %d, %lf\n", numDigitos, matriz->maiorValor);
+
     /* Buffer para cada string com tamanho formatado */
     char *buf = malloc(sizeof (char) * (size_t)numDigitos);
 
@@ -233,6 +240,9 @@ void imprimeMatriz(Matriz* matriz){
         }
 
         /* Quebra a linha após imprimir cada coluna de cada linha */
-        printf("\n");
+        quebraLinha();
     }
+
+    /* Limpa o buffer alocado anteriormente */
+    free(buf);
 }
