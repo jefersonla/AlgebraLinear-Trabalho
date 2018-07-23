@@ -1,7 +1,7 @@
 # Compilador a ser usado
 CC=gcc
 # Flags para o compilador
-CFLAGS=-Wall -Wextra -Wno-unused-function -Wno-sign-compare
+CFLAGS= -Wextra -Wno-unused-function -Wno-sign-compare -Wno-empty-translation-unit
 # Flags para o Linker
 LDFLAGS=
 # Nome do executavel

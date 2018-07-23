@@ -1,0 +1,15 @@
+entrada.c
+entrada.h
+main.c
+tipos/lista.c
+tipos/lista.h
+tipos/matriz.c
+tipos/matriz.h
+tipos/vetor.c
+tipos/vetor.h
+tipos/operacoes_matriz.c
+tipos/operacoes_matriz.h
+utils/ajuda.c
+utils/ajuda.h
+utils/utils.h
+Makefile
