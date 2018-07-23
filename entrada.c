@@ -148,9 +148,78 @@ void deletarMatriz(Lista *listaMatrizes){
     removeNoLista(listaMatrizes, (int)indiceRemover);
 }
 
-/* Executa a operação de troca entre linhas */
+/**
+ *
+ * Realiza a operação de troca entre duas linhas, com base na linha informada
+ * pelo usuario e duas linhas de uma matriz já cadastrada. No caso da falta da
+ * matriz ou das linhas informadas a aplicação volta ao menu anterior.
+ *
+ * @brief operacaoMatrizTrocaLinha Realiza a operação elementar de troca entre linhas
+ * @param listaMatrizes Lista com todas as matrizes do sistema
+ */
 void operacaoMatrizTrocaLinha(Lista *listaMatrizes){
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+    unsigned int l1, l2;
 
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+        return;
+    }
+
+    /* Formato da operação */
+    printf("L1 <-> L2\n");
+
+    /* Recebe o numero de linhas */
+    quebraLinha();
+    printf("Insira o indice da matriz => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Exibe a matriz */
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Pega a primeira linha da tabela */
+    do {
+        printf("ID da primeira linha => ");
+        scanf("%u", &l1);
+
+        if(l1 == 0){
+            printError("AS MATRIZES SAO INDEXADAS DE 1 A N!");
+        } else if ((int)l1 > noMatriz->conteudo->nLinhas){
+            printError("LINHA NAO PRESENTE NA MATRIZ!");
+        }
+    } while(l1 == 0 || (int)l1 > noMatriz->conteudo->nLinhas);
+
+    /* Pega a segunda linha da tabela */
+    do {
+        printf("ID da primeira linha => ");
+        scanf("%u", &l2);
+
+        if(l2 == 0){
+            printError("AS MATRIZES SAO INDEXADAS DE 1 A N!");
+        } else if ((int)l2 > noMatriz->conteudo->nLinhas){
+            printError("LINHA NAO PRESENTE NA MATRIZ!");
+        }
+    } while(l1 == 0 || (int)l2 > noMatriz->conteudo->nLinhas);
+
+    /* Executa a operação */
+    operacaoTrocaLinha(noMatriz->conteudo, l1, l2);
+
+    /* Imprime a matriz resultante */
+    quebraLinha();
+    imprimeMatriz(noMatriz->conteudo);
 }
 
 /* Executa a operação de multiplicação de linha por escalar */
