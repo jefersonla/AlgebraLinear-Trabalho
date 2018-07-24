@@ -1151,7 +1151,7 @@ void loopModoCLI(void){
             break;
 
         case OPERACOES_COMPLEXAS_MENU:
-            printInfo("TODO - NAO IMPLEMENTADO AINDA!");
+            operacaoMatrizComplexas(listaMatrizes);
             break;
 
         case SALVAR_RESULTADOS_MENU:
