@@ -11,14 +11,34 @@
 #define INSERIR_MATRIZ_MENU 1
 #define LISTAR_MATRIZ_MENU 2
 #define DELETAR_MATRIZ_MENU 3
-#define OPERACOES_MATRIZ_MENU 4
+#define CLONAR_MATRIZ_MENU 4
+#define OPERACOES_MATRIZ_MENU 5
+#define OPERACOES_ENTRE_MATRIZES_MENU 6
+#define METODO_GAUS_MATRIZ_MENU 7
+#define ENCONTRAR_KERNEL_MATRIZ_MENU 8
+#define ENCONTRAR_BASE_MATRIZ 9
 #define SAIR_MENU 0
 
 /* Opções menu de operações elementares */
 #define TROCA_LINHA_MENU 1
 #define MULTIPLICA_LINHA_MENU 2
 #define SOMA_LINHA_MENU 3
+
+/* Opções menu de operações aritméticas */
+#define SOMA_MATRIZ_MENU 1
+#define SUBTRACAO_MATRIZ_MENU 2
+#define PRODUTO_MATRIZ_MENU 3
+#define MULTIPLICACAO_ESCALAR_MATRIZ_MENU 4
+#define TRANSPOSTA_MATRIZ_MENU 5
+#define INVERSA_MATRIZ_MENU 6
+#define DIVISAO_MATRIZ_MENU 7
+
+/* Operação comum */
 #define VOLTAR_MENU 0
+
+/* Destino para salvar operações entre matrizes */
+#define SALVAR_NA_MATRIZ_ENTRADA 0
+#define SALVAR_NOVA_MATRIZ 1
 
 /* ------------------------------------------------------------- */
 /*                      Estruturas  Globais                      */
@@ -46,8 +66,23 @@ void listarMatrizes(Lista *listaMatrizes);
 /* Deletar matriz presentes na memória */
 void deletarMatriz(Lista *listaMatrizes);
 
+/* Clonar matriz presentes na memória */
+void clonarMatriz(Lista *listaMatrizes);
+
 /* Executar operações elementares sobre a matriz */
 void operacoesMatriz(Lista *listaMatrizes);
+
+/* Executa operações (soma, multiplicação, ...) entre matrizes */
+void operacoesEntreMatrizes(Lista *listaMatrizes);
+
+/* Executa metodo de Gaus Jordan para encontrar as raizes do sistema de equação */
+void metodoGausJordanMatriz(Lista *listaMatrizes);
+
+/* Encontra o Kernel de uma Matriz */
+void encontrarKernelMatriz(Lista *listaMatrizes);
+
+/* Encontra uma base para a matriz */
+void encontrarBaseMatriz(Lista *listaMatrizes);
 
 /* Executa a operação de troca entre linhas */
 void operacaoMatrizTrocaLinha(NoLista *noMatriz);

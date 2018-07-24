@@ -18,7 +18,12 @@ void mostraMenu(void){
            "1 > Inserir Matriz\n"
            "2 > Listar Matrizes\n"
            "3 > Deletar Matriz\n"
-           "4 > Realizar operacoes numa matriz\n"
+           "4 > Clonar Matriz\n"
+           "5 > Realizar operacoes elementares numa matriz\n"
+           "6 > Realizar operacoes entre matrizes\n"
+           "7 > Realizar metodo de Gauss Jordan\n"
+           "8 > Encontrar Kernel Matriz\n"
+           "9 > Encontrar Base Matriz\n"
            "0 > Sair\n");
 }
 
@@ -30,10 +35,29 @@ void mostraMenu(void){
  * @brief menuOpcoesElementares Menu opções elementares
  */
 void menuOpcoesElementares(void){
-    printf("::: Opções Elementares :::\n\n"
+    printf("::: Operacoes Elementares :::\n\n"
            "1 > Troca entre linhas (L1 <-> L2)\n"
            "2 > Multiplicar linha por escalar (L1 <- E * L1)\n"
            "3 > Soma entre uma linha, com outra multiplicada por escalar (L1 <- L1 + E * L2)\n"
+           "0 > Voltar\n");
+}
+
+/**
+ *
+ * Menu de operações aritméticas entre matrizes.
+ * Essas opções são executadas entre matrizes definidas pelo usuario.
+ *
+ * @brief menuOpcoesAritmeticas Menu de operações aritméticas
+ */
+void menuOpcoesAritmeticas(void){
+    printf("::: Operacoes Aritmeticas :::\n\n"
+           "1 > Soma de matrizes (M <- M1 + M2)\n"
+           "2 > Subtracao de matrizes (M <- M1 - M2)\n"
+           "3 > Produto de matrizes (M <- M1 * M2)\n"
+           "4 > Multiplicação por escalar (M <- M1 * E)\n"
+           "5 > Transpota da matriz (M <- M^t)\n"
+           "6 > Inversa da matriz (M <- M^-1)\n"
+           "7 > Divisão de matrizes (M <- M1 / M2)\n"
            "0 > Voltar\n");
 }
 
@@ -147,6 +171,171 @@ void deletarMatriz(Lista *listaMatrizes){
     quebraLinha();
 
     removeNoLista(listaMatrizes, (int)indiceRemover);
+}
+
+/**
+ *
+ * Clona as matrizes presentes na memória, qualquer matriz pode ser clonada
+ * e seu id sempre será o próximo ID disponível. O objetivo aqui é permitir
+ * que um usuario possa utilizar uma instância antiga da matriz para operações
+ * futuras.
+ *
+ * @brief clonarMatriz Clonar matriz presentes na memória
+ * @param listaMatrizes Lista com todas as matrizes do sistema
+ */
+void clonarMatriz(Lista *listaMatrizes){
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+        return;
+    }
+
+    /* Recebe o indice da matriz */
+    quebraLinha();
+    printf("Insira o indice da matriz a ser clonada => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Clona a matriz */
+    adicionaNoLista(listaMatrizes,INDICE_ALEATORIO, noMatriz->conteudo, true);
+}
+
+/**
+ *
+ * Realiza operações aritméticas entre matrizes. As operações permitidas
+ * são:
+ * - Soma
+ * - Subtração
+ * - Produto
+ * - Multiplicação por escalar
+ * - Transposta
+ * - Inversa
+ * - Divisão
+ *
+ * @brief operacoesEntreMatrizes Executa operações (soma, multiplicação, ...) entre matrizes
+ * @param listaMatrizes Lista de matrizes
+ */
+void operacoesEntreMatrizes(Lista *listaMatrizes){
+    NoLista *noMatriz;
+    unsigned int operacao;
+    unsigned int idMatriz;
+    unsigned int salvaResultadoOperacao;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+        return;
+    }
+
+    /* Recebe o indice da matriz */
+    quebraLinha();
+    printf("Insira o indice da matriz => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR AS OPERACOES!");
+        return;
+    }
+
+    /* Define aonde salvar o resultado das operações */
+    do {
+        printf("Aonde deseja salvar os resultados?\n"
+               "1 > Salvar na matriz de entrada\n"
+               "2 > Salvar em uma nova matriz\n");
+        quebraLinha();
+        printf("> ");
+        scanf("%u", &salvaResultadoOperacao);
+
+        if(salvaResultadoOperacao != SALVAR_NOVA_MATRIZ &&
+           salvaResultadoOperacao != SALVAR_NA_MATRIZ_ENTRADA){
+            printError("OPCAO INVALIDA DE SALVAMENTO!");
+        }
+    } while(salvaResultadoOperacao != SALVAR_NOVA_MATRIZ &&
+            salvaResultadoOperacao != SALVAR_NA_MATRIZ_ENTRADA);
+    quebraLinha();
+
+    do{
+        /* Mostra menu de opções aritmeticas */
+        quebraLinha();
+        menuOpcoesAritmeticas();
+
+        /* Entrada de opção */
+        quebraLinha();
+        printf("> ");
+        scanf("%u", &operacao);
+
+        /* Executa a opção escolhida no menu */
+        switch(operacao){
+
+        case SOMA_MATRIZ_MENU:
+            printInfo("TODO");
+            break;
+
+        case SUBTRACAO_MATRIZ_MENU:
+            printInfo("TODO");
+            break;
+
+        case PRODUTO_MATRIZ_MENU:
+            printInfo("TODO");
+            break;
+
+        case MULTIPLICACAO_ESCALAR_MATRIZ_MENU:
+            printInfo("TODO");
+            break;
+
+        case TRANSPOSTA_MATRIZ_MENU:
+            printInfo("TODO");
+            break;
+
+        case INVERSA_MATRIZ_MENU:
+            printInfo("TODO");
+            break;
+
+        case DIVISAO_MATRIZ_MENU:
+            printInfo("TODO");
+            break;
+
+        case VOLTAR_MENU:
+            break;
+
+        default:
+            printError("OPCAO INVALIDA ESCOLHIDA! FAVOR ESCOLHER UMA OPCAO VALIDA!");
+        }
+
+    } while(operacao != SAIR_MENU);
+    quebraLinha();
+}
+
+/* Executa metodo de Gaus Jordan para encontrar as raizes do sistema de equação */
+void metodoGausJordanMatriz(Lista *listaMatrizes){
+    printInfo("TODO!");
+}
+
+/* Encontra o Kernel de uma Matriz */
+void encontrarKernelMatriz(Lista *listaMatrizes){
+    printInfo("TODO!");
+}
+
+/* Encontra uma base para a matriz */
+void encontrarBaseMatriz(Lista *listaMatrizes){
+    printInfo("TODO!");
 }
 
 /**
@@ -451,23 +640,28 @@ void loopModoCLI(void){
             deletarMatriz(listaMatrizes);
             break;
 
+        case CLONAR_MATRIZ_MENU:
+            clonarMatriz(listaMatrizes);
+            break;
+
         case OPERACOES_MATRIZ_MENU:
             operacoesMatriz(listaMatrizes);
             break;
 
-        // TODO
+        case OPERACOES_ENTRE_MATRIZES_MENU:
+            operacoesEntreMatrizes(listaMatrizes);
+            break;
+
         case METODO_GAUS_MATRIZ_MENU:
-            metodoGausJordanMatriz();
+            metodoGausJordanMatriz(listaMatrizes);
             break;
 
-        // TODO
         case ENCONTRAR_KERNEL_MATRIZ_MENU:
-            encontrarKernelMatriz();
+            encontrarKernelMatriz(listaMatrizes);
             break;
 
-        // TODO
         case ENCONTRAR_BASE_MATRIZ:
-            encontrarBaseMatriz();
+            encontrarBaseMatriz(listaMatrizes);
             break;
 
         case SAIR_MENU:
