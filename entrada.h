@@ -61,6 +61,9 @@ void mostraMenu(void);
 /* Menu opções elementares */
 void menuOpcoesElementares(void);
 
+/* Menu de operações, complexas em algebra que envolvem escalonamento. */
+void menuOperacoesComplexas(void);
+
 /* Inseri matriz a lista de matrizes */
 void inserirMatriz(Lista *listaMatrizes);
 
@@ -111,6 +114,9 @@ void multiplicacaoEscalarMatrizOperacao(Lista *listaMatrizes, unsigned int salva
 
 /* Executa operação para encontrar a transposta de uma matriz */
 void transpostaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao);
+
+/* Realiza operações complexas, que envolvem escalonamento */
+void operacaoMatrizComplexas(Lista *listaMatrizes);
 
 /* ------------------------------------------------------------- */
 

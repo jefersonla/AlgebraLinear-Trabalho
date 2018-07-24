@@ -55,8 +55,18 @@ void menuOpcoesAritmeticas(void){
            "3 > Produto de matrizes (M <- M1 * M2)\n"
            "4 > Multiplicação por escalar (M <- M1 * E)\n"
            "5 > Transpota da matriz (M <- M^t)\n"
-           "6 > Inversa da matriz (M <- M^-1)\n"
-           "7 > Divisão de matrizes (M <- M1 / M2)\n"
+           "0 > Voltar\n");
+}
+
+/* Menu de operações, complexas em algebra que envolvem escalonamento. */
+void menuOperacoesComplexas(void){
+    printf("::: Operacoes Complexas :::\n\n"
+           "1 > Metodo de Gaus\n"
+           "2 > Metodo de Gaus-Jordan\n"
+           "3 > Encontrar Kernel\n"
+           "4 > Encontrar Base\n"
+           "4 > Inversa Matriz\n"
+           "5 > Divisao Matriz\n"
            "0 > Voltar\n");
 }
 
@@ -733,9 +743,71 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
             transpostaMatrizOperacao(listaMatrizes, salvaResultadoOperacao);
             break;
 
-        case METODO_GAUS_MATRIZ_MENU:
-            metodoGausJordanMatriz(listaMatrizes);
+        case VOLTAR_MENU:
             break;
+
+        default:
+            printError("OPCAO INVALIDA ESCOLHIDA! FAVOR ESCOLHER UMA OPCAO VALIDA!");
+        }
+
+    } while(operacao != SAIR_MENU);
+    quebraLinha();
+}
+
+/* Executa metodo de Gaus Jordan para encontrar as raizes do sistema de equação */
+void metodoGausJordanMatriz(Lista *listaMatrizes){
+    printInfo("TODO!");
+}
+
+/* Encontra o Kernel de uma Matriz */
+void encontrarKernelMatriz(Lista *listaMatrizes){
+    printInfo("TODO!");
+}
+
+/* Encontra uma base para a matriz */
+void encontrarBaseMatriz(Lista *listaMatrizes){
+    printInfo("TODO!");
+}
+
+/**
+ *
+ * Menu de operações que envolvem escalonamento. Por padrão essas funções aqui
+ * estão sinalizadas com o nome de operações complexas, porém o que temos na
+ * verdade é um conjunto de metodos algebricos para solução de problemas comuns
+ * como é o caso de encontrar o kernel de uma matriz, encontrar a solução de
+ * equações lineares e afins.
+ *
+ * @brief operacaoMatrizComplexas Realiza operações complexas, que envolvem escalonamento
+ * @param listaMatrizes Lista de matrizes disponiveis na memoria
+ */
+void operacaoMatrizComplexas(Lista *listaMatrizes){
+    unsigned int operacao;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
+        return;
+    }
+
+    do{
+        /* Mostra menu de opções elementares */
+        quebraLinha();
+        menuOperacoesComplexas();
+
+        /* Entrada de opção */
+        quebraLinha();
+        printf("> ");
+        scanf("%u", &operacao);
+
+        /* Executa a opção escolhida no menu */
+        switch(operacao){
+
+        case METODO_GAUS_MATRIZ_MENU:
+            metodoGausMatriz(listaMatrizes);
+            break;
+
+        case METODO_GAUSS_JORDAN_MATRIZ_MENU:
+            metodoGausJordanMatriz(listaMatrizes);
 
         case ENCONTRAR_KERNEL_MATRIZ_MENU:
             encontrarKernelMatriz(listaMatrizes);
@@ -762,21 +834,6 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
 
     } while(operacao != SAIR_MENU);
     quebraLinha();
-}
-
-/* Executa metodo de Gaus Jordan para encontrar as raizes do sistema de equação */
-void metodoGausJordanMatriz(Lista *listaMatrizes){
-    printInfo("TODO!");
-}
-
-/* Encontra o Kernel de uma Matriz */
-void encontrarKernelMatriz(Lista *listaMatrizes){
-    printInfo("TODO!");
-}
-
-/* Encontra uma base para a matriz */
-void encontrarBaseMatriz(Lista *listaMatrizes){
-    printInfo("TODO!");
 }
 
 /**
