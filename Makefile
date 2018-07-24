@@ -1,7 +1,7 @@
 # Compilador a ser usado
 CC=gcc
 # Flags para o compilador
-CFLAGS= -Wextra -Wno-unused-function -Wno-sign-compare -Wno-empty-translation-unit
+CFLAGS= -Wextra -Wno-unused-function -Wno-sign-compare -lm
 # Flags para o Linker
 LDFLAGS=
 # Nome do executavel
@@ -12,9 +12,9 @@ MAIN_SRC_FILE=main.c
 # Codigos fontes
 SOURCES=$(MAIN_SRC_FILE)
 # Libs sources
-LIBS_SRC=utils/ajuda.c utils/utils.c tipos/matriz.c tipos/vetor.c tipos/lista.c tipos/operacoes_matriz.c tipos/historia.c tipos/fracao.c entrada.c salvar.c operacoes_complexas.c
+LIBS_SRC=utils/ajuda.c utils/utils.c tipos/matriz.c tipos/vetor.c tipos/lista.c operacoes_matriz.c tipos/historia.c tipos/fracao.c entrada.c salvar.c operacoes_complexas.c
 # Libs sources headers
-LIBS_HEADERS=utils/ajuda.h utils/utils.h tipos/matriz.h tipos/vetor.h tipos/lista.h tipos/operacoes_matriz.h tipos/historia.h tipos/fracao.h entrada.h salvar.h operacoes_complexas.h
+LIBS_HEADERS=utils/ajuda.h utils/utils.h tipos/matriz.h tipos/vetor.h tipos/lista.h operacoes_matriz.h tipos/historia.h tipos/fracao.h entrada.h salvar.h operacoes_complexas.h
 # Comment this to ignore TODO WARNINGS!
 TODO_WARN=-Wno-unused-parameter
 

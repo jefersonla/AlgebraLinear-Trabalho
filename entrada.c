@@ -862,7 +862,7 @@ void metodoGaussMatriz(Lista *listaMatrizes){
 }
 
 /* Executa metodo de Gauss-Jordan para encontrar as raizes do sistema de equação */
-void metodoGausJordanMatriz(Lista *listaMatrizes){
+void metodoGaussJordanMatriz(Lista *listaMatrizes){
     NoLista *noMatriz;
     unsigned int idMatriz;
 
