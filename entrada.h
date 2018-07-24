@@ -93,6 +93,21 @@ void operacaoMatrizMultiplicaLinha(NoLista *noMatriz);
 /* Executa a operação de soma entre linhas */
 void operacaoMatrizSomaLinha(NoLista *noMatriz);
 
+/* Executa a operação de soma entre matrizes */
+void somaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+
+/* Executa a operacao de subtracao entre matrizes */
+void subtracaoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+
+/* Executa a operação de produto entre matrizes */
+void produtoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+
+/* Executa a operação de multiplicação de matriz por escalar */
+void multiplicacaoEscalarMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+
+/* Executa operação para encontrar a transposta de uma matriz */
+void transpostaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+
 /* ------------------------------------------------------------- */
 
 #endif

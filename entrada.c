@@ -212,6 +212,31 @@ void clonarMatriz(Lista *listaMatrizes){
     adicionaNoLista(listaMatrizes,INDICE_ALEATORIO, noMatriz->conteudo, true);
 }
 
+/* Executa a operação de soma entre matrizes */
+void somaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
+    printInfo("TODO!");
+}
+
+/* Executa a operacao de subtracao entre matrizes */
+void subtracaoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
+    printInfo("TODO!");
+}
+
+/* Executa a operação de produto entre matrizes */
+void produtoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
+    printInfo("TODO!");
+}
+
+/* Executa a operação de multiplicação de matriz por escalar */
+void multiplicacaoEscalarMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
+    printInfo("TODO!");
+}
+
+/* Executa operação para encontrar a transposta de uma matriz */
+void transpostaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
+    printInfo("TODO!");
+}
+
 /**
  *
  * Realiza operações aritméticas entre matrizes. As operações permitidas
@@ -285,23 +310,23 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
         switch(operacao){
 
         case SOMA_MATRIZ_MENU:
-            printInfo("TODO");
+            somaMatrizOperacao(noMatriz, salvaResultadoOperacao);
             break;
 
         case SUBTRACAO_MATRIZ_MENU:
-            printInfo("TODO");
+            subtracaoMatrizOperacao(noMatriz, salvaResultadoOperacao);
             break;
 
         case PRODUTO_MATRIZ_MENU:
-            printInfo("TODO");
+            produtoMatrizOperacao(noMatriz, salvaResultadoOperacao);
             break;
 
         case MULTIPLICACAO_ESCALAR_MATRIZ_MENU:
-            printInfo("TODO");
+            multiplicacaoEscalarMatrizOperacao(noMatriz, salvaResultadoOperacao);
             break;
 
         case TRANSPOSTA_MATRIZ_MENU:
-            printInfo("TODO");
+            transpostaMatrizOperacao(noMatriz, salvaResultadoOperacao);
             break;
 
         case INVERSA_MATRIZ_MENU:

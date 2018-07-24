@@ -310,17 +310,48 @@ Matriz *multiplicacaoEscalarMatriz(Matriz *matriz, double escalar){
 
 /**
  *
- * Transposta de uma matriz
+ * Transposta de uma matriz. Retorna a transposta de uma matriz
+ * que é basicamente uma matriz cujas as linhas são as colunas
+ * da matriz de entrada.
  *
- * @brief transpostaMatriz
+ * @brief transpostaMatriz Realiza a operação transposta de uma matriz
+ * @param matriz Matriz
+ * @return Retorna uma nova matriz que representa a transposta desta
+ */
+Matriz *transpostaMatriz(Matriz *matriz){
+    /* Verifica se as matrizes são consistentes */
+    if(matriz == NULL){
+        printError("MATRIZ INVALIDA UTILIZADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return NULL;
+    }
+
+    /* Criamos uma nova matriz vazia */
+    Matriz *matriz_resultado = newMatriz(matriz->nColunas, matriz->nLinhas, MATRIZ_VAZIA, NULL);
+
+    /* Checa se não houve erros ao alocar a matriz resultante */
+    if(matriz_resultado == NULL){
+        printError("PROBLEMAS AO CRIAR A NOVA MATRIZ! NAO E POSSIVEL CONTINUAR!");
+        return NULL;
+    }
+
+    /* Escreve o resultado da operação na nova matriz */
+    int i, j;
+    for(i = 0; i < matriz->nColunas; i++)
+        for(j = 0; j < matriz->nLinhas; j++)
+            matriz_resultado->linhas[i][j] = matriz->linhas[j][i];
+    atualizaMaiorValorMatriz(matriz_resultado);
+
+    return matriz_resultado;
+}
+
+/**
+ *
+ * Escalona uma matriz para obter sua inversa
+ *
+ * @brief inversaMatriz Inversa de uma matriz
  * @param matriz
  * @return
  */
-Matriz *transpostaMatriz(Matriz *matriz){
-
-}
-
-/* Inversa de uma matriz */
 Matriz *inversaMatriz(Matriz *matriz);
 
 /* Divisão de matriz */
