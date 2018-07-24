@@ -1,5 +1,5 @@
-#include "./operacoes_matriz.h"
-#include "../utils/utils.h"
+#include "operacoes_matriz.h"
+#include "utils/utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>

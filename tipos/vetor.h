@@ -25,18 +25,36 @@ typedef struct strVetor{
 
 	/* Dados */
 	double *coordenadas;
+
+    /* Id do vetor */
+    char *idVetor;
 } Vetor, *ptrVetor;
 
 /* ------------------ Vetor Structure Methods ------------------ */
 
 /* Cria um novo vetor */
-Vetor* newVetor(unsigned int dimensao, double valores[]);
+Vetor* newVetor(char *idVetor, unsigned int dimensao, double valores[]);
 
 /* Desaloca um vetor */
 bool deleteVetor(ptrVetor *vetor);
 
 /* Clona um vetor */
 Vetor* cloneVetor(Vetor *vetor);
+
+/* Soma dois vetores */
+Vetor* somaVetor(Vetor *vetor1, Vetor *vetor2);
+
+/* Subtrais dois vetores */
+Vetor* subtraiVetor(Vetor *vetor1, Vetor *vetor2);
+
+/* Produto interno entre dois vetores */
+double produtoInterno(Vetor *vetor1, Vetor *vetor2, bool *erro);
+
+/* Norma do vetor */
+double normaVetor(Vetor *vetor, bool *erro);
+
+/* Imprime vetor */
+void imprimeVetor(Vetor *vetor);
 
 /* ------------------------------------------------------------- */
 

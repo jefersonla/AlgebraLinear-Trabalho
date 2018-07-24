@@ -32,10 +32,11 @@
 
 /* Menu de operações complexas */
 #define METODO_GAUS_MATRIZ_MENU 1
-#define ENCONTRAR_KERNEL_MATRIZ_MENU 2
-#define ENCONTRAR_BASE_MATRIZ 3
-#define INVERSA_MATRIZ_MENU 4
-#define DIVISAO_MATRIZ_MENU 5
+#define METODO_GAUSS_JORDAN_MATRIZ_MENU 2
+#define ENCONTRAR_KERNEL_MATRIZ_MENU 3
+#define ENCONTRAR_BASE_MATRIZ 4
+#define INVERSA_MATRIZ_MENU 5
+#define DIVISAO_MATRIZ_MENU 6
 
 /* Operação comum */
 #define VOLTAR_MENU 0
@@ -82,8 +83,11 @@ void operacoesMatriz(Lista *listaMatrizes);
 /* Executa operações (soma, multiplicação, ...) entre matrizes */
 void operacoesEntreMatrizes(Lista *listaMatrizes);
 
-/* Executa metodo de Gaus Jordan para encontrar as raizes do sistema de equação */
-void metodoGausJordanMatriz(Lista *listaMatrizes);
+/* Executa metodo de Gauss para encontrar as raizes do sistema de equação */
+void metodoGaussMatriz(Lista *listaMatrizes);
+
+/* Executa metodo de Gauss-Jordan para encontrar as raizes do sistema de equação */
+void metodoGaussJordanMatriz(Lista *listaMatrizes);
 
 /* Encontra o Kernel de uma Matriz */
 void encontrarKernelMatriz(Lista *listaMatrizes);

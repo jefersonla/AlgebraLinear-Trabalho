@@ -1,7 +1,7 @@
 #ifndef OPERACOES_MATRIZ_H
 #define OPERACOES_MATRIZ_H
 
-#include "matriz.h"
+#include "tipos/matriz.h"
 #include <stdbool.h>
 
 /* ------------------------------------------------------------- */

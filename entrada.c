@@ -1,8 +1,8 @@
+#include "entrada.h"
 #include "tipos/lista.h"
 #include "tipos/matriz.h"
-#include "tipos/operacoes_matriz.h"
 #include "utils/utils.h"
-#include "entrada.h"
+#include "operacoes_matriz.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -61,8 +61,8 @@ void menuOpcoesAritmeticas(void){
 /* Menu de operações, complexas em algebra que envolvem escalonamento. */
 void menuOperacoesComplexas(void){
     printf("::: Operacoes Complexas :::\n\n"
-           "1 > Metodo de Gaus\n"
-           "2 > Metodo de Gaus-Jordan\n"
+           "1 > Metodo de Gauss\n"
+           "2 > Metodo de Gauss-Jordan\n"
            "3 > Encontrar Kernel\n"
            "4 > Encontrar Base\n"
            "4 > Inversa Matriz\n"
@@ -754,7 +754,12 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
     quebraLinha();
 }
 
-/* Executa metodo de Gaus Jordan para encontrar as raizes do sistema de equação */
+/* Executa metodo de Gauss para encontrar as raizes do sistema de equação */
+void metodoGaussMatriz(Lista *listaMatrizes){
+    printInfo("TODO!");
+}
+
+/* Executa metodo de Gauss-Jordan para encontrar as raizes do sistema de equação */
 void metodoGausJordanMatriz(Lista *listaMatrizes){
     printInfo("TODO!");
 }
@@ -803,11 +808,11 @@ void operacaoMatrizComplexas(Lista *listaMatrizes){
         switch(operacao){
 
         case METODO_GAUS_MATRIZ_MENU:
-            metodoGausMatriz(listaMatrizes);
+            metodoGaussMatriz(listaMatrizes);
             break;
 
         case METODO_GAUSS_JORDAN_MATRIZ_MENU:
-            metodoGausJordanMatriz(listaMatrizes);
+            metodoGaussJordanMatriz(listaMatrizes);
 
         case ENCONTRAR_KERNEL_MATRIZ_MENU:
             encontrarKernelMatriz(listaMatrizes);
