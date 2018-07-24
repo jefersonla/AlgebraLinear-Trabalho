@@ -1,5 +1,5 @@
-#ifndef ENTRADA_H
-#define ENTRADA_H
+#ifndef OPERACOES_COMPLEXAS_H
+#define OPERACOES_COMPLEXAS_H
 
 #include "tipos/matriz.h"
 #include "tipos/vetor.h"

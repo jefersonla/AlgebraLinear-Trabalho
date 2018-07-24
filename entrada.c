@@ -1,8 +1,10 @@
 #include "entrada.h"
 #include "tipos/lista.h"
+#include "tipos/vetor.h"
 #include "tipos/matriz.h"
 #include "utils/utils.h"
 #include "operacoes_matriz.h"
+#include "operacoes_complexas.h"
 
 #include <stdio.h>
 #include <math.h>
@@ -63,10 +65,11 @@ void menuOperacoesComplexas(void){
     printf("::: Operacoes Complexas :::\n\n"
            "1 > Metodo de Gauss\n"
            "2 > Metodo de Gauss-Jordan\n"
-           "3 > Encontrar Kernel\n"
-           "4 > Encontrar Base\n"
-           "4 > Inversa Matriz\n"
-           "5 > Divisao Matriz\n"
+           "3 > Determinante Matriz\n"
+           "4 > Encontrar Kernel\n"
+           "5 > Encontrar Base\n"
+           "6 > Inversa Matriz\n"
+           "7 > Divisao Matriz\n"
            "0 > Voltar\n");
 }
 
@@ -754,14 +757,166 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
     quebraLinha();
 }
 
+/* Encontra o determinaten de uma dada matriz */
+void encontrarDeterminante(Lista *listaMatrizes){
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Determinante -- det(M)\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice da matriz => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Realiza a operação */
+    bool erro;
+    double determinante = operacaoDeterminanteMatriz(noMatriz->conteudo, &erro);
+
+    /* verifica se houve erros na execução */
+    if(erro){
+        printError("ERRO AO ENCONTRAR O DETERMINANTE!");
+        return;
+    }
+
+    /* Exibe o valor do determinante */
+    printf("det(M) => %.2lf\n", determinante);
+    quebraLinha();
+}
+
 /* Executa metodo de Gauss para encontrar as raizes do sistema de equação */
 void metodoGaussMatriz(Lista *listaMatrizes){
-    printInfo("TODO!");
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Metodo de Gauss -- meg(M)\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice da matriz => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Imprime a matriz antes da operação */
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Realiza a operação */
+    Vetor *vetor_resultado = operacaoGaussMatriz(noMatriz->conteudo);
+
+    /* Verifica se houve erros na execução da operação */
+    if(vetor_resultado == NULL){
+        printError("ERRO AO REALIZAR METODO DE GAUSS!");
+        return;
+    }
+
+    /* Divisão entre o resultado */
+    printf("Matriz na forma de Gauss\n");
+    quebraLinha();
+
+    /* Imprime a matriz após as operações*/
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Imprime o resultado do vetor */
+    printf("Vetor Resultante\n");
+    imprimeVetor(vetor_resultado);
+    quebraLinha();
 }
 
 /* Executa metodo de Gauss-Jordan para encontrar as raizes do sistema de equação */
 void metodoGausJordanMatriz(Lista *listaMatrizes){
-    printInfo("TODO!");
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Metodo de Gauss -- meg(M)\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice da matriz => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Imprime a matriz antes da operação */
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Realiza a operação */
+    Vetor *vetor_resultado = operacaoGausJordanMatriz(noMatriz->conteudo);
+
+    /* Verifica se houve erros na execução da operação */
+    if(vetor_resultado == NULL){
+        printError("ERRO AO REALIZAR METODO DE GAUSS!");
+        return;
+    }
+
+    /* Divisão entre o resultado */
+    printf("Matriz na forma de Gauss\n");
+    quebraLinha();
+
+    /* Imprime a matriz após as operações*/
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Imprime o resultado do vetor */
+    printf("Vetor Resultante\n");
+    imprimeVetor(vetor_resultado);
+    quebraLinha();
 }
 
 /* Encontra o Kernel de uma Matriz */
@@ -813,6 +968,9 @@ void operacaoMatrizComplexas(Lista *listaMatrizes){
 
         case METODO_GAUSS_JORDAN_MATRIZ_MENU:
             metodoGaussJordanMatriz(listaMatrizes);
+
+        case ENCONTRAR_DETERMINANTE_MATRIZ_MENU:
+            encontrarDeterminante(listaMatrizes);
 
         case ENCONTRAR_KERNEL_MATRIZ_MENU:
             encontrarKernelMatriz(listaMatrizes);

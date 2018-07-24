@@ -33,10 +33,11 @@
 /* Menu de operações complexas */
 #define METODO_GAUS_MATRIZ_MENU 1
 #define METODO_GAUSS_JORDAN_MATRIZ_MENU 2
-#define ENCONTRAR_KERNEL_MATRIZ_MENU 3
-#define ENCONTRAR_BASE_MATRIZ 4
-#define INVERSA_MATRIZ_MENU 5
-#define DIVISAO_MATRIZ_MENU 6
+#define ENCONTRAR_DETERMINANTE_MATRIZ_MENU 3
+#define ENCONTRAR_KERNEL_MATRIZ_MENU 4
+#define ENCONTRAR_BASE_MATRIZ 5
+#define INVERSA_MATRIZ_MENU 6
+#define DIVISAO_MATRIZ_MENU 7
 
 /* Operação comum */
 #define VOLTAR_MENU 0
@@ -94,6 +95,9 @@ void encontrarKernelMatriz(Lista *listaMatrizes);
 
 /* Encontra uma base para a matriz */
 void encontrarBaseMatriz(Lista *listaMatrizes);
+
+/* Encontra o determinaten de uma dada matriz */
+void encontrarDeterminante(Lista *listaMatrizes);
 
 /* Executa a operação de troca entre linhas */
 void operacaoMatrizTrocaLinha(NoLista *noMatriz);
