@@ -74,7 +74,7 @@ bool operacaoMultiplicaPorEscalar(Matriz *matriz, unsigned int linha, double esc
     linha--;
 
     /* Checa se o escalar é válido */
-    if(fabs(escalar) <= 10e-7){
+    if(doubleIgualZero(escalar)){
         printError("ESCALAR NAO PODE SER ZERO!");
         return false;
     }
@@ -125,7 +125,7 @@ bool operacaoSomaEntreLinhas(Matriz *matriz, unsigned int linha_res, unsigned in
     linha_in--;
 
     /* Checa se o escalar é válido */
-    if(fabs(escalar) <= 10e-7){
+    if(doubleIgualZero(escalar)){
         printError("ESCALAR NAO PODE SER ZERO!");
         return false;
     }

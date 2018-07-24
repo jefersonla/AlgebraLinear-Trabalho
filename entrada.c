@@ -945,10 +945,10 @@ void operacaoMatrizMultiplicaLinha(NoLista *noMatriz){
         printf("Escalar => ");
         scanf("%lf", &escalar);
 
-        if(fabs(escalar) <= 10e-7){
+        if(doubleIgualZero(escalar)){
             printError("ESCALAR NAO PODE SER ZERO!");
         }
-    } while(fabs(escalar) <= 10e-7);
+    } while(doubleIgualZero(escalar));
 
     /* Imprime matriz entrada */
     quebraLinha();
@@ -1015,10 +1015,10 @@ void operacaoMatrizSomaLinha(NoLista *noMatriz){
         printf("Escalar => ");
         scanf("%lf", &escalar);
 
-        if(fabs(escalar) <= 10e-7){
+        if(doubleIgualZero(escalar)){
             printError("ESCALAR NAO PODE SER ZERO!");
         }
-    } while(fabs(escalar) <= 10e-7);
+    } while(doubleIgualZero(escalar));
 
 
     /* Imprime matriz entrada */

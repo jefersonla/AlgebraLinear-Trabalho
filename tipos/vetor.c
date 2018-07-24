@@ -58,7 +58,10 @@ Vetor* newVetor(char *idVetor, unsigned int dimensao, double valores[]){
     }
 
     /* Copia os valores */
-    memcpy(_new_coordenadas, valores, (size_t)dimensao);
+    if(valores != NULL)
+        memcpy(_new_coordenadas, valores, (size_t)dimensao);
+    else
+        memset(_new_coordenadas, 0, (size_t)dimensao);
     memcpy(_new_id_vetor, idVetor, strlen(idVetor));
 
     /* Inicializa o vetor */
@@ -208,6 +211,7 @@ double produtoInterno(Vetor *vetor1, Vetor *vetor2, bool *erro){
         produto_interno += vetor1->coordenadas[i] * vetor2->coordenadas[i];
     }
 
+    (*erro) = false;
     return produto_interno;
 }
 
@@ -228,6 +232,7 @@ double normaVetor(Vetor *vetor, bool *erro){
     }
     double norma_vetor = sqrt(somatorio_coordenadas);
 
+    (*erro) = false;
     return norma_vetor;
 }
 

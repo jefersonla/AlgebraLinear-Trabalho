@@ -43,6 +43,9 @@
 /* Imprime uma linha vazia */
 #define quebraLinha()                       printf("\n");
 
+/* Verifica se o double é nulo */
+#define doubleIgualZero(NUM)                (fabs(NUM) <= 10e-7)
+
 /* Troca os valores entre celulas da matriz */
 void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b);
 
