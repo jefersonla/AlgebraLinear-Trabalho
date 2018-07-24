@@ -22,3 +22,4 @@ utils/utils.h
 utils/utils.c
 Makefile
 main.c
+Doxyfile.conf
