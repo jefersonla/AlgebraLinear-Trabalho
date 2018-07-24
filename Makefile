@@ -45,6 +45,11 @@ $(EXECUTABLE_DEBUG): $(LIBS_SRC) $(LIBS_HEADERS)
 $(EXECUTABLE): $(LIBS_SRC) $(LIBS_HEADERS)
 	$(CC) $(CFLAGS) $(SOURCES) -o $(EXECUTABLE) $(LIBS_SRC) $(TODO_WARN) $(CFLAGS_PARSER)
 
+# Gera documentação do projeto
+docs:
+	@printf  "Gerando documentacao"
+	doxygen Doxyfile.conf
+
 # Realiza os testes nos executaveis
 #check: test1 test2 test3
 
