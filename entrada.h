@@ -14,9 +14,8 @@
 #define CLONAR_MATRIZ_MENU 4
 #define OPERACOES_MATRIZ_MENU 5
 #define OPERACOES_ENTRE_MATRIZES_MENU 6
-#define METODO_GAUS_MATRIZ_MENU 7
-#define ENCONTRAR_KERNEL_MATRIZ_MENU 8
-#define ENCONTRAR_BASE_MATRIZ 9
+#define OPERACOES_COMPLEXAS_MENU 7
+#define SALVAR_RESULTADOS_MENU 8
 #define SAIR_MENU 0
 
 /* Opções menu de operações elementares */
@@ -30,8 +29,13 @@
 #define PRODUTO_MATRIZ_MENU 3
 #define MULTIPLICACAO_ESCALAR_MATRIZ_MENU 4
 #define TRANSPOSTA_MATRIZ_MENU 5
-#define INVERSA_MATRIZ_MENU 6
-#define DIVISAO_MATRIZ_MENU 7
+
+/* Menu de operações complexas */
+#define METODO_GAUS_MATRIZ_MENU 1
+#define ENCONTRAR_KERNEL_MATRIZ_MENU 2
+#define ENCONTRAR_BASE_MATRIZ 3
+#define INVERSA_MATRIZ_MENU 4
+#define DIVISAO_MATRIZ_MENU 5
 
 /* Operação comum */
 #define VOLTAR_MENU 0
@@ -94,19 +98,19 @@ void operacaoMatrizMultiplicaLinha(NoLista *noMatriz);
 void operacaoMatrizSomaLinha(NoLista *noMatriz);
 
 /* Executa a operação de soma entre matrizes */
-void somaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+void somaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao);
 
 /* Executa a operacao de subtracao entre matrizes */
-void subtracaoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+void subtracaoMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao);
 
 /* Executa a operação de produto entre matrizes */
-void produtoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+void produtoMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao);
 
 /* Executa a operação de multiplicação de matriz por escalar */
-void multiplicacaoEscalarMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+void multiplicacaoEscalarMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao);
 
 /* Executa operação para encontrar a transposta de uma matriz */
-void transpostaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao);
+void transpostaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao);
 
 /* ------------------------------------------------------------- */
 

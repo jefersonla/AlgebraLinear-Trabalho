@@ -2,7 +2,7 @@
 
 /** Desenvolvido por Alana Bispo                         **/
 /**              e   Jeferson Lima                       **/
-/** Versão      0.1                                      **/
+/** Versão      0.7                                      **/
 /** Linguagem   C                                        **/
 /** Licença     MIT                                      **/
 /** Descrição:  Aplicação para demonstrar o conceito de  **/

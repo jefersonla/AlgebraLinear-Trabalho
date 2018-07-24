@@ -21,9 +21,8 @@ void mostraMenu(void){
            "4 > Clonar Matriz\n"
            "5 > Realizar operacoes elementares numa matriz\n"
            "6 > Realizar operacoes entre matrizes\n"
-           "7 > Realizar metodo de Gauss Jordan\n"
-           "8 > Encontrar Kernel Matriz\n"
-           "9 > Encontrar Base Matriz\n"
+           "7 > Realizar operacoes complexas (metodo gauss, kernel, ...)\n"
+           "8 > Salvar resultado\n"
            "0 > Sair\n");
 }
 
@@ -213,28 +212,450 @@ void clonarMatriz(Lista *listaMatrizes){
 }
 
 /* Executa a operação de soma entre matrizes */
-void somaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
-    printInfo("TODO!");
+void somaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao){
+    NoLista *noMatriz1;
+    NoLista *noMatriz2;
+    unsigned int idMatriz1;
+    unsigned int idMatriz2;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Formato -- M <- M1 + M2\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice de M1 => ");
+    scanf("%u", &idMatriz1);
+
+    /* Busca pelo id informado */
+    noMatriz1 = buscaNoLista(listaMatrizes, (int)idMatriz1);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz1 == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Recebe o indice da matriz 2 */
+    printf("Insira o indice de M2 => ");
+    scanf("%u", &idMatriz2);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz2 = buscaNoLista(listaMatrizes, (int)idMatriz2);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz2 == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Exibe a matriz 1 */
+    imprimeMatriz(noMatriz1->conteudo);
+    quebraLinha();
+
+    /* Simbolo da operação */
+    printf("+\n");
+    quebraLinha();
+
+    /* Exibe a matriz 2 */
+    imprimeMatriz(noMatriz2->conteudo);
+    quebraLinha();
+
+    /* Simbolo de resultado operação */
+    printf("=\n");
+    quebraLinha();
+
+    /* Realiza a operação */
+    Matriz *matrizResultado = somaMatriz(noMatriz1->conteudo, noMatriz2->conteudo);
+
+    /* Checa se não houve erros ao executar a operação */
+    if(matrizResultado == NULL){
+        printError("ERRO AO ALOCAR MATRIZ DE RESULTADO DA OPERACAO!");
+        return;
+    }
+
+    /* Exibe o resultado */
+    imprimeMatriz(matrizResultado);
+    quebraLinha();
+
+    /* Verifica aonde o resultado deve ser salvo */
+    if(salvaResultadoOperacao == SALVAR_NA_MATRIZ_ENTRADA){
+        ptrMatriz *ptrMatriz1 = &noMatriz1->conteudo;
+        if(!deleteMatriz(ptrMatriz1)){
+            printError("ERRO AO DELETAR MATRIZ DE RESULTADO!");
+            return;
+        }
+
+        /* Salva o ponteiro do resultado para a matriz de conteudo do nó */
+        noMatriz1->conteudo = matrizResultado;
+    } else {
+        /* Salvar a matriz como uma nova matriz da lista de matrizes */
+        if(!adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, matrizResultado, false)){
+            printError("NAO FOI POSSIVEL SALVAR O RESULTADO DA MATRIZ EM UM NOVO INDICE!");
+            return;
+        }
+        printf("Indice da matriz de resultado => %d\n", listaMatrizes->ultimoIndice - 1);
+        quebraLinha();
+    }
 }
 
 /* Executa a operacao de subtracao entre matrizes */
-void subtracaoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
-    printInfo("TODO!");
+void subtracaoMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao){
+    NoLista *noMatriz1;
+    NoLista *noMatriz2;
+    unsigned int idMatriz1;
+    unsigned int idMatriz2;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Formato -- M <- M1 - M2\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice de M1 => ");
+    scanf("%u", &idMatriz1);
+
+    /* Busca pelo id informado */
+    noMatriz1 = buscaNoLista(listaMatrizes, (int)idMatriz1);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz1 == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Recebe o indice da matriz 2 */
+    printf("Insira o indice de M2 => ");
+    scanf("%u", &idMatriz2);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz2 = buscaNoLista(listaMatrizes, (int)idMatriz2);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz2 == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Exibe a matriz 1 */
+    imprimeMatriz(noMatriz1->conteudo);
+    quebraLinha();
+
+    /* Simbolo da operação */
+    printf("-\n");
+    quebraLinha();
+
+    /* Exibe a matriz 2 */
+    imprimeMatriz(noMatriz2->conteudo);
+    quebraLinha();
+
+    /* Simbolo de resultado operação */
+    printf("=\n");
+    quebraLinha();
+
+    /* Realiza a operação */
+    Matriz *matrizResultado = subtracaoMatriz(noMatriz1->conteudo, noMatriz2->conteudo);
+
+    /* Checa se não houve erros ao executar a operação */
+    if(matrizResultado == NULL){
+        printError("ERRO AO ALOCAR MATRIZ DE RESULTADO DA OPERACAO!");
+        return;
+    }
+
+    /* Exibe o resultado */
+    imprimeMatriz(matrizResultado);
+    quebraLinha();
+
+    /* Verifica aonde o resultado deve ser salvo */
+    if(salvaResultadoOperacao == SALVAR_NA_MATRIZ_ENTRADA){
+        ptrMatriz *ptrMatriz1 = &noMatriz1->conteudo;
+        if(!deleteMatriz(ptrMatriz1)){
+            printError("ERRO AO DELETAR MATRIZ DE RESULTADO!");
+            return;
+        }
+
+        /* Salva o ponteiro do resultado para a matriz de conteudo do nó */
+        noMatriz1->conteudo = matrizResultado;
+    } else {
+        /* Salvar a matriz como uma nova matriz da lista de matrizes */
+        if(!adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, matrizResultado, false)){
+            printError("NAO FOI POSSIVEL SALVAR O RESULTADO DA MATRIZ EM UM NOVO INDICE!");
+            return;
+        }
+        printf("Indice da matriz de resultado => %d\n", listaMatrizes->ultimoIndice - 1);
+        quebraLinha();
+    }
 }
 
 /* Executa a operação de produto entre matrizes */
-void produtoMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
-    printInfo("TODO!");
+void produtoMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao){
+    NoLista *noMatriz1;
+    NoLista *noMatriz2;
+    unsigned int idMatriz1;
+    unsigned int idMatriz2;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Formato -- M <- M1 . M2\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice de M1 => ");
+    scanf("%u", &idMatriz1);
+
+    /* Busca pelo id informado */
+    noMatriz1 = buscaNoLista(listaMatrizes, (int)idMatriz1);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz1 == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Recebe o indice da matriz 2 */
+    printf("Insira o indice de M2 => ");
+    scanf("%u", &idMatriz2);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz2 = buscaNoLista(listaMatrizes, (int)idMatriz2);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz2 == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Exibe a matriz 1 */
+    imprimeMatriz(noMatriz1->conteudo);
+    quebraLinha();
+
+    /* Simbolo da operação */
+    printf(".\n");
+    quebraLinha();
+
+    /* Exibe a matriz 2 */
+    imprimeMatriz(noMatriz2->conteudo);
+    quebraLinha();
+
+    /* Simbolo de resultado operação */
+    printf("=\n");
+    quebraLinha();
+
+    /* Realiza a operação */
+    Matriz *matrizResultado = produtoMatriz(noMatriz1->conteudo, noMatriz2->conteudo);
+
+    /* Checa se não houve erros ao executar a operação */
+    if(matrizResultado == NULL){
+        printError("ERRO AO ALOCAR MATRIZ DE RESULTADO DA OPERACAO!");
+        return;
+    }
+
+    /* Exibe o resultado */
+    imprimeMatriz(matrizResultado);
+    quebraLinha();
+
+    /* Verifica aonde o resultado deve ser salvo */
+    if(salvaResultadoOperacao == SALVAR_NA_MATRIZ_ENTRADA){
+        ptrMatriz *ptrMatriz1 = &noMatriz1->conteudo;
+        if(!deleteMatriz(ptrMatriz1)){
+            printError("ERRO AO DELETAR MATRIZ DE RESULTADO!");
+            return;
+        }
+
+        /* Salva o ponteiro do resultado para a matriz de conteudo do nó */
+        noMatriz1->conteudo = matrizResultado;
+    } else {
+        /* Salvar a matriz como uma nova matriz da lista de matrizes */
+        if(!adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, matrizResultado, false)){
+            printError("NAO FOI POSSIVEL SALVAR O RESULTADO DA MATRIZ EM UM NOVO INDICE!");
+            return;
+        }
+        printf("Indice da matriz de resultado => %d\n", listaMatrizes->ultimoIndice - 1);
+        quebraLinha();
+    }
 }
 
 /* Executa a operação de multiplicação de matriz por escalar */
-void multiplicacaoEscalarMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
-    printInfo("TODO!");
+void multiplicacaoEscalarMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao){
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+    double escalar;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Formato -- M <- M1 * E\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice de M1 => ");
+    scanf("%u", &idMatriz);
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Pega o valor do escalar */
+    printf("Insira o valor do escalar => ");
+    scanf("%lf", &escalar);
+    quebraLinha();
+
+    /* Exibe a matriz 1 */
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Simbolo da operação */
+    printf("*\n");
+    quebraLinha();
+
+    /* Exibe o valor do escalar */
+    printf("%.2lf\n", escalar);
+    quebraLinha();
+
+    /* Simbolo de resultado operação */
+    printf("=\n");
+    quebraLinha();
+
+    /* Realiza a operação */
+    Matriz *matrizResultado = multiplicacaoEscalarMatriz(noMatriz->conteudo, escalar);
+
+    /* Checa se não houve erros ao executar a operação */
+    if(matrizResultado == NULL){
+        printError("ERRO AO ALOCAR MATRIZ DE RESULTADO DA OPERACAO!");
+        return;
+    }
+
+    /* Exibe o resultado */
+    imprimeMatriz(matrizResultado);
+    quebraLinha();
+
+    /* Verifica aonde o resultado deve ser salvo */
+    if(salvaResultadoOperacao == SALVAR_NA_MATRIZ_ENTRADA){
+        ptrMatriz *ptrMatriz1 = &noMatriz->conteudo;
+        if(!deleteMatriz(ptrMatriz1)){
+            printError("ERRO AO DELETAR MATRIZ DE RESULTADO!");
+            return;
+        }
+
+        /* Salva o ponteiro do resultado para a matriz de conteudo do nó */
+        noMatriz->conteudo = matrizResultado;
+    } else {
+        /* Salvar a matriz como uma nova matriz da lista de matrizes */
+        if(!adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, matrizResultado, false)){
+            printError("NAO FOI POSSIVEL SALVAR O RESULTADO DA MATRIZ EM UM NOVO INDICE!");
+            return;
+        }
+        printf("Indice da matriz de resultado => %d\n", listaMatrizes->ultimoIndice - 1);
+        quebraLinha();
+    }
 }
 
 /* Executa operação para encontrar a transposta de uma matriz */
-void transpostaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOperacao){
-    printInfo("TODO!");
+void transpostaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperacao){
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Formato -- M <- M1^t\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    quebraLinha();
+    printf("Insira o indice de M1 => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Exibe a matriz 1 */
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Simbolo de resultado operação */
+    printf("=\n");
+    quebraLinha();
+
+    /* Realiza a operação */
+    Matriz *matrizResultado = transpostaMatriz(noMatriz->conteudo);
+
+    /* Checa se não houve erros ao executar a operação */
+    if(matrizResultado == NULL){
+        printError("ERRO AO ALOCAR MATRIZ DE RESULTADO DA OPERACAO!");
+        return;
+    }
+
+    /* Exibe o resultado */
+    imprimeMatriz(matrizResultado);
+    quebraLinha();
+
+    /* Verifica aonde o resultado deve ser salvo */
+    if(salvaResultadoOperacao == SALVAR_NA_MATRIZ_ENTRADA){
+        ptrMatriz *ptrMatriz1 = &noMatriz->conteudo;
+        if(!deleteMatriz(ptrMatriz1)){
+            printError("ERRO AO DELETAR MATRIZ DE RESULTADO!");
+            return;
+        }
+
+        /* Salva o ponteiro do resultado para a matriz de conteudo do nó */
+        noMatriz->conteudo = matrizResultado;
+    } else {
+        /* Salvar a matriz como uma nova matriz da lista de matrizes */
+        if(!adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, matrizResultado, false)){
+            printError("NAO FOI POSSIVEL SALVAR O RESULTADO DA MATRIZ EM UM NOVO INDICE!");
+            return;
+        }
+        printf("Indice da matriz de resultado => %d\n", listaMatrizes->ultimoIndice - 1);
+        quebraLinha();
+    }
 }
 
 /**
@@ -246,36 +667,19 @@ void transpostaMatrizOperacao(NoLista *noMatriz, unsigned int salvaResultadoOper
  * - Produto
  * - Multiplicação por escalar
  * - Transposta
- * - Inversa
- * - Divisão
+ * - Inversa -- TODO
+ * - Divisão -- TODO
  *
  * @brief operacoesEntreMatrizes Executa operações (soma, multiplicação, ...) entre matrizes
  * @param listaMatrizes Lista de matrizes
  */
 void operacoesEntreMatrizes(Lista *listaMatrizes){
-    NoLista *noMatriz;
     unsigned int operacao;
-    unsigned int idMatriz;
     unsigned int salvaResultadoOperacao;
 
     /* Checa se a lista de matrizes é válida */
     if(listaMatrizes == NULL){
         printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL INSERIR!");
-        return;
-    }
-
-    /* Recebe o indice da matriz */
-    quebraLinha();
-    printf("Insira o indice da matriz => ");
-    scanf("%u", &idMatriz);
-    quebraLinha();
-
-    /* Busca pelo id informado */
-    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
-
-    /* Checa se a matriz foi encontrada */
-    if(noMatriz == NULL){
-        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR AS OPERACOES!");
         return;
     }
 
@@ -310,31 +714,43 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
         switch(operacao){
 
         case SOMA_MATRIZ_MENU:
-            somaMatrizOperacao(noMatriz, salvaResultadoOperacao);
+            somaMatrizOperacao(listaMatrizes, salvaResultadoOperacao);
             break;
 
         case SUBTRACAO_MATRIZ_MENU:
-            subtracaoMatrizOperacao(noMatriz, salvaResultadoOperacao);
+            subtracaoMatrizOperacao(listaMatrizes, salvaResultadoOperacao);
             break;
 
         case PRODUTO_MATRIZ_MENU:
-            produtoMatrizOperacao(noMatriz, salvaResultadoOperacao);
+            produtoMatrizOperacao(listaMatrizes, salvaResultadoOperacao);
             break;
 
         case MULTIPLICACAO_ESCALAR_MATRIZ_MENU:
-            multiplicacaoEscalarMatrizOperacao(noMatriz, salvaResultadoOperacao);
+            multiplicacaoEscalarMatrizOperacao(listaMatrizes, salvaResultadoOperacao);
             break;
 
         case TRANSPOSTA_MATRIZ_MENU:
-            transpostaMatrizOperacao(noMatriz, salvaResultadoOperacao);
+            transpostaMatrizOperacao(listaMatrizes, salvaResultadoOperacao);
+            break;
+
+        case METODO_GAUS_MATRIZ_MENU:
+            metodoGausJordanMatriz(listaMatrizes);
+            break;
+
+        case ENCONTRAR_KERNEL_MATRIZ_MENU:
+            encontrarKernelMatriz(listaMatrizes);
+            break;
+
+        case ENCONTRAR_BASE_MATRIZ:
+            encontrarBaseMatriz(listaMatrizes);
             break;
 
         case INVERSA_MATRIZ_MENU:
-            printInfo("TODO");
+            printInfo("TODO - NAO IMPLEMENTADO AINDA!");
             break;
 
         case DIVISAO_MATRIZ_MENU:
-            printInfo("TODO");
+            printInfo("TODO - NAO IMPLEMENTADO AINDA!");
             break;
 
         case VOLTAR_MENU:
@@ -677,16 +1093,12 @@ void loopModoCLI(void){
             operacoesEntreMatrizes(listaMatrizes);
             break;
 
-        case METODO_GAUS_MATRIZ_MENU:
-            metodoGausJordanMatriz(listaMatrizes);
+        case OPERACOES_COMPLEXAS_MENU:
+            printInfo("TODO - NAO IMPLEMENTADO AINDA!");
             break;
 
-        case ENCONTRAR_KERNEL_MATRIZ_MENU:
-            encontrarKernelMatriz(listaMatrizes);
-            break;
-
-        case ENCONTRAR_BASE_MATRIZ:
-            encontrarBaseMatriz(listaMatrizes);
+        case SALVAR_RESULTADOS_MENU:
+            printInfo("TODO - NAO IMPLEMENTADO AINDA!");
             break;
 
         case SAIR_MENU:
