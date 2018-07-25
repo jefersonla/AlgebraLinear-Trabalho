@@ -774,7 +774,6 @@ void encontrarDeterminante(Lista *listaMatrizes){
     quebraLinha();
 
     /* Recebe o indice da matriz 1 */
-    quebraLinha();
     printf("Insira o indice da matriz => ");
     scanf("%u", &idMatriz);
     quebraLinha();
@@ -789,7 +788,7 @@ void encontrarDeterminante(Lista *listaMatrizes){
     }
 
     /* Realiza a operação */
-    bool erro;
+    bool erro = false;
     double determinante = operacaoDeterminanteMatriz(noMatriz->conteudo, &erro);
 
     /* verifica se houve erros na execução */
@@ -820,7 +819,6 @@ void metodoGaussMatriz(Lista *listaMatrizes){
     quebraLinha();
 
     /* Recebe o indice da matriz 1 */
-    quebraLinha();
     printf("Insira o indice da matriz => ");
     scanf("%u", &idMatriz);
     quebraLinha();
@@ -859,6 +857,10 @@ void metodoGaussMatriz(Lista *listaMatrizes){
     printf("Vetor Resultante\n");
     imprimeVetor(vetor_resultado);
     quebraLinha();
+
+    /* Remove vetor */
+    ptrVetor *ptrVetor = &vetor_resultado;
+    deleteVetor(ptrVetor);
 }
 
 /* Executa metodo de Gauss-Jordan para encontrar as raizes do sistema de equação */
@@ -874,11 +876,10 @@ void metodoGaussJordanMatriz(Lista *listaMatrizes){
 
     /* Formato da operação */
     quebraLinha();
-    printf("Metodo de Gauss -- meg(M)\n");
+    printf("Metodo de Gauss-Jordan -- megj(M)\n");
     quebraLinha();
 
     /* Recebe o indice da matriz 1 */
-    quebraLinha();
     printf("Insira o indice da matriz => ");
     scanf("%u", &idMatriz);
     quebraLinha();
@@ -917,6 +918,10 @@ void metodoGaussJordanMatriz(Lista *listaMatrizes){
     printf("Vetor Resultante\n");
     imprimeVetor(vetor_resultado);
     quebraLinha();
+
+    /* Remove vetor */
+    ptrVetor *ptrVetor = &vetor_resultado;
+    deleteVetor(ptrVetor);
 }
 
 /* Encontra o Kernel de uma Matriz */

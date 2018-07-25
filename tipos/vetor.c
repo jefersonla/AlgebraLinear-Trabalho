@@ -62,7 +62,7 @@ Vetor* newVetor(char *idVetor, unsigned int dimensao, double valores[]){
         memcpy(_new_coordenadas, valores, (size_t)dimensao);
     else
         memset(_new_coordenadas, 0, (size_t)dimensao);
-    memcpy(_new_id_vetor, idVetor, strlen(idVetor));
+    strncpy(_new_id_vetor, idVetor, (strlen(idVetor) + 1));
 
     /* Inicializa o vetor */
     _new_vetor->dimensao = dimensao;

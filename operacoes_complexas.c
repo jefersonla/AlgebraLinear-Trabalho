@@ -45,7 +45,10 @@ bool pivoteamentoParcial(Matriz *matriz, unsigned int pivo, unsigned int *trocas
     /* Troca a linha do pivot com a linha de maior valor nesta coluna */
     if(troca){
         operacaoTrocaLinha(matriz, (maxLinha + 1), (unsigned int)(i + 1));
-        (*trocas) += 1;
+
+        /* Se ponteiro para variavél de trocas não for nulo incrementa */
+        if(trocas != NULL)
+            (*trocas) += 1;
     }
 
     return true;
@@ -122,7 +125,7 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
     }
 
     /* Terminado o algoritmo verificamos se o determinante da matriz é diferente de 0 */
-    double determinante = 0;
+    double determinante = 1;
     for(i = 0; i < matriz->nLinhas; i++){
         determinante *= matriz->linhas[i][i];
     }
@@ -224,7 +227,7 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
     }
 
     /* Terminado o algoritmo verificamos se o determinante da matriz é diferente de 0 */
-    double determinante = 0;
+    double determinante = 1;
     for(i = 0; i < matriz->nLinhas; i++){
         determinante *= matriz->linhas[i][i];
     }
@@ -306,7 +309,7 @@ double operacaoDeterminanteMatriz(Matriz *matriz, bool *erro){
     }
 
     /* Calcula o determinante da Matriz */
-    double determinante = 0;
+    double determinante = 1;
     for(i = 0; i < matriz->nLinhas; i++){
         determinante *= matriz->linhas[i][i];
     }
