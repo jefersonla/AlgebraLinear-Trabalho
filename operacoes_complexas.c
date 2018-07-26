@@ -19,7 +19,7 @@ bool pivoteamentoParcial(Matriz *matriz, unsigned int pivo, unsigned int *trocas
     }
 
     /* Verifica se pivot está presente na tabela */
-    if((int)pivo > matriz->nLinhas){
+    if((int)pivo >= matriz->nLinhas){
         printError("PIVO NAO ESTA ESTA NO RANGE DE LINHAS DISPONIVEL!");
         return false;
     }
@@ -31,11 +31,11 @@ bool pivoteamentoParcial(Matriz *matriz, unsigned int pivo, unsigned int *trocas
     bool troca = false;
 
     /* Procura em uma dada coluna o maior valor desta, a partir do pivot */
-    double maxValor = matriz->linhas[i][i];
+    double maxValor = fabs(matriz->linhas[i][i]);
     unsigned int maxLinha = (unsigned int)i;
     for(j = i + 1; j < (unsigned int)matriz->nLinhas; j++){
         /* Checa se encontramos uma linha com um valor maior na coluna do pivot */
-        if(fabs(maxValor) < fabs(matriz->linhas[j][i])){
+        if(fabs(maxValor) < fabs(matriz->linhas[j][i]) && !doubleIgualZero(matriz->linhas[j][i])){
             maxValor = matriz->linhas[j][i];
             maxLinha = (unsigned int)j;
             troca = true;
@@ -110,16 +110,19 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
 
         /* Percore todos os elementos abaixo do pivot executando a operacao Lj <- Lj - Li * (Aji/Aii)*/
         for(j = i + 1; j < matriz->nLinhas; j++){
-            /* Obtem o fator que irá reduzir essa coluna */
-            double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
+            /* Para executar a operação primeiro verificamos se o pivo é não nulo */
+            if(!doubleIgualZero(matriz->linhas[i][i])){
+                /* Obtem o fator que irá reduzir essa coluna */
+                double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
 
-            /* Executa a operação elementar */
-            if(!operacaoSomaEntreLinhas(matriz,
-                                       (unsigned int)(j + 1),
-                                       (unsigned int)(i + 1),
-                                        fator)){
-                printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
-                return NULL;
+                /* Executa a operação elementar */
+                if(!operacaoSomaEntreLinhas(matriz,
+                                           (unsigned int)(j + 1),
+                                           (unsigned int)(i + 1),
+                                            fator)){
+                    printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+                    return NULL;
+                }
             }
         }
     }
@@ -211,16 +214,19 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
         /* Percore todos os elementos excluindo o pivot executando a operacao Lj <- Lj - Li * (Aji/Aii)*/
         for(j = 0; j < matriz->nLinhas; j++){
             if(i != j){
-                /* Obtem o fator que irá reduzir essa coluna */
-                double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
+                /* Para executar a operação primeiro verificamos se o pivo é não nulo */
+                if(!doubleIgualZero(matriz->linhas[i][i])){
+                    /* Obtem o fator que irá reduzir essa coluna */
+                    double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
 
-                /* Executa a operação elementar */
-                if(!operacaoSomaEntreLinhas(matriz,
-                                           (unsigned int)(j + 1),
-                                           (unsigned int)(i + 1),
-                                            fator)){
-                    printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
-                    return NULL;
+                    /* Executa a operação elementar */
+                    if(!operacaoSomaEntreLinhas(matriz,
+                                               (unsigned int)(j + 1),
+                                               (unsigned int)(i + 1),
+                                                fator)){
+                        printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+                        return NULL;
+                    }
                 }
             }
         }
