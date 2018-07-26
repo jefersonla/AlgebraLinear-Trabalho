@@ -6,6 +6,9 @@
 #include <stdarg.h>
 #include <stdbool.h>
 
+/* Tipo Byte */
+typedef signed char byte;
+
 /* Convert a constant to a string */
 #define QUOTE(_VAR)                         #_VAR
 #define TO_STRING(VAR)                      QUOTE(VAR)
