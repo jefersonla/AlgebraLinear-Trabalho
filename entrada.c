@@ -968,9 +968,11 @@ void operacaoMatrizComplexas(Lista *listaMatrizes){
 
         case METODO_GAUSS_JORDAN_MATRIZ_MENU:
             metodoGaussJordanMatriz(listaMatrizes);
+            break;
 
         case ENCONTRAR_DETERMINANTE_MATRIZ_MENU:
             encontrarDeterminante(listaMatrizes);
+            break;
 
         case ENCONTRAR_KERNEL_MATRIZ_MENU:
             encontrarKernelMatriz(listaMatrizes);
