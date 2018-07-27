@@ -499,12 +499,14 @@ Fracao* leFracao(void){
     long long denominador;
 
     /* Lê a primeira parte da fração */
-    scanf("%lld%c%lld", &numerador, &separador, &denominador);
+    scanf("%lld%c", &numerador, &separador);
 
-    /* Se separador igual o separador especificado */
+    /* Checa o tipo de separador, na falta de um separador nosso denominador é 1  */
     if(separador != FRACAO_DIGITO_SEPARADOR){
-        printError("DIGITO SEPARADOR INVALIDO ERRO AO LER!");
-        return NULL;
+        denominador = 1;
+    } else {
+        /* Na presença de um separador nós lemos o denominador */
+        scanf("%lld", &denominador);
     }
 
     /* Com os números lidos, tenta alocar a nova fração */

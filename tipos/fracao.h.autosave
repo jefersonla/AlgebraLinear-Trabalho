@@ -25,7 +25,7 @@
 
 /* Tamanho digitos */
 #define FRACAO_DIGITO_SEPARADOR '/'
-#define FRACAO_DIGITO_SEPARADOR2 ' '
+#define FRACAO_DIGITO_SEPARADOR_FIM ' '
 #define FRACAO_MAX_DIGITOS
 
 /* ------------------------------------------------------------- */

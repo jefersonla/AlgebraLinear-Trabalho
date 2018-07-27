@@ -43,8 +43,8 @@
 #define VOLTAR_MENU 0
 
 /* Destino para salvar operações entre matrizes */
-#define SALVAR_NA_MATRIZ_ENTRADA 0
-#define SALVAR_NOVA_MATRIZ 1
+#define SALVAR_NA_MATRIZ_ENTRADA 1
+#define SALVAR_NOVA_MATRIZ 2
 
 /* ------------------------------------------------------------- */
 /*                      Estruturas  Globais                      */

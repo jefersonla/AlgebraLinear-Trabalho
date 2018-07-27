@@ -240,7 +240,6 @@ void somaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOperaca
     /* Formato da operação */
     quebraLinha();
     printf("Formato -- M <- M1 + M2\n");
-    quebraLinha();
 
     /* Recebe o indice da matriz 1 */
     quebraLinha();
@@ -336,7 +335,6 @@ void subtracaoMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOp
     /* Formato da operação */
     quebraLinha();
     printf("Formato -- M <- M1 - M2\n");
-    quebraLinha();
 
     /* Recebe o indice da matriz 1 */
     quebraLinha();
@@ -432,7 +430,6 @@ void produtoMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoOper
     /* Formato da operação */
     quebraLinha();
     printf("Formato -- M <- M1 . M2\n");
-    quebraLinha();
 
     /* Recebe o indice da matriz 1 */
     quebraLinha();
@@ -527,7 +524,6 @@ void multiplicacaoEscalarMatrizOperacao(Lista *listaMatrizes, unsigned int salva
     /* Formato da operação */
     quebraLinha();
     printf("Formato -- M <- M1 * E\n");
-    quebraLinha();
 
     /* Recebe o indice da matriz 1 */
     quebraLinha();
@@ -612,7 +608,6 @@ void transpostaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoO
     /* Formato da operação */
     quebraLinha();
     printf("Formato -- M <- M1^t\n");
-    quebraLinha();
 
     /* Recebe o indice da matriz 1 */
     quebraLinha();
@@ -698,6 +693,7 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
 
     /* Define aonde salvar o resultado das operações */
     do {
+        quebraLinha();
         printf("Aonde deseja salvar os resultados?\n"
                "1 > Salvar na matriz de entrada\n"
                "2 > Salvar em uma nova matriz\n");
@@ -711,7 +707,6 @@ void operacoesEntreMatrizes(Lista *listaMatrizes){
         }
     } while(salvaResultadoOperacao != SALVAR_NOVA_MATRIZ &&
             salvaResultadoOperacao != SALVAR_NA_MATRIZ_ENTRADA);
-    quebraLinha();
 
     do{
         /* Mostra menu de opções aritmeticas */
