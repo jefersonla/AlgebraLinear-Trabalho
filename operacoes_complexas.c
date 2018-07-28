@@ -110,8 +110,8 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
 
         /* Percore todos os elementos abaixo do pivot executando a operacao Lj <- Lj - Li * (Aji/Aii)*/
         for(j = i + 1; j < matriz->nLinhas; j++){
-            /* Para executar a operação primeiro verificamos se o pivo é não nulo */
-            if(!doubleIgualZero(matriz->linhas[i][i])){
+            /* Para executar a operação primeiro verificamos se o pivo e a linha é não nula */
+            if(!doubleIgualZero(matriz->linhas[i][i]) && !doubleIgualZero(matriz->linhas[j][i])){
                 /* Obtem o fator que irá reduzir essa coluna */
                 double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
 
@@ -238,8 +238,8 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
         /* Percore todos os elementos excluindo o pivot executando a operacao Lj <- Lj - Li * (Aji/Aii)*/
         for(j = 0; j < matriz->nLinhas; j++){
             if(i != j){
-                /* Para executar a operação primeiro verificamos se o pivo é não nulo */
-                if(!doubleIgualZero(matriz->linhas[i][i])){
+                /* Para executar a operação primeiro verificamos se o pivo e a linha é não nula */
+                if(!doubleIgualZero(matriz->linhas[i][i]) && !doubleIgualZero(matriz->linhas[j][i])){
                     /* Obtem o fator que irá reduzir essa coluna */
                     double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
 
@@ -324,8 +324,8 @@ double operacaoDeterminanteMatriz(Matriz *matriz, bool *erro){
 
         /* Percore todos os elementos abaixo do pivot executando a operacao Lj <- Lj - Li * (Aji/Aii)*/
         for(j = i + 1; j < matriz->nLinhas; j++){
-            /* Para executar a operação primeiro verificamos se o pivo é não nulo */
-            if(!doubleIgualZero(matriz->linhas[i][i])){
+            /* Para executar a operação primeiro verificamos se o pivo e a linha é não nula */
+            if(!doubleIgualZero(matriz->linhas[i][i]) && !doubleIgualZero(matriz->linhas[j][i])){
                 /* Obtem o fator que irá reduzir essa coluna */
                 double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
 
@@ -349,14 +349,15 @@ double operacaoDeterminanteMatriz(Matriz *matriz, bool *erro){
     }
 
     /* Para cada troca teremos a inversão do sinal do determinante */
-    determinante *= (double)(-1 * (int)nTrocas);
+    determinante *= pow(-1, (int)nTrocas);
 
     return determinante;
 }
 
 /* Encontra o Kernel de uma Matriz */
 Vetor* operacaoKernelMatriz(Matriz *matriz){
-
+    printWarning("TODO - NAO IMPLEMENTADO!");
+    return NULL;
 }
 
 /* Encontra uma base para a matriz */

@@ -210,7 +210,6 @@ void clonarMatriz(Lista *listaMatrizes){
     quebraLinha();
     printf("Insira o indice da matriz a ser clonada => ");
     scanf("%u", &idMatriz);
-    quebraLinha();
 
     /* Busca pelo id informado */
     noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
@@ -802,7 +801,6 @@ void encontrarDeterminante(Lista *listaMatrizes){
 
     /* Exibe o valor do determinante */
     printf("det(M) => %.2lf\n", determinante);
-    quebraLinha();
 }
 
 /* Executa metodo de Gauss para encontrar as raizes do sistema de equação */
