@@ -23,7 +23,7 @@ Vetor* operacaoGaussMatriz(Matriz *matriz);
 Vetor* operacaoGausJordanMatriz(Matriz *matriz);
 
 /* Encontra o Kernel de uma Matriz */
-Vetor* operacaoKernelMatriz(Matriz *matriz);
+Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta);
 
 /* Encontra uma base para a matriz */
 Matriz* operacaoBaseMatriz(Matriz* matriz);

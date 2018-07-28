@@ -7,6 +7,8 @@
 #include "operacoes_complexas.h"
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <math.h>
 
 /**
@@ -927,7 +929,71 @@ void metodoGaussJordanMatriz(Lista *listaMatrizes){
 
 /* Encontra o Kernel de uma Matriz */
 void encontrarKernelMatriz(Lista *listaMatrizes){
-    printInfo("TODO!");
+    NoLista *noMatriz;
+    unsigned int idMatriz;
+
+    /* Checa se a lista de matrizes é válida */
+    if(listaMatrizes == NULL){
+        printError("LISTA DE MATRIZES INVALIDA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Formato da operação */
+    quebraLinha();
+    printf("Encontrar Kernel -- ker(M)\n");
+    quebraLinha();
+
+    /* Recebe o indice da matriz 1 */
+    printf("Insira o indice da matriz => ");
+    scanf("%u", &idMatriz);
+    quebraLinha();
+
+    /* Busca pelo id informado */
+    noMatriz = buscaNoLista(listaMatrizes, (int)idMatriz);
+
+    /* Checa se a matriz foi encontrada */
+    if(noMatriz == NULL){
+        printError("MATRIZ NAO ENCONTRADA! NAO E POSSIVEL REALIZAR A OPERACAO!");
+        return;
+    }
+
+    /* Imprime a matriz antes da operação */
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Realiza a operação */
+    unsigned int numeroVetoresResposta = 0;
+    Vetor **vetores_resultado = operacaoKernelMatriz(noMatriz->conteudo, &numeroVetoresResposta);
+
+    /* Verifica se houve erros na execução da operação */
+    if(vetores_resultado == NULL){
+        printError("ERRO AO ENCONTRAR KERNEL!");
+        return;
+    }
+
+    /* Mostra o resultado */
+    printf("Matriz na forma de Gauss Jordan\n");
+    quebraLinha();
+
+    /* Imprime a matriz após as operações*/
+    imprimeMatriz(noMatriz->conteudo);
+    quebraLinha();
+
+    /* Imprime os vetores resultado do vetor */
+    printf("Vetores Resultados\n");
+    unsigned int i;
+    for(i = 0; i < numeroVetoresResposta; i++){
+        imprimeVetor(vetores_resultado[i]);
+        quebraLinha();
+    }
+
+    /* Remove os vetores */
+    ptrVetor *ptrVetor;
+    for(i = 0; i < numeroVetoresResposta; i++){
+        ptrVetor = &vetores_resultado[i];
+        deleteVetor(ptrVetor);
+    }
+    free(vetores_resultado);
 }
 
 /* Encontra uma base para a matriz */

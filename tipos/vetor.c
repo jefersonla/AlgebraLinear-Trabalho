@@ -225,6 +225,12 @@ void imprimeVetor(Vetor *vetor){
         return;
     }
 
+    /* Verifica se as coordenadas foram bem alocadas */
+    if(vetor->coordenadas == NULL){
+        printError("ERRO VETOR DE COORDENADAS INEXISTENTE!");
+        return;
+    }
+
     /* Imprime o vetor */
     int i;
     printf("%s = (", vetor->idVetor);

@@ -9,7 +9,7 @@
 #define MODO_INTERATIVO_CLI 0
 
 /* Descomente a linha abaixo para permitir o DEBUG em todas as classes */
-#define DEBUG
+//#define DEBUG
 
 /* ------------------------------------------------------------- */
 /*                      Estruturas  Globais                      */

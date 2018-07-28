@@ -10,7 +10,7 @@
 #include <math.h>
 
 /* PRIVATE - Realiza o pivoteamento parcial */
-bool pivoteamentoParcial(Matriz *matriz, unsigned int colPivo, unsigned int linPivo, unsigned int *trocas){
+bool pivoteamentoParcial(Matriz *matriz, unsigned int linPivo, unsigned int colPivo, unsigned int *trocas){
     unsigned int j;
 
     /* Verifica se a matriz é válida */
@@ -385,8 +385,9 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
     }
 
     /* Verificamos se o ponteiro para o numero de vetores de resposta é válido */
-    if(numeroVetoresResposta != NULL){
+    if(numeroVetoresResposta == NULL){
         printError("E PRECISO ESPECIFICAR UM PONTEIRO PARA INFORMAR O TAMANHO DA RESPOSTA!");
+        return NULL;
     }
 
     /* Iremos percorrer os n elementos da diagonal principal, limpando os valores acima e abaixo da coluna de cada pivot */
@@ -492,6 +493,7 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
     }
 
     /* Para cada linha que for uma variavel livre iremos inserir 1 para a variavél e 0 para as outras colunas */
+    int k;
     int colunaVariavelLivre = 0;
     int linhaVariavelNaoLivre = 0;
     for(i = 0; i < matriz_resposta->nLinhas; i++){
@@ -508,11 +510,12 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
         }
         else {
             /* Caso contrário iremos colocar o valor da linha negado com exceção da coluna usada */
-            for(j = 0; j < matriz->nColunas; j++)
-                if(variaveisLivres[j])
-                    matriz_resposta->linhas[i][j] = matriz->linhas[linhaVariavelNaoLivre][j];
-                else
-                    matriz_resposta->linhas[i][j] = 0;
+            for(k = 0, j = 0; j < matriz->nColunas; j++)
+                /* Se a variavel é livre copiamos o valor da linha */
+                if(variaveisLivres[j]){
+                    matriz_resposta->linhas[i][k] = -matriz->linhas[linhaVariavelNaoLivre][j];
+                    k++;
+                }
 
             /* Incrementa o contador da linha da variavel nao livre */
             linhaVariavelNaoLivre++;
@@ -535,7 +538,13 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
     }
 
     /* Cria um vetor temporário para novas variaveis */
-    double *vetor_tmp = malloc(sizeof(double) * (unsigned int)matriz_resposta->nLinhas);
+    double *vetor_tmp = malloc(sizeof(double) * (size_t)matriz_resposta->nLinhas);
+
+    /* Verifica se o vetor temporario foi bem alocado */
+    if(vetor_tmp == NULL){
+        printFatalError("ERRO AO ALOCAR VETOR TEMPORARIO!");
+        exit(EXIT_FAILURE);
+    }
 
     /* ID do vetor */
     char *idVariavelLivre = malloc(sizeof(char) * 5);
@@ -544,20 +553,21 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
     /* Aloca cada vetor resposta, tendo como resultado uma coluna da matriz de resposta */
     for(i = 0; i < matriz_resposta->nColunas; i++){
         /* Copia as linhas de cada coluna do vetor de resposta */
-        for(j = 0; j < matriz_resposta->nLinhas; j++){
+        for(j = 0; j < matriz_resposta->nLinhas; j++)
             vetor_tmp[j] = matriz_resposta->linhas[j][i];
-        }
 
         /* Procura uma variavel livre */
-        while(numVariavelLivre < matriz_resposta->nLinhas && !variaveisLivres[numVariavelLivre]){
+        while(numVariavelLivre < matriz_resposta->nLinhas && !variaveisLivres[numVariavelLivre])
             numVariavelLivre++;
-        }
 
         /* Aloca um vetor de resposta com base nesses valores */
-        snprintf(idVariavelLivre, 5, "X%d", numVariavelLivre);
+        snprintf(idVariavelLivre, 5, "X%d", (numVariavelLivre + 1));
         vetores_resposta[i] = newVetor(idVariavelLivre, (unsigned int)matriz_resposta->nLinhas, vetor_tmp);
         numVariavelLivre++;
     }
+
+    /* Salva o numero de vetores resultado */
+    *numeroVetoresResposta = (unsigned int)matriz_resposta->nColunas;
 
     /* Desaloca variaveis temporarias */
     ptrMatriz *ptr_matriz_resposta = &matriz_resposta;
