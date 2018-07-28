@@ -2,6 +2,7 @@
 #include "tipos/matriz.h"
 #include "operacoes_matriz.h"
 #include "utils/utils.h"
+#include "utils/ajuda.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,8 +10,8 @@
 #include <math.h>
 
 /* PRIVATE - Realiza o pivoteamento parcial */
-bool pivoteamentoParcial(Matriz *matriz, unsigned int pivo, unsigned int *trocas){
-    unsigned int i, j;
+bool pivoteamentoParcial(Matriz *matriz, unsigned int colPivo, unsigned int linPivo, unsigned int *trocas){
+    unsigned int j;
 
     /* Verifica se a matriz é válida */
     if(matriz == NULL){
@@ -19,32 +20,29 @@ bool pivoteamentoParcial(Matriz *matriz, unsigned int pivo, unsigned int *trocas
     }
 
     /* Verifica se pivot está presente na tabela */
-    if((int)pivo >= matriz->nLinhas){
-        printError("PIVO NAO ESTA ESTA NO RANGE DE LINHAS DISPONIVEL!");
+    if((int)colPivo >= matriz->nColunas && (int) linPivo >= matriz->nLinhas){
+        printError("PIVO NAO ESTA ESTA DENTRO DA MATRIZ!");
         return false;
     }
-
-    /* Valor de i é igual ao pivot */
-    i = pivo;
 
     /* Checa se é necessária a troca */
     bool troca = false;
 
     /* Procura em uma dada coluna o maior valor desta, a partir do pivot */
-    double maxValor = fabs(matriz->linhas[i][i]);
-    unsigned int maxLinha = (unsigned int)i;
-    for(j = i + 1; j < (unsigned int)matriz->nLinhas; j++){
+    double maxValor = fabs(matriz->linhas[linPivo][colPivo]);
+    unsigned int maxLinha = linPivo;
+    for(j = linPivo + 1; j < (unsigned int)matriz->nLinhas; j++){
         /* Checa se encontramos uma linha com um valor maior na coluna do pivot */
-        if(fabs(maxValor) < fabs(matriz->linhas[j][i]) && !doubleIgualZero(matriz->linhas[j][i])){
-            maxValor = matriz->linhas[j][i];
-            maxLinha = (unsigned int)j;
+        if(fabs(maxValor) < fabs(matriz->linhas[j][colPivo]) && !doubleIgualZero(matriz->linhas[j][colPivo])){
+            maxValor = matriz->linhas[j][colPivo];
+            maxLinha = j;
             troca = true;
         }
     }
 
     /* Troca a linha do pivot com a linha de maior valor nesta coluna */
     if(troca){
-        operacaoTrocaLinha(matriz, (maxLinha + 1), (unsigned int)(i + 1));
+        operacaoTrocaLinha(matriz, (maxLinha + 1), (unsigned int)(linPivo + 1));
 
         /* Se ponteiro para variavél de trocas não for nulo incrementa */
         if(trocas != NULL)
@@ -97,13 +95,16 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
         return NULL;
     }
 
+    /* Corrige o valor do determinante */
+    double correcao_fator = 1;
+
     /* Satisfeita as condições acima aplicamos o algoritmo */
     int i, j;
 
     /* Iremos percorrer os n-1 elementos da diagonal principal (obs.: a última sempre estara correta) */
     for(i = 0; i < (matriz->nLinhas - 1); i++){
         /* Realizamos o pivoteamento parcial */
-        if(!pivoteamentoParcial(matriz, (unsigned int)i, NULL)){
+        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)j, NULL)){
             printError("ERRO NO PIVOTEAMENTO PARCIAL NAO E POSSIVEL CONTINUAR!");
             return NULL;
         }
@@ -128,8 +129,17 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
 
         /* Para executar a operação primeiro verificamos se o pivo é não nulo */
         if(!doubleIgualZero(matriz->linhas[i][i])){
-            /* Reduz o valor da linha para que o pivo seja 1 */
+            /* Reduz o valor da linha para que o pivo seja 1 e seja positivo */
+            /* Obs.: Reduzir um fator implica em multiplicar por um numero que resulte em 1
+                     ou seja '(1 / valor_coluna) * linha' vai resultar em uma linha que
+                     contém o pivo com o valor 1, porém ao mesmo tempo, multiplicar a linha
+                     pelo mesmo sinal do valor da coluna implica em realizar a operação
+                     como uma potência par o que modifica o sinal dela para o positivo
+                     ou seja o fato de corrigir o valor do pivo transforma ele em um número
+                     positivo. */
             double fator_reducao = 1 / matriz->linhas[i][i];
+            correcao_fator *= matriz->linhas[i][i];
+
             if(!operacaoMultiplicaPorEscalar(matriz,
                                        (unsigned int)(i + 1),
                                         fator_reducao)){
@@ -148,6 +158,7 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
     if(!doubleIgualZero(matriz->linhas[ultima_linha][ultima_coluna])){
         /* Reduz o valor da linha para que o pivo seja 1 */
         double fator_reducao = 1 / matriz->linhas[ultima_linha][ultima_coluna];
+        correcao_fator *= matriz->linhas[ultima_linha][ultima_coluna];
         if(!operacaoMultiplicaPorEscalar(matriz,
                                    (unsigned int)(ultima_linha + 1),
                                     fator_reducao)){
@@ -157,7 +168,7 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
     }
 
     /* Terminado o algoritmo verificamos se o determinante da matriz é diferente de 0 */
-    double determinante = 1;
+    double determinante = correcao_fator;
     for(i = 0; i < matriz->nLinhas; i++){
         determinante *= matriz->linhas[i][i];
     }
@@ -224,13 +235,16 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
         return NULL;
     }
 
+    /* Corrige o valor do determinante */
+    double correcao_fator = 1;
+
     /* Satisfeita as condições acima aplicamos o algoritmo */
     int i, j;
 
     /* Iremos percorrer os n elementos da diagonal principal, limpando os valores acima e abaixo da coluna de cada pivot */
     for(i = 0; i < matriz->nLinhas; i++){
         /* Realizamos o pivoteamento parcial */
-        if(!pivoteamentoParcial(matriz, (unsigned int)i, NULL)){
+        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)j, NULL)){
             printError("ERRO NO PIVOTEAMENTO PARCIAL NAO E POSSIVEL CONTINUAR!");
             return NULL;
         }
@@ -257,8 +271,16 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
 
         /* Para executar a operação primeiro verificamos se o pivo é não nulo */
         if(!doubleIgualZero(matriz->linhas[i][i])){
-            /* Reduz o valor da linha para que o pivo seja 1 */
+            /* Reduz o valor da linha para que o pivo seja 1 e seja positivo */
+            /* Obs.: Reduzir um fator implica em multiplicar por um numero que resulte em 1
+                     ou seja '(1 / valor_coluna) * linha' vai resultar em uma linha que
+                     contém o pivo com o valor 1, porém ao mesmo tempo, multiplicar a linha
+                     pelo mesmo sinal do valor da coluna implica em realizar a operação
+                     como uma potência par o que modifica o sinal dela para o positivo
+                     ou seja o fato de corrigir o valor do pivo transforma ele em um número
+                     positivo. */
             double fator_reducao = 1 / matriz->linhas[i][i];
+            correcao_fator *= matriz->linhas[i][i];
             if(!operacaoMultiplicaPorEscalar(matriz,
                                        (unsigned int)(i + 1),
                                         fator_reducao)){
@@ -269,7 +291,7 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
     }
 
     /* Terminado o algoritmo verificamos se o determinante da matriz é diferente de 0 */
-    double determinante = 1;
+    double determinante = correcao_fator;
     for(i = 0; i < matriz->nLinhas; i++){
         determinante *= matriz->linhas[i][i];
     }
@@ -283,7 +305,7 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
     /* Se o determinante não é igual a zero temos resultado */
     int coluna_resultado = matriz->nColunas - 1;
 
-    /* Aplica a substituição regressiva, na forma de Jordan, todos os termos */
+    /* Aplica a substituição regressiva, na forma de Jordan, cada coluna de variavel tem apenas o resultado */
     for(i = 0; i < matriz->nLinhas; i++){
         vetor_resposta->coordenadas[i] = matriz->linhas[i][coluna_resultado];
     }
@@ -316,7 +338,7 @@ double operacaoDeterminanteMatriz(Matriz *matriz, bool *erro){
     /* Iremos percorrer os n-1 elementos da diagonal principal (obs.: a última sempre estara correta) */
     for(i = 0; i < (matriz->nLinhas - 1); i++){
         /* Realizamos o pivoteamento parcial */
-        if(!pivoteamentoParcial(matriz, (unsigned int)i, &nTrocas)){
+        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)j, &nTrocas)){
             printError("ERRO NO PIVOTEAMENTO PARCIAL NAO E POSSIVEL CONTINUAR!");
             (*erro) = true;
             return 0;
@@ -355,9 +377,196 @@ double operacaoDeterminanteMatriz(Matriz *matriz, bool *erro){
 }
 
 /* Encontra o Kernel de uma Matriz */
-Vetor* operacaoKernelMatriz(Matriz *matriz){
-    printWarning("TODO - NAO IMPLEMENTADO!");
-    return NULL;
+Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta){
+    /* Verifica se a matriz é válida */
+    if(matriz == NULL){
+        printError("MATRIZ INEXISTENTE! NAO E POSSIVEL EXECUTAR A OPERACAO!");
+        return NULL;
+    }
+
+    /* Verificamos se o ponteiro para o numero de vetores de resposta é válido */
+    if(numeroVetoresResposta != NULL){
+        printError("E PRECISO ESPECIFICAR UM PONTEIRO PARA INFORMAR O TAMANHO DA RESPOSTA!");
+    }
+
+    /* Iremos percorrer os n elementos da diagonal principal, limpando os valores acima e abaixo da coluna de cada pivot */
+    int i, j;
+    unsigned int colunaPivo;
+    for(i = 0, colunaPivo = 0; i < matriz->nLinhas; i++){
+        /* Tenta realizar o pivoteamento parcial em todas as colunas, até achar uma não nula */
+        do{
+            /* Realizamos o pivoteamento parcial para a coluna do pivo atual */
+            if(!pivoteamentoParcial(matriz, (unsigned int)i, colunaPivo, NULL)){
+                printError("ERRO NO PIVOTEAMENTO PARCIAL NAO E POSSIVEL CONTINUAR!");
+                return NULL;
+            }
+
+            /* Incrementa o tamanho da coluna do pivo */
+            colunaPivo++;
+        }while(doubleIgualZero(matriz->linhas[i][colunaPivo]) && (int)colunaPivo < matriz->nColunas);
+
+        /* Verifica se a coluna é nula se for nula paramos a execucao do for */
+        if((int)colunaPivo >= matriz->nColunas && doubleIgualZero(matriz->linhas[i][colunaPivo - 1]))
+            break;
+
+        /* Decrementa o tamanho do pivo */
+        colunaPivo--;
+
+        /* Percore todos os elementos excluindo o pivot executando a operacao Lj <- Lj - Lc * (Ajc/Aic)*/
+        for(j = 0; j < matriz->nLinhas; j++){
+            if(i != j){
+                /* Para executar a operação primeiro verificamos se o pivo e a linha é não nula */
+                if(!doubleIgualZero(matriz->linhas[i][colunaPivo]) && !doubleIgualZero(matriz->linhas[j][colunaPivo])){
+                    /* Obtem o fator que irá reduzir essa coluna */
+                    double fator = -(matriz->linhas[j][colunaPivo] / matriz->linhas[i][colunaPivo]);
+
+                    /* Executa a operação elementar */
+                    if(!operacaoSomaEntreLinhas(matriz,
+                                               (unsigned int)(j + 1),
+                                               (unsigned int)(i + 1),
+                                                fator)){
+                        printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+                        return NULL;
+                    }
+                }
+            }
+        }
+
+        /* Para executar a operação primeiro verificamos se o pivo é não nulo */
+        if(!doubleIgualZero(matriz->linhas[i][colunaPivo])){
+            /* Reduz o valor da linha para que o pivo seja 1 e seja positivo */
+            /* Obs.: Reduzir um fator implica em multiplicar por um numero que resulte em 1
+                     ou seja '(1 / valor_coluna) * linha' vai resultar em uma linha que
+                     contém o pivo com o valor 1, porém ao mesmo tempo, multiplicar a linha
+                     pelo mesmo sinal do valor da coluna implica em realizar a operação
+                     como uma potência par o que modifica o sinal dela para o positivo
+                     ou seja o fato de corrigir o valor do pivo transforma ele em um número
+                     positivo. */
+            double fator_reducao = 1 / matriz->linhas[i][colunaPivo];
+            if(!operacaoMultiplicaPorEscalar(matriz,
+                                       (unsigned int)(i + 1),
+                                        fator_reducao)){
+                printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+                return NULL;
+            }
+        }
+
+        /* Incrementa o valor do pivo para olhar a próxima coluna */
+        colunaPivo++;
+    }
+
+    /* Precisamos indicar quais linhas são variaveis livres da nossa matriz */
+    bool *variaveisLivres = malloc(sizeof(bool) * (unsigned int)matriz->nColunas);
+    memset(variaveisLivres, true, (unsigned int)matriz->nColunas);
+
+    /* Iremos varrer a matriz completa e parar assim que encontrar uma linha nula */
+    for(i = 0; i < matriz->nLinhas; i++){
+        /* Verifica se a linha é nula */
+        for(j = 0; j < matriz->nColunas; j++)
+            if(!doubleIgualZero(matriz->linhas[i][j]))
+                break;
+
+        /* Se encontramos uma linha nula inteira então as linhas restantes também são nulas */
+        if(j == matriz->nColunas)
+            break;
+
+        /* Se a linha é não nula então paramos no endereço da coluna */
+        variaveisLivres[j] = false;
+    }
+
+    /* Com a matriz finalizada agora iremos encontrar a nulidade da matriz na forma de Jordan
+       para isso precisamos verificar o nosso posto lembrando que o posto é o numero de linhas
+       não nulas da nossa matriz escalonada na forma de Jordan e a nulidade é o número de linhas
+       nulas ou seja sabendo o posto a nulidade é basicamente N(A) = nColunas - P(A) */
+    unsigned int posto = (unsigned int)i;
+    unsigned int nulidade = (unsigned int)matriz->nColunas - posto;
+
+    /* Com essas informações iremos criar uma matriz que irá conter os valores resultantes do kernel
+       Essa matriz tera o numero de colunas igual a nulidade e o número de linhas igual ao número de colunas */
+    Matriz *matriz_resposta = newMatriz(matriz->nColunas, (int)nulidade, MATRIZ_VAZIA, NULL);
+
+    /* Verifica se não houve problemas ao alocar essa matriz */
+    if(matriz_resposta == NULL){
+        printError("ERRO AO ALOCAR MATRIZ DE RESPOSTA!");
+        return NULL;
+    }
+
+    /* Para cada linha que for uma variavel livre iremos inserir 1 para a variavél e 0 para as outras colunas */
+    int colunaVariavelLivre = 0;
+    int linhaVariavelNaoLivre = 0;
+    for(i = 0; i < matriz_resposta->nLinhas; i++){
+        /* Se a variavel é livre seu valor é zero para todas colunas exceto a coluna desta */
+        if(variaveisLivres[i]){
+            for(j = 0; j < matriz_resposta->nColunas; j++)
+                if(j == colunaVariavelLivre)
+                    matriz_resposta->linhas[i][j] = 1;
+                else
+                    matriz_resposta->linhas[i][j] = 0;
+
+            /* Incrementa o contador da coluna da variavel livre */
+            colunaVariavelLivre++;
+        }
+        else {
+            /* Caso contrário iremos colocar o valor da linha negado com exceção da coluna usada */
+            for(j = 0; j < matriz->nColunas; j++)
+                if(variaveisLivres[j])
+                    matriz_resposta->linhas[i][j] = matriz->linhas[linhaVariavelNaoLivre][j];
+                else
+                    matriz_resposta->linhas[i][j] = 0;
+
+            /* Incrementa o contador da linha da variavel nao livre */
+            linhaVariavelNaoLivre++;
+        }
+    }
+
+#ifdef DEBUG
+    printInfo("MATRIZ RESPOSTA:");
+    imprimeMatriz(matriz_resposta);
+#endif
+
+    /* Apesar de básico a separação ajuda na criação dos vetores de resposta, o numero de vetores de resposta é
+     * do tamanho da nulidade com ponteiros para vetores especificos */
+    Vetor **vetores_resposta = malloc(sizeof (Vetor*) * nulidade);
+
+    /* Verifica se os vetores de resposta são válidos */
+    if(vetores_resposta == NULL){
+        printFatalError("ERRO AO ALOCAR VETOR DE RESPOSTA!");
+        exit(EXIT_FAILURE);
+    }
+
+    /* Cria um vetor temporário para novas variaveis */
+    double *vetor_tmp = malloc(sizeof(double) * (unsigned int)matriz_resposta->nLinhas);
+
+    /* ID do vetor */
+    char *idVariavelLivre = malloc(sizeof(char) * 5);
+    int numVariavelLivre = 0;
+
+    /* Aloca cada vetor resposta, tendo como resultado uma coluna da matriz de resposta */
+    for(i = 0; i < matriz_resposta->nColunas; i++){
+        /* Copia as linhas de cada coluna do vetor de resposta */
+        for(j = 0; j < matriz_resposta->nLinhas; j++){
+            vetor_tmp[j] = matriz_resposta->linhas[j][i];
+        }
+
+        /* Procura uma variavel livre */
+        while(numVariavelLivre < matriz_resposta->nLinhas && !variaveisLivres[numVariavelLivre]){
+            numVariavelLivre++;
+        }
+
+        /* Aloca um vetor de resposta com base nesses valores */
+        snprintf(idVariavelLivre, 5, "X%d", numVariavelLivre);
+        vetores_resposta[i] = newVetor(idVariavelLivre, (unsigned int)matriz_resposta->nLinhas, vetor_tmp);
+        numVariavelLivre++;
+    }
+
+    /* Desaloca variaveis temporarias */
+    ptrMatriz *ptr_matriz_resposta = &matriz_resposta;
+    deleteMatriz(ptr_matriz_resposta);
+    free(vetor_tmp);
+    free(idVariavelLivre);
+    free(variaveisLivres);
+
+    return vetores_resposta;
 }
 
 /* Encontra uma base para a matriz */
