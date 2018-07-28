@@ -3,14 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-/**
- *
- * Troca os valores entre as celulas de uma matriz
- *
- * @brief swapMatrizCelula Troca os valores entre celulas de uma matriz
- * @param a Primeiro valor
- * @param b Segundo valor
- */
+/* Troca os valores entre celulas da matriz */
 void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b){
     MatrizCelula aux = (*a);
 
@@ -19,16 +12,8 @@ void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b){
     (*b) = aux;
 }
 
-/**
- *
- * Imprime um número com um número fixado de digitos, ou seja imprime um numero
- * para colunas de tamanho fixado.
- *
- * @brief imprimeColunaFixa Imprime um numero com uma quantidade especifica de digitos
- * @param buf Buffer para armazenar a string do numero
- * @param num Numero a ser impresso
- * @param tamColuna Tamanho da coluna do número em questão
- */
+
+/* Imprime numeros com tamanho fixo de digitos */
 void imprimeColunaFixa(char *buf, MatrizCelula num, int tamColuna){
 
     /* Copia o numero para o buffer */

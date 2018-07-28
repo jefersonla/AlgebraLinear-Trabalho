@@ -10,16 +10,7 @@
 
 /*------------ Matriz Structure Methods ------------ */
 
-/**
- *
- * Cria uma nova matriz A(n x m) (n - linhas por m - colunas)
- *
- * @param linhas Número de linhas
- * @param colunas Número de colunas
- * @param tipoValor Tipo do valor
- * @param valores Valores constantes ou nulos para serem assignados a matriz
- * @return Retorna uma nova matriz alocada
- */
+/* Cria uma nova matriz */
 Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[]){
     int i, j;
 
@@ -139,12 +130,7 @@ Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[
 	return _new_matriz;
 }
 
-/**
- * Desaloca uma matriz
- *
- * @param matriz Ponteiro da matriz a ser desalocada
- * @return true se matriz foi desalocada e falso caso contrário
- */
+/* Desaloca uma matriz */
 bool deleteMatriz(ptrMatriz *matriz){
 	/* Checa se a matriz existe */
 	if(matriz == NULL){
@@ -175,15 +161,7 @@ bool deleteMatriz(ptrMatriz *matriz){
 	return true;
 }
 
-/**
- *
- * Clona uma matriz. Retorna um ponteiro para uma nova matriz que representa
- * uma cópia exata da matriz passada por parametro.
- *
- * @brief cloneMatriz Clona uma matriz
- * @param matriz Matriz a ser clonada
- * @return Retorna o ponteiro para o clone da matriz
- */
+/* Clona uma matriz */
 Matriz* cloneMatriz(Matriz* matriz){
     /* Verifica se a matriz é válida */
     if(matriz == NULL){
@@ -206,14 +184,7 @@ Matriz* cloneMatriz(Matriz* matriz){
     return _cloned_matriz;
 }
 
-/**
- *
- * Imprime a matriz com as colunas com tamanho fixo e formatado, a precisão
- * dos números é impressa com 2 digitos de precisão.
- *
- * @brief imprimeMatriz Imprime a matriz formatada
- * @param matriz Matriz a ser impressa
- */
+/* Exibe a matriz formatada */
 void imprimeMatriz(Matriz* matriz){
     /* Checa se a matriz é válida */
     if(matriz == NULL){
@@ -248,15 +219,7 @@ void imprimeMatriz(Matriz* matriz){
     free(buf);
 }
 
-/**
- *
- * Atualiza maior valor da lista. Essa informação é importante ao exibir
- * os valores da lista visto que sabendo o maior valor é possível imprimir
- * a lista de valores adequadamente.
- *
- * @brief atualizaMaiorValorMatriz Atualiza o maior valor da lista
- * @param matriz Matriz cujo maior valor irá ser atualizado
- */
+/* Atualiza maior valor */
 void atualizaMaiorValorMatriz(Matriz* matriz){
     int i, j;
 

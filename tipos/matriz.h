@@ -52,19 +52,56 @@ typedef struct strMatriz{
 
 /* ------------------ Matriz Structure Methods ----------------- */
 
-/* Cria uma nova matriz */
+/**
+ *
+ * Cria uma nova matriz A(n x m) (n - linhas por m - colunas)
+ *
+ * @param linhas Número de linhas
+ * @param colunas Número de colunas
+ * @param tipoValor Tipo do valor
+ * @param valores Valores constantes ou nulos para serem assignados a matriz
+ * @return Retorna uma nova matriz alocada
+ */
 Matriz* newMatriz(int linhas, int colunas, int tipoValor, MatrizCelula* valores[]);
 
-/* Desaloca uma matriz */
+/**
+ * Desaloca uma matriz
+ *
+ * @param matriz Ponteiro da matriz a ser desalocada
+ * @return true se matriz foi desalocada e falso caso contrário
+ */
 bool deleteMatriz(ptrMatriz *matriz);
 
-/* Clona uma matriz */
+/**
+ *
+ * Clona uma matriz. Retorna um ponteiro para uma nova matriz que representa
+ * uma cópia exata da matriz passada por parametro.
+ *
+ * @brief cloneMatriz Clona uma matriz
+ * @param matriz Matriz a ser clonada
+ * @return Retorna o ponteiro para o clone da matriz
+ */
 Matriz* cloneMatriz(Matriz* matriz);
 
-/* Atualiza maior valor */
+/**
+ *
+ * Atualiza maior valor da lista. Essa informação é importante ao exibir
+ * os valores da lista visto que sabendo o maior valor é possível imprimir
+ * a lista de valores adequadamente.
+ *
+ * @brief atualizaMaiorValorMatriz Atualiza o maior valor da lista
+ * @param matriz Matriz cujo maior valor irá ser atualizado
+ */
 void atualizaMaiorValorMatriz(Matriz* matriz);
 
-/* Exibe a matriz formatada */
+/**
+ *
+ * Imprime a matriz com as colunas com tamanho fixo e formatado, a precisão
+ * dos números é impressa com 2 digitos de precisão.
+ *
+ * @brief imprimeMatriz Imprime a matriz formatada
+ * @param matriz Matriz a ser impressa
+ */
 void imprimeMatriz(Matriz* matriz);
 
 /* ------------------------------------------------------------- */

@@ -7,14 +7,7 @@
 
 /*------------ Lista Structure Methods ------------ */
 
-/**
- *
- * Cria uma lista de matrizes, que pode conter a história de modificações
- * ou servir de variavel.
- *
- * @brief newLista Cria uma nova lista
- * @return Retorna uma nova lista alocada
- */
+/* Cria uma nova matriz */
 Lista* newLista(void){
     Lista *_new_lista;
 
@@ -58,18 +51,7 @@ bool removeNoListaRecursivo(NoLista *noLista){
     return deleteNoLista(_noLista);
 }
 
-/**
- *
- * Deleta uma lista duplamente encadeada. As matrizes associadas a esta lista
- * só serão deletadas se forem cópias ou seja se forem listas que estão
- * armazenando um estado anterior de uma matriz ou uma lista de variaveis
- * utilizadas pelo sistema, caso a lista não seja uma cópia, ela não será
- * modificada pois pode estar sendo usada por outra instância.
- *
- * @brief deleteLista Deleta uma lista
- * @param lista Lista a ser removida
- * @return True se não houve erros ao remover a lista e falso caso contrário
- */
+/* Desaloca uma matriz */
 bool deleteLista(ptrLista *lista){
     /* Checa se o ponteiro para a lista existe */
     if(lista == NULL){
@@ -114,17 +96,7 @@ NoLista* buscaNoListaRecursivo(NoLista *noLista, int idItem){
     return buscaNoListaRecursivo(noLista->prox, idItem);
 }
 
-/**
- *
- * Procura um item na lista, dado seu indice. A lista pode conter infinitos
- * indices, porém estes não podem ser repetidos, indicando um erro na hora
- * da inserção.
- *
- * @brief buscaNoLista Busca um nó na lista, pelo seu ID
- * @param lista Lista a procurar item
- * @param idItem Indíce do item a ser procurado
- * @return Retorna o ponteiro para Matriz, ou nullo caso não exista
- */
+/* Pega item da matriz */
 NoLista* buscaNoLista(Lista *lista, int idItem){
     /* Checa se a lista existe */
     if(lista == NULL){
@@ -147,19 +119,7 @@ NoLista* buscaNoLista(Lista *lista, int idItem){
     return buscaNoListaRecursivo(lista->filho, idItem);
 }
 
-/**
- *
- * Adiciona um novo nó a lista, o nó precisa ter um id único para poder ser adicionado
- * caso não queira ser utilizado um indíce, pode ser utilizado um indice aleatório
- * utilizando a flag INDICE_ALEATORIO.
- *
- * @brief adicionaNoLista Adiciona nova lista
- * @param lista Lista a ser adicionado item
- * @param idItem Indice para adição, passar (INDICE_ALEATORIO), para evitar item
- * @param matriz Matriz a ser adicionada a lista
- * @param copiaItem Indica se a matriz será copiada, ou apenas referenciada
- * @return Retorna sobre a execução da adição do item, true caso tudo ocorreu bem, falso caso contrário
- */
+/* Adiciona item a lista */
 bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
     /* Checa se a lista é válida */
     if(lista == NULL){
@@ -226,15 +186,7 @@ bool adicionaNoLista(Lista *lista, int idItem, Matriz *matriz, bool copiaItem){
     return true;
 }
 
-/**
- *
- * Remove um item da lista, dado seu indíce.
- *
- * @brief removeNoLista Remove um item da lista
- * @param lista Lista a qual o item deve ser removido
- * @param idItem Indice do item a ser removido
- * @return True se foi possível remover o item ou falso caso contrário
- */
+/* Remove item da matriz */
 bool removeNoLista(Lista *lista, int idItem){
     /* Checa se a lista é válida */
     if(lista == NULL){
@@ -277,14 +229,7 @@ void exibeNoRecursivo(NoLista *noLista){
     }
 }
 
-/**
- *
- * Exibe todas as matrizes de uma lista.
- *
- * @brief exibeTodasMatrizesLista Exibe todas as matrizes de uma lista
- * @param lista Lista a serem exibidas todas as matrizes
- * @return Retorna true se foi possível exibir as listas, e falso em caso de erro
- */
+/* Exibe todas as matrizes de uma lista */
 void exibeTodasMatrizesLista(Lista *lista){
     /* Lista inválida */
     if(lista == NULL){
@@ -296,17 +241,7 @@ void exibeTodasMatrizesLista(Lista *lista){
     exibeNoRecursivo(lista->filho);
 }
 
-/**
- *
- * Cria um nó para uma lista de nós. Este nó contém uma matriz que pode ser
- * passado por cópia ou referência.
- *
- * @brief newNoLista Cria um novo nó para uma lista de nós
- * @param idItem Índice do item para a lista de nós
- * @param matriz Matriz com o conteudo do nó
- * @param copiaItem Indica se deverá ser copiado o item da matriz passado por parametro
- * @return Retorna o ponteiro de um novo nó da lista
- */
+/* Cria um novo nó para lista */
 NoLista* newNoLista(int idItem, Matriz *matriz, bool copiaItem){
     /* Checa se o indice é válido */
     if(idItem < 0){
@@ -347,16 +282,7 @@ NoLista* newNoLista(int idItem, Matriz *matriz, bool copiaItem){
     return _new_no_lista;
 }
 
-/**
- *
- * Deleta um item da lista, se a matriz contida neste item da lista
- * for uma cópia deleta esse item também, porém caso seja uma referência
- * o item não será removido.
- *
- * @brief deleteNoLista Deleta um nó da lista
- * @param noLista Nó da lista a ser removido
- * @return Retorno da execução da remoção, true se removido e false caso contrário
- */
+/* Desaloca um item da tabela */
 bool deleteNoLista(ptrNoLista *noLista){
     /* Checa se o ponteiro para o nó existe */
     if(noLista == NULL){
@@ -406,15 +332,7 @@ bool deleteNoLista(ptrNoLista *noLista){
     return true;
 }
 
-/**
- *
- * Exibe a matriz de um nó da lista. A matriz será formatada para ser exibida
- * corretamente no terminal do computador. Em caso de matrizes com muitas colunas
- * ou valores de celulas com muitos digitos erros de exibição podem ocorrer.
- *
- * @brief exibeNoLista Exibe a matriz de um nó da lista
- * @param noLista No da lista cuja matriz sera exibido
- */
+/* Exibe no da lista */
 void exibeNoLista(NoLista *noLista){
     /* Nó da lista inválido ou inexistente */
     if(noLista == NULL){

@@ -32,10 +32,28 @@ typedef struct strVetor{
 
 /* ------------------ Vetor Structure Methods ------------------ */
 
-/* Cria um novo vetor */
+/**
+ *
+ * Cria um novo vetor. Não confundir com arrays ou vectors de outras linguagens
+ * os vetores aqui indicados são os vetores utilizados na fisica, matemática,
+ * algébra e afins, ele consiste de uma sequência de valores ou coordenadas,
+ * para este programa os valores de um vetor são chamados de coordenadas.
+ *
+ * @brief newVetor Cria um novo vetor
+ * @param dimensao Dimensao do vetor
+ * @param valores Valores do vetor
+ * @return Ponteiro para o novo vetor
+ */
 Vetor* newVetor(char *idVetor, unsigned int dimensao, double valores[]);
 
-/* Desaloca um vetor */
+/**
+ *
+ * Deleta um vetor qualquer.
+ *
+ * @brief deleteVetor Deleta um vetor
+ * @param vetor Ponteiro do vetor a ser removido
+ * @return true se foi possível deletar o vetor, e falso caso contrário
+ */
 bool deleteVetor(ptrVetor *vetor);
 
 /* Clona um vetor */

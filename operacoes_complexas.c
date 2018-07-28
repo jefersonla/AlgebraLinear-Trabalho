@@ -139,6 +139,23 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
         }
     }
 
+    /* Ultimas posições do vetor */
+    int ultima_linha = matriz->nLinhas - 1;
+    int ultima_coluna = ultima_linha;
+    int coluna_resultado = matriz->nColunas - 1;
+
+    /* Para executar a operação primeiro verificamos se o pivo é não nulo */
+    if(!doubleIgualZero(matriz->linhas[ultima_linha][ultima_coluna])){
+        /* Reduz o valor da linha para que o pivo seja 1 */
+        double fator_reducao = 1 / matriz->linhas[ultima_linha][ultima_coluna];
+        if(!operacaoMultiplicaPorEscalar(matriz,
+                                   (unsigned int)(ultima_linha + 1),
+                                    fator_reducao)){
+            printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+            return NULL;
+        }
+    }
+
     /* Terminado o algoritmo verificamos se o determinante da matriz é diferente de 0 */
     double determinante = 1;
     for(i = 0; i < matriz->nLinhas; i++){
@@ -151,13 +168,8 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
         return NULL;
     }
 
-    /* Se o determinante não é igual a zero temos resultado */
-    int ultima_linha = matriz->nLinhas - 1;
-    int ultima_coluna = ultima_linha;
-    int coluna_resultado = matriz->nColunas - 1;
-
     /* Verifica o resultado da ultima variavel */
-    double ultima_variavel = (matriz->linhas[ultima_linha][ultima_coluna] / matriz->linhas[ultima_linha][coluna_resultado]);
+    double ultima_variavel = matriz->linhas[ultima_linha][coluna_resultado];
 
     /* Salva este valor no vetor de resultado */
     vetor_resposta->coordenadas[ultima_coluna] = ultima_variavel;
@@ -167,7 +179,7 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
         double soma_sistema = matriz->linhas[i][coluna_resultado];
         for(j = i + 1; j < matriz->nLinhas; j++)
             soma_sistema -= (vetor_resposta->coordenadas[j] * matriz->linhas[i][j]);
-        vetor_resposta->coordenadas[i] = soma_sistema / matriz->linhas[i][i];
+        vetor_resposta->coordenadas[i] = soma_sistema;
     }
 
     return vetor_resposta;
@@ -269,22 +281,11 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
     }
 
     /* Se o determinante não é igual a zero temos resultado */
-    int ultima_linha = matriz->nLinhas - 1;
-    int ultima_coluna = ultima_linha;
     int coluna_resultado = matriz->nColunas - 1;
 
-    /* Verifica o resultado da ultima variavel */
-    double ultima_variavel = matriz->linhas[ultima_linha][coluna_resultado];
-
-    /* Salva este valor no vetor de resultado */
-    vetor_resposta->coordenadas[ultima_coluna] = ultima_variavel;
-
-    /* Aplica a substituição regressiva */
-    for(i = (ultima_linha - 1); i >= 0; i--){
-        double soma_sistema = matriz->linhas[i][coluna_resultado];
-        for(j = i + 1; j < matriz->nLinhas; j++)
-            soma_sistema -= (vetor_resposta->coordenadas[j] * matriz->linhas[i][j]);
-        vetor_resposta->coordenadas[i] = soma_sistema / matriz->linhas[i][i];
+    /* Aplica a substituição regressiva, na forma de Jordan, todos os termos */
+    for(i = 0; i < matriz->nLinhas; i++){
+        vetor_resposta->coordenadas[i] = matriz->linhas[i][coluna_resultado];
     }
 
     return vetor_resposta;

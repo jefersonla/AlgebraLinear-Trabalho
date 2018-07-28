@@ -49,10 +49,26 @@ typedef signed char byte;
 /* Verifica se o double é nulo */
 #define doubleIgualZero(NUM)                (fabs(NUM) <= 10e-7)
 
-/* Troca os valores entre celulas da matriz */
+/**
+ *
+ * Troca os valores entre as celulas de uma matriz
+ *
+ * @brief swapMatrizCelula Troca os valores entre celulas de uma matriz
+ * @param a Primeiro valor
+ * @param b Segundo valor
+ */
 void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b);
 
-/* Imprime numeros com tamanho fixo de digitos */
+/**
+ *
+ * Imprime um número com um número fixado de digitos, ou seja imprime um numero
+ * para colunas de tamanho fixado.
+ *
+ * @brief imprimeColunaFixa Imprime um numero com uma quantidade especifica de digitos
+ * @param buf Buffer para armazenar a string do numero
+ * @param num Numero a ser impresso
+ * @param tamColuna Tamanho da coluna do número em questão
+ */
 void imprimeColunaFixa(char *buf, MatrizCelula a, int tamColuna);
 
 #endif
