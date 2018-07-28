@@ -125,6 +125,18 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
                 }
             }
         }
+
+        /* Para executar a operação primeiro verificamos se o pivo é não nulo */
+        if(!doubleIgualZero(matriz->linhas[i][i])){
+            /* Reduz o valor da linha para que o pivo seja 1 */
+            double fator_reducao = 1 / matriz->linhas[i][i];
+            if(!operacaoMultiplicaPorEscalar(matriz,
+                                       (unsigned int)(i + 1),
+                                        fator_reducao)){
+                printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+                return NULL;
+            }
+        }
     }
 
     /* Terminado o algoritmo verificamos se o determinante da matriz é diferente de 0 */
@@ -230,6 +242,18 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
                 }
             }
         }
+
+        /* Para executar a operação primeiro verificamos se o pivo é não nulo */
+        if(!doubleIgualZero(matriz->linhas[i][i])){
+            /* Reduz o valor da linha para que o pivo seja 1 */
+            double fator_reducao = 1 / matriz->linhas[i][i];
+            if(!operacaoMultiplicaPorEscalar(matriz,
+                                       (unsigned int)(i + 1),
+                                        fator_reducao)){
+                printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+                return NULL;
+            }
+        }
     }
 
     /* Terminado o algoritmo verificamos se o determinante da matriz é diferente de 0 */
@@ -250,7 +274,7 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
     int coluna_resultado = matriz->nColunas - 1;
 
     /* Verifica o resultado da ultima variavel */
-    double ultima_variavel = (matriz->linhas[ultima_linha][ultima_coluna] / matriz->linhas[ultima_linha][coluna_resultado]);
+    double ultima_variavel = matriz->linhas[ultima_linha][coluna_resultado];
 
     /* Salva este valor no vetor de resultado */
     vetor_resposta->coordenadas[ultima_coluna] = ultima_variavel;
@@ -299,17 +323,20 @@ double operacaoDeterminanteMatriz(Matriz *matriz, bool *erro){
 
         /* Percore todos os elementos abaixo do pivot executando a operacao Lj <- Lj - Li * (Aji/Aii)*/
         for(j = i + 1; j < matriz->nLinhas; j++){
-            /* Obtem o fator que irá reduzir essa coluna */
-            double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
+            /* Para executar a operação primeiro verificamos se o pivo é não nulo */
+            if(!doubleIgualZero(matriz->linhas[i][i])){
+                /* Obtem o fator que irá reduzir essa coluna */
+                double fator = -(matriz->linhas[j][i] / matriz->linhas[i][i]);
 
-            /* Executa a operação elementar */
-            if(!operacaoSomaEntreLinhas(matriz,
-                                       (unsigned int)(j + 1),
-                                       (unsigned int)(i + 1),
-                                        fator)){
-                printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
-                (*erro) = true;
-                return 0;
+                /* Executa a operação elementar */
+                if(!operacaoSomaEntreLinhas(matriz,
+                                           (unsigned int)(j + 1),
+                                           (unsigned int)(i + 1),
+                                            fator)){
+                    printError("ERRO AO EXECUTAR OPERACAO ELEMENTAR SOBRE A LINHA!");
+                    (*erro) = true;
+                    return 0;
+                }
             }
         }
     }

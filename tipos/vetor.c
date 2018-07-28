@@ -247,7 +247,7 @@ void imprimeVetor(Vetor *vetor){
     int i;
     printf("%s = (", vetor->idVetor);
     for(i = 0; i < (int)(vetor->dimensao - 1); i++){
-        printf("%lf, ", vetor->coordenadas[i]);
+        printf("%.2lf, ", vetor->coordenadas[i]);
     }
-    printf("%lf)", vetor->coordenadas[vetor->dimensao - 1]);
+    printf("%.2lf)", vetor->coordenadas[vetor->dimensao - 1]);
 }

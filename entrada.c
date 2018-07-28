@@ -198,6 +198,7 @@ void deletarMatriz(Lista *listaMatrizes){
 void clonarMatriz(Lista *listaMatrizes){
     NoLista *noMatriz;
     unsigned int idMatriz;
+    unsigned int nCopias;
 
     /* Checa se a lista de matrizes é válida */
     if(listaMatrizes == NULL){
@@ -220,8 +221,15 @@ void clonarMatriz(Lista *listaMatrizes){
         return;
     }
 
+    /* Copia a tabela várias vezes */
+    printf("Insira o numero de copias => ");
+    scanf("%u", &nCopias);
+    quebraLinha();
+
     /* Clona a matriz */
-    adicionaNoLista(listaMatrizes,INDICE_ALEATORIO, noMatriz->conteudo, true);
+    int i;
+    for(i = 0; i < (int)nCopias; i++)
+        adicionaNoLista(listaMatrizes, INDICE_ALEATORIO, noMatriz->conteudo, true);
 }
 
 /* Executa a operação de soma entre matrizes */
@@ -902,7 +910,7 @@ void metodoGaussJordanMatriz(Lista *listaMatrizes){
     }
 
     /* Divisão entre o resultado */
-    printf("Matriz na forma de Gauss\n");
+    printf("Matriz na forma de Gauss Jordan\n");
     quebraLinha();
 
     /* Imprime a matriz após as operações*/
