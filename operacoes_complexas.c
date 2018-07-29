@@ -104,7 +104,7 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
     /* Iremos percorrer os n-1 elementos da diagonal principal (obs.: a última sempre estara correta) */
     for(i = 0; i < (matriz->nLinhas - 1); i++){
         /* Realizamos o pivoteamento parcial */
-        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)j, NULL)){
+        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)i, NULL)){
             printError("ERRO NO PIVOTEAMENTO PARCIAL NAO E POSSIVEL CONTINUAR!");
             return NULL;
         }
@@ -244,7 +244,7 @@ Vetor* operacaoGausJordanMatriz(Matriz *matriz){
     /* Iremos percorrer os n elementos da diagonal principal, limpando os valores acima e abaixo da coluna de cada pivot */
     for(i = 0; i < matriz->nLinhas; i++){
         /* Realizamos o pivoteamento parcial */
-        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)j, NULL)){
+        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)i, NULL)){
             printError("ERRO NO PIVOTEAMENTO PARCIAL NAO E POSSIVEL CONTINUAR!");
             return NULL;
         }
@@ -338,7 +338,7 @@ double operacaoDeterminanteMatriz(Matriz *matriz, bool *erro){
     /* Iremos percorrer os n-1 elementos da diagonal principal (obs.: a última sempre estara correta) */
     for(i = 0; i < (matriz->nLinhas - 1); i++){
         /* Realizamos o pivoteamento parcial */
-        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)j, &nTrocas)){
+        if(!pivoteamentoParcial(matriz, (unsigned int)i, (unsigned int)i, &nTrocas)){
             printError("ERRO NO PIVOTEAMENTO PARCIAL NAO E POSSIVEL CONTINUAR!");
             (*erro) = true;
             return 0;
@@ -537,14 +537,9 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
         exit(EXIT_FAILURE);
     }
 
-    /* Cria um vetor temporário para novas variaveis */
-    double *vetor_tmp = malloc(sizeof(double) * (size_t)matriz_resposta->nLinhas);
-
-    /* Verifica se o vetor temporario foi bem alocado */
-    if(vetor_tmp == NULL){
-        printFatalError("ERRO AO ALOCAR VETOR TEMPORARIO!");
-        exit(EXIT_FAILURE);
-    }
+    /* Por via das dúvidas inicializa o vetor com NULL */
+    for(i = 0; i < (int)nulidade; i++)
+        vetores_resposta[i] = NULL;
 
     /* ID do vetor */
     char *idVariavelLivre = malloc(sizeof(char) * 5);
@@ -552,9 +547,6 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
 
     /* Aloca cada vetor resposta, tendo como resultado uma coluna da matriz de resposta */
     for(i = 0; i < matriz_resposta->nColunas; i++){
-        /* Copia as linhas de cada coluna do vetor de resposta */
-        for(j = 0; j < matriz_resposta->nLinhas; j++)
-            vetor_tmp[j] = matriz_resposta->linhas[j][i];
 
         /* Procura uma variavel livre */
         while(numVariavelLivre < matriz_resposta->nLinhas && !variaveisLivres[numVariavelLivre])
@@ -562,7 +554,19 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
 
         /* Aloca um vetor de resposta com base nesses valores */
         snprintf(idVariavelLivre, 5, "X%d", (numVariavelLivre + 1));
-        vetores_resposta[i] = newVetor(idVariavelLivre, (unsigned int)matriz_resposta->nLinhas, vetor_tmp);
+        vetores_resposta[i] = newVetor(idVariavelLivre, (unsigned int)matriz_resposta->nLinhas, NULL);
+
+        /* Checa o vetor de resposta alocado */
+        if(vetores_resposta[i] == NULL){
+            printError("ERRO NA ALOCACAO DE VETOR DE RESPOSTA!");
+            return NULL;
+        }
+
+        /* Copia as linhas de cada coluna do vetor de resposta */
+        for(j = 0; j < matriz_resposta->nLinhas; j++)
+            vetores_resposta[i]->coordenadas[j] = matriz_resposta->linhas[j][i];
+
+        /* Incrementa variavel livre para próxima coluna */
         numVariavelLivre++;
     }
 
@@ -572,7 +576,6 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
     /* Desaloca variaveis temporarias */
     ptrMatriz *ptr_matriz_resposta = &matriz_resposta;
     deleteMatriz(ptr_matriz_resposta);
-    free(vetor_tmp);
     free(idVariavelLivre);
     free(variaveisLivres);
 
