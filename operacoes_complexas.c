@@ -394,6 +394,9 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
     int i, j;
     unsigned int colunaPivo;
     for(i = 0, colunaPivo = 0; i < matriz->nLinhas; i++){
+
+        printf("%d COLUNA INICIO \n", colunaPivo);
+
         /* Tenta realizar o pivoteamento parcial em todas as colunas, até achar uma não nula */
         do{
             /* Realizamos o pivoteamento parcial para a coluna do pivo atual */
@@ -404,7 +407,8 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
 
             /* Incrementa o tamanho da coluna do pivo */
             colunaPivo++;
-        }while(doubleIgualZero(matriz->linhas[i][colunaPivo]) && (int)colunaPivo < matriz->nColunas);
+            printf("%d OXE \n", colunaPivo);
+        }while(doubleIgualZero(matriz->linhas[i][colunaPivo - 1]) && (int)colunaPivo < matriz->nColunas);
 
         /* Verifica se a coluna é nula se for nula paramos a execucao do for */
         if((int)colunaPivo >= matriz->nColunas && doubleIgualZero(matriz->linhas[i][colunaPivo - 1]))
@@ -412,6 +416,8 @@ Vetor** operacaoKernelMatriz(Matriz *matriz, unsigned int *numeroVetoresResposta
 
         /* Decrementa o tamanho do pivo */
         colunaPivo--;
+
+        printf("%d COLUNA PIVO \n", colunaPivo);
 
         /* Percore todos os elementos excluindo o pivot executando a operacao Lj <- Lj - Lc * (Ajc/Aic)*/
         for(j = 0; j < matriz->nLinhas; j++){
