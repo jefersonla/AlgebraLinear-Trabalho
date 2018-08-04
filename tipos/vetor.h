@@ -1,6 +1,16 @@
 #ifndef VETOR_H
 #define VETOR_H
 
+/**
+ * @file vetor.h
+ * @author Alana Bispo e Jeferson Lima
+ * @date 27 Jul 2018
+ * @brief Estruta de Vetores, util para matemática e fisica.
+ *
+ * TODO!!!
+ *
+ */
+
 #include <stdbool.h>
 
 /* ------------------------------------------------------------- */

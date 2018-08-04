@@ -1,6 +1,16 @@
 #ifndef LISTA_H
 #define LISTA_H
 
+/**
+ * @file lista.h
+ * @author Alana Bispo e Jeferson Lima
+ * @date 27 Jul 2018
+ * @brief Estrutura Lista, util para computação.
+ *
+ * TODO!!!
+ *
+ */
+
 #include "matriz.h"
 #include <stdbool.h>
 

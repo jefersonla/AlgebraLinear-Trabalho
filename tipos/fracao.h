@@ -1,6 +1,16 @@
 #ifndef FRACAO_H
 #define FRACAO_H
 
+/**
+ * @file fracao.h
+ * @author Alana Bispo e Jeferson Lima
+ * @date 27 Jul 2018
+ * @brief Estrutura Fracao, util para matemática.
+ *
+ * TODO!!!
+ *
+ */
+
 #include <stdbool.h>
 #include "../utils/utils.h"
 

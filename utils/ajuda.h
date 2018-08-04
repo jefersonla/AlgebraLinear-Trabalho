@@ -1,6 +1,16 @@
 #ifndef AJUDA_H
 #define AJUDA_H
 
+/**
+ * @file ajuda.h
+ * @author Alana Bispo e Jeferson Lima
+ * @date 27 Jul 2018
+ * @brief Oferece metodos para ajuda nas classes.
+ *
+ * TODO!!!
+ *
+ */
+
 /* ------------------------------------------------------------- */
 /*                       Constantes  Ajuda                       */
 /* ------------------------------------------------------------- */

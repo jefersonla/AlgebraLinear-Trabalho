@@ -1,6 +1,16 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
 
+/**
+ * @file matriz.h
+ * @author Alana Bispo e Jeferson Lima
+ * @date 27 Jul 2018
+ * @brief Estrutura Matriz, util para algebra e matemática.
+ *
+ * TODO!!!
+ *
+ */
+
 #include <stdbool.h>
 
 /* ------------------------------------------------------------- */
