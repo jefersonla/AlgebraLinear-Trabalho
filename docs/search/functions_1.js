@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['deletarmatriz',['deletarMatriz',['../entrada_8h.html#a1fd339c5f834439907f938ad1d239d8e',1,'entrada.c']]]
+  ['buscanolista',['buscaNoLista',['../lista_8h.html#a9a1427ad7db9bf527c56106a56d4fec0',1,'lista.c']]]
 ];

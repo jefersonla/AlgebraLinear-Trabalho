@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho AlgebraLinear: Referência ao ficheiro tipos/matriz.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho AlgebraLinear
+   &#160;<span id="projectnumber">0.7</span>
+   </div>
+   <div id="projectbrief">TrabalhodeAlgebraLinear</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f4ce1884c8e0f9e11adc99eddbcc94ed.html">tipos</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estruturas de Dados</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Definições de tipos</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro matriz.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estrutura Matriz, util para algebra e matemática.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+</div>
+<p><a href="matriz_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estruturas de Dados</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstr_matriz.html">strMatriz</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matriz n x m.  <a href="structstr_matriz.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a5750d1a7de02ef6ae992128c41ace345"><td class="memItemLeft" align="right" valign="top"><a id="a5750d1a7de02ef6ae992128c41ace345"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MATRIZ_VAZIA</b>&#160;&#160;&#160;0 /** &lt; Define uma matriz vazia, ou seja com 0 em todos os valores */</td></tr>
+<tr class="separator:a5750d1a7de02ef6ae992128c41ace345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a04cd1c0fb906ad819cc41467bb64cc"><td class="memItemLeft" align="right" valign="top"><a id="a5a04cd1c0fb906ad819cc41467bb64cc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MATRIZ_CONSTANTE</b>&#160;&#160;&#160;1 /** &lt; Define uma matriz constante que terá o valor recebido pela função */</td></tr>
+<tr class="separator:a5a04cd1c0fb906ad819cc41467bb64cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a73815fb3879480516721a9e37357d6"><td class="memItemLeft" align="right" valign="top"><a id="a7a73815fb3879480516721a9e37357d6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MATRIZ_IDENTIDADE</b>&#160;&#160;&#160;2 /** &lt; Define a matriz identidade aonde na diagonal principal teremos valor 1 */</td></tr>
+<tr class="separator:a7a73815fb3879480516721a9e37357d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ab39397897f2561ff0f187ce587f0d"><td class="memItemLeft" align="right" valign="top"><a id="ac7ab39397897f2561ff0f187ce587f0d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MATRIZ_VALORES</b>&#160;&#160;&#160;3 /** &lt; Define uma matriz que sera inicializada pelos valores passados por parametro */</td></tr>
+<tr class="separator:ac7ab39397897f2561ff0f187ce587f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9126456d4e24ea4f029646bdbea5ee64"><td class="memItemLeft" align="right" valign="top"><a id="a9126456d4e24ea4f029646bdbea5ee64"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MATRIZ_TIPO_MIN</b>&#160;&#160;&#160;0 /** &lt; Tipo de matriz minimo é a matriz vazia logo 0 */</td></tr>
+<tr class="separator:a9126456d4e24ea4f029646bdbea5ee64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8dd28b361ee61dcc42c357a68dc7389"><td class="memItemLeft" align="right" valign="top"><a id="aa8dd28b361ee61dcc42c357a68dc7389"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MATRIZ_TIPO_MAX</b>&#160;&#160;&#160;3 /** &lt; Tipo máximo da matriz é a matriz valores logo 3 */</td></tr>
+<tr class="separator:aa8dd28b361ee61dcc42c357a68dc7389"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94e419fdb36d5873595952a905b1acd9"><td class="memItemLeft" align="right" valign="top"><a id="a94e419fdb36d5873595952a905b1acd9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TAM_ESPACADOR</b>&#160;&#160;&#160;3 /** &lt; Tamanho do espaço entre as colunas na impressão de colunas */</td></tr>
+<tr class="separator:a94e419fdb36d5873595952a905b1acd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adee8d9bb361d21b09493745b2d2fa9d7"><td class="memItemLeft" align="right" valign="top"><a id="adee8d9bb361d21b09493745b2d2fa9d7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TAM_PONTO_FLUTUANTE</b>&#160;&#160;&#160;3 /** &lt; Define quantos caracteres cada double terá */</td></tr>
+<tr class="separator:adee8d9bb361d21b09493745b2d2fa9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Definições de tipos</h2></td></tr>
+<tr class="memitem:a44979ef4ef960c2c28b76881dd46c5e7"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structstr_matriz.html">strMatriz</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a></td></tr>
+<tr class="memdesc:a44979ef4ef960c2c28b76881dd46c5e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matriz n x m.  <a href="#a44979ef4ef960c2c28b76881dd46c5e7">Mais...</a><br /></td></tr>
+<tr class="separator:a44979ef4ef960c2c28b76881dd46c5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a388f9393a1b7eb2761bf83d635860d1c"><td class="memItemLeft" align="right" valign="top">typedef double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matriz_8h.html#a388f9393a1b7eb2761bf83d635860d1c">MatrizCelula</a></td></tr>
+<tr class="memdesc:a388f9393a1b7eb2761bf83d635860d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo a ser utilizado nas celulas da matriz.  <a href="#a388f9393a1b7eb2761bf83d635860d1c">Mais...</a><br /></td></tr>
+<tr class="separator:a388f9393a1b7eb2761bf83d635860d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07115d521638f260221bdbf37ce64a23"><td class="memItemLeft" align="right" valign="top"><a id="a07115d521638f260221bdbf37ce64a23"></a>
+typedef struct <a class="el" href="structstr_matriz.html">strMatriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ptrMatriz</b></td></tr>
+<tr class="separator:a07115d521638f260221bdbf37ce64a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a7c0c34a744ff1bde67771d309819f276"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matriz_8h.html#a7c0c34a744ff1bde67771d309819f276">newMatriz</a> (int linhas, int colunas, int tipoValor, <a class="el" href="matriz_8h.html#a388f9393a1b7eb2761bf83d635860d1c">MatrizCelula</a> *valores[])</td></tr>
+<tr class="memdesc:a7c0c34a744ff1bde67771d309819f276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma nova matriz A(n x m) (n - linhas por m - colunas)  <a href="#a7c0c34a744ff1bde67771d309819f276">Mais...</a><br /></td></tr>
+<tr class="separator:a7c0c34a744ff1bde67771d309819f276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae930527d91c6da5382ceccc539be720b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matriz_8h.html#ae930527d91c6da5382ceccc539be720b">deleteMatriz</a> (<a class="el" href="structstr_matriz.html">ptrMatriz</a> *matriz)</td></tr>
+<tr class="memdesc:ae930527d91c6da5382ceccc539be720b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desaloca uma matriz.  <a href="#ae930527d91c6da5382ceccc539be720b">Mais...</a><br /></td></tr>
+<tr class="separator:ae930527d91c6da5382ceccc539be720b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781ce65f93cb3d38a8affd5bb78bc126"><td class="memItemLeft" align="right" valign="top"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matriz_8h.html#a781ce65f93cb3d38a8affd5bb78bc126">cloneMatriz</a> (<a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *matriz)</td></tr>
+<tr class="memdesc:a781ce65f93cb3d38a8affd5bb78bc126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clona uma matriz.  <a href="#a781ce65f93cb3d38a8affd5bb78bc126">Mais...</a><br /></td></tr>
+<tr class="separator:a781ce65f93cb3d38a8affd5bb78bc126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0148ef8967b362339169f43f3fe282b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matriz_8h.html#a0148ef8967b362339169f43f3fe282b5">atualizaMaiorValorMatriz</a> (<a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *matriz)</td></tr>
+<tr class="memdesc:a0148ef8967b362339169f43f3fe282b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza maior valor da lista.  <a href="#a0148ef8967b362339169f43f3fe282b5">Mais...</a><br /></td></tr>
+<tr class="separator:a0148ef8967b362339169f43f3fe282b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0c8654facf2fb43466b7611b26388f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matriz_8h.html#a8c0c8654facf2fb43466b7611b26388f">imprimeMatriz</a> (<a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *matriz)</td></tr>
+<tr class="memdesc:a8c0c8654facf2fb43466b7611b26388f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime a matriz com as colunas com tamanho fixo e formatado, a precisão dos números é impressa com 2 digitos de precisão.  <a href="#a8c0c8654facf2fb43466b7611b26388f">Mais...</a><br /></td></tr>
+<tr class="separator:a8c0c8654facf2fb43466b7611b26388f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Estrutura Matriz, util para algebra e matemática. </p>
+<dl class="section author"><dt>Autor</dt><dd>Alana Bispo e Jeferson Lima </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>27 Jul 2018 TODO!!! </dd></dl>
+</div><h2 class="groupheader">Documentação dos tipos</h2>
+<a id="a44979ef4ef960c2c28b76881dd46c5e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44979ef4ef960c2c28b76881dd46c5e7">&#9670;&nbsp;</a></span>Matriz</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structstr_matriz.html">strMatriz</a> <a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Matriz n x m. </p>
+<p>Este tipo define a estrutura matemática matriz. Uma matriz é um vetor de vetores. As matrizes definidas por esse tipo são bidimensionais aonde cada celula da matriz tem coodenadas i,j logo M(i,j) define uma celula da matriz M de tamanho n x m, sendo n o número de linhas e m o número de colunas. Esse tipo possui metodos auxiliares que auxiliam a execução de todas as operações básicas. </p>
+
+</div>
+</div>
+<a id="a388f9393a1b7eb2761bf83d635860d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a388f9393a1b7eb2761bf83d635860d1c">&#9670;&nbsp;</a></span>MatrizCelula</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef double <a class="el" href="matriz_8h.html#a388f9393a1b7eb2761bf83d635860d1c">MatrizCelula</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tipo a ser utilizado nas celulas da matriz. </p>
+<p>Esta função define o tipo a ser utilizado nas celulas da matriz. Qualquer tipo pode ser utilizado, porém é válido lembrar que modificações são necessárias caso não se utilize um tipo básico como int, long, float ou double, visto que na linguagem C não é possível modificar o comportamento dos operadores básicos como +, -, *, / porém apesar disto existem funções auxiliares que executam as mesmas operações gerando novos resultados com base nos dados passados. Assim a operação de soma entre duas Matrizes M1 e M2 pode ser escrita como Mr &lt;- somaMatriz(M1, M2), o mesmo vale obviamente para o conteúdo das celulas caso utilize um tipo distinto como seria o caso de uma matriz de vetores ou de frações. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="a0148ef8967b362339169f43f3fe282b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0148ef8967b362339169f43f3fe282b5">&#9670;&nbsp;</a></span>atualizaMaiorValorMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void atualizaMaiorValorMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Atualiza maior valor da lista. </p>
+<p>Essa informação é importante ao exibir os valores da lista visto que sabendo o maior valor é possível imprimir a lista de valores adequadamente.</p>
+<p>atualizaMaiorValorMatriz Atualiza o maior valor da lista </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz cujo maior valor irá ser atualizado </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a781ce65f93cb3d38a8affd5bb78bc126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781ce65f93cb3d38a8affd5bb78bc126">&#9670;&nbsp;</a></span>cloneMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a>* cloneMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clona uma matriz. </p>
+<p>Retorna um ponteiro para uma nova matriz que representa uma cópia exata da matriz passada por parametro.</p>
+<p>cloneMatriz Clona uma matriz </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz a ser clonada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna o ponteiro para o clone da matriz </dd></dl>
+<p>&lt; Define uma matriz vazia, ou seja com 0 em todos os valores </p>
+
+</div>
+</div>
+<a id="ae930527d91c6da5382ceccc539be720b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae930527d91c6da5382ceccc539be720b">&#9670;&nbsp;</a></span>deleteMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deleteMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">ptrMatriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desaloca uma matriz. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Ponteiro da matriz a ser desalocada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se matriz foi desalocada e falso caso contrário </dd></dl>
+
+</div>
+</div>
+<a id="a8c0c8654facf2fb43466b7611b26388f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c0c8654facf2fb43466b7611b26388f">&#9670;&nbsp;</a></span>imprimeMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imprimeMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime a matriz com as colunas com tamanho fixo e formatado, a precisão dos números é impressa com 2 digitos de precisão. </p>
+<p>imprimeMatriz Imprime a matriz formatada </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz a ser impressa </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; Tamanho do espaço entre as colunas na impressão de colunas </p>
+
+</div>
+</div>
+<a id="a7c0c34a744ff1bde67771d309819f276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0c34a744ff1bde67771d309819f276">&#9670;&nbsp;</a></span>newMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="matriz_8h.html#a44979ef4ef960c2c28b76881dd46c5e7">Matriz</a>* newMatriz </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>linhas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>colunas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tipoValor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="matriz_8h.html#a388f9393a1b7eb2761bf83d635860d1c">MatrizCelula</a> *&#160;</td>
+          <td class="paramname"><em>valores</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cria uma nova matriz A(n x m) (n - linhas por m - colunas) </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linhas</td><td>Número de linhas </td></tr>
+    <tr><td class="paramname">colunas</td><td>Número de colunas </td></tr>
+    <tr><td class="paramname">tipoValor</td><td>Tipo do valor </td></tr>
+    <tr><td class="paramname">valores</td><td>Valores constantes ou nulos para serem assignados a matriz </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova matriz alocada </dd></dl>
+<p>&lt; Tipo de matriz minimo é a matriz vazia logo 0 <br />
+<br />
+<br />
+<br />
+<br />
+ &lt; Tipo máximo da matriz é a matriz valores logo 3 <br />
+<br />
+<br />
+<br />
+ &lt; Define uma matriz constante que terá o valor recebido pela função <br />
+<br />
+<br />
+ &lt; Define uma matriz vazia, ou seja com 0 em todos os valores <br />
+<br />
+ &lt; Define a matriz identidade aonde na diagonal principal teremos valor 1 <br />
+ &lt; Define uma matriz que sera inicializada pelos valores passados por parametro </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 4 de Agosto de 2018 12:58:48 para Trabalho AlgebraLinear por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

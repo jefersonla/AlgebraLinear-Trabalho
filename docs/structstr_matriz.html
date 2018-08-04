@@ -69,6 +69,11 @@ $(function() {
 <div class="title">Referência à estrutura strMatriz</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Matriz n x m.  
+ <a href="structstr_matriz.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="matriz_8h_source.html">matriz.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Campos de Dados</h2></td></tr>
@@ -76,28 +81,36 @@ Campos de Dados</h2></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>nLinhas</b></td></tr>
 <tr class="separator:a36ea8d5db726c47564ddb0e67ed3f7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a141d2951ff85ad7954b42a3081cef7ce"><td class="memItemLeft" align="right" valign="top"><a id="a141d2951ff85ad7954b42a3081cef7ce"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>nColunas</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstr_matriz.html#a141d2951ff85ad7954b42a3081cef7ce">nColunas</a></td></tr>
+<tr class="memdesc:a141d2951ff85ad7954b42a3081cef7ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Número de linhas da matriz <br /></td></tr>
 <tr class="separator:a141d2951ff85ad7954b42a3081cef7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47b62a2f0d58ebe78900fe2138a49da5"><td class="memItemLeft" align="right" valign="top"><a id="a47b62a2f0d58ebe78900fe2138a49da5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>nCelulas</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstr_matriz.html#a47b62a2f0d58ebe78900fe2138a49da5">nCelulas</a></td></tr>
+<tr class="memdesc:a47b62a2f0d58ebe78900fe2138a49da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Número de colunas da matriz <br /></td></tr>
 <tr class="separator:a47b62a2f0d58ebe78900fe2138a49da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80c8450c72c59c16e15323b9d4a91df3"><td class="memItemLeft" align="right" valign="top"><a id="a80c8450c72c59c16e15323b9d4a91df3"></a>
-MatrizCelula&#160;</td><td class="memItemRight" valign="bottom"><b>maiorValor</b></td></tr>
+<a class="el" href="matriz_8h.html#a388f9393a1b7eb2761bf83d635860d1c">MatrizCelula</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstr_matriz.html#a80c8450c72c59c16e15323b9d4a91df3">maiorValor</a></td></tr>
+<tr class="memdesc:a80c8450c72c59c16e15323b9d4a91df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Número de celulas da matriz <br /></td></tr>
 <tr class="separator:a80c8450c72c59c16e15323b9d4a91df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4eb2740d5dfb9e1c0d49950cdb66db4"><td class="memItemLeft" align="right" valign="top"><a id="ab4eb2740d5dfb9e1c0d49950cdb66db4"></a>
-MatrizCelula *&#160;</td><td class="memItemRight" valign="bottom"><b>celulas</b></td></tr>
+<a class="el" href="matriz_8h.html#a388f9393a1b7eb2761bf83d635860d1c">MatrizCelula</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstr_matriz.html#ab4eb2740d5dfb9e1c0d49950cdb66db4">celulas</a></td></tr>
+<tr class="memdesc:ab4eb2740d5dfb9e1c0d49950cdb66db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Maior valor presente na matriz <br /></td></tr>
 <tr class="separator:ab4eb2740d5dfb9e1c0d49950cdb66db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94786607cadcffce2bd859e1fc6eab49"><td class="memItemLeft" align="right" valign="top"><a id="a94786607cadcffce2bd859e1fc6eab49"></a>
-MatrizCelula **&#160;</td><td class="memItemRight" valign="bottom"><b>linhas</b></td></tr>
+<a class="el" href="matriz_8h.html#a388f9393a1b7eb2761bf83d635860d1c">MatrizCelula</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstr_matriz.html#a94786607cadcffce2bd859e1fc6eab49">linhas</a></td></tr>
+<tr class="memdesc:a94786607cadcffce2bd859e1fc6eab49"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Contéudo da matriz em forma de array <br /></td></tr>
 <tr class="separator:a94786607cadcffce2bd859e1fc6eab49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Matriz n x m. </p>
+<p>Este tipo define a estrutura matemática matriz. Uma matriz é um vetor de vetores. As matrizes definidas por esse tipo são bidimensionais aonde cada celula da matriz tem coodenadas i,j logo M(i,j) define uma celula da matriz M de tamanho n x m, sendo n o número de linhas e m o número de colunas. Esse tipo possui metodos auxiliares que auxiliam a execução de todas as operações básicas. </p>
+</div><hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
 <li>tipos/<a class="el" href="matriz_8h_source.html">matriz.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sábado, 4 de Agosto de 2018 12:35:21 para Trabalho AlgebraLinear por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sábado, 4 de Agosto de 2018 12:58:48 para Trabalho AlgebraLinear por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>

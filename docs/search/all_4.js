@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['listarmatrizes',['listarMatrizes',['../entrada_8h.html#aa60bb28b67ecbbfd85dee7780f398402',1,'entrada.c']]],
-  ['loopmodocli',['loopModoCLI',['../entrada_8h.html#a4c4f229a70138ce4f26fcfa7adb10545',1,'entrada.c']]]
+  ['encontrardeterminante',['encontrarDeterminante',['../entrada_8h.html#ae3bf5ac33d296fcda4f2c4cc5f8c8c48',1,'entrada.c']]],
+  ['encontrarkernelmatriz',['encontrarKernelMatriz',['../entrada_8h.html#ab496507e65451ca3afe969e2c9191fb7',1,'entrada.c']]],
+  ['entrada_2eh',['entrada.h',['../entrada_8h.html',1,'']]],
+  ['exibenolista',['exibeNoLista',['../lista_8h.html#aadb8953855763801ed21c5b4ac2d46a7',1,'lista.c']]],
+  ['exibetodasmatrizeslista',['exibeTodasMatrizesLista',['../lista_8h.html#af4de44f427941f6acb0dbe51bfe14db4',1,'lista.c']]]
 ];

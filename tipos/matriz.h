@@ -18,18 +18,18 @@
 /* ------------------------------------------------------------- */
 
 /* Tipos de matriz */
-#define MATRIZ_VAZIA 0
-#define MATRIZ_CONSTANTE 1
-#define MATRIZ_IDENTIDADE 2
-#define MATRIZ_VALORES 3
+#define MATRIZ_VAZIA 0 /** < Define uma matriz vazia, ou seja com 0 em todos os valores */
+#define MATRIZ_CONSTANTE 1 /** < Define uma matriz constante que terá o valor recebido pela função */
+#define MATRIZ_IDENTIDADE 2 /** < Define a matriz identidade aonde na diagonal principal teremos valor 1 */
+#define MATRIZ_VALORES 3 /** < Define uma matriz que sera inicializada pelos valores passados por parametro */
 
 /* Tamanho do range de tipos */
-#define MATRIZ_TIPO_MIN 0
-#define MATRIZ_TIPO_MAX 3
+#define MATRIZ_TIPO_MIN 0 /** < Tipo de matriz minimo é a matriz vazia logo 0 */
+#define MATRIZ_TIPO_MAX 3 /** < Tipo máximo da matriz é a matriz valores logo 3 */
 
 /* Tamanho do espaçador */
-#define TAM_ESPACADOR 3
-#define TAM_PONTO_FLUTUANTE 3
+#define TAM_ESPACADOR 3 /** < Tamanho do espaço entre as colunas na impressão de colunas */
+#define TAM_PONTO_FLUTUANTE 3 /** < Define quantos caracteres cada double terá */
 
 /* ------------------------------------------------------------- */
 /*                     Prototype definitions                     */
@@ -42,22 +42,46 @@ typedef struct strMatriz Matriz;
 /*                       Matriz Structure                        */
 /* ------------------------------------------------------------- */
 
+/**
+ * @brief Tipo a ser utilizado nas celulas da matriz.
+ *
+ * Esta função define o tipo a ser utilizado nas celulas da matriz.
+ * Qualquer tipo pode ser utilizado, porém é válido lembrar que modificações
+ * são necessárias caso não se utilize um tipo básico como int, long, float
+ * ou double, visto que na linguagem C não é possível modificar o comportamento
+ * dos operadores básicos como +, -, *, / porém apesar disto existem funções
+ * auxiliares que executam as mesmas operações gerando novos resultados com base
+ * nos dados passados. Assim a operação de soma entre duas Matrizes M1 e M2
+ * pode ser escrita como Mr <- somaMatriz(M1, M2), o mesmo vale obviamente para
+ * o conteúdo das celulas caso utilize um tipo distinto como seria o caso de uma
+ * matriz de vetores ou de frações.
+ */
 typedef double MatrizCelula;
 
+/**
+ * @brief Matriz n x m.
+ *
+ * Este tipo define a estrutura matemática matriz. Uma matriz é um vetor
+ * de vetores. As matrizes definidas por esse tipo são bidimensionais
+ * aonde cada celula da matriz tem coodenadas i,j logo M(i,j) define uma
+ * celula da matriz M de tamanho n x m, sendo n o número de linhas e m
+ * o número de colunas. Esse tipo possui metodos auxiliares que auxiliam
+ * a execução de todas as operações básicas.
+ */
 typedef struct strMatriz{
 	/* Dimensões da matriz */
-    int nLinhas;
-    int nColunas;
-    int nCelulas;
+    int nLinhas; /** < Número de linhas da matriz */
+    int nColunas; /** < Número de colunas da matriz */
+    int nCelulas; /** < Número de celulas da matriz */
 
     /* Maior valor da matriz */
-    MatrizCelula maiorValor;
+    MatrizCelula maiorValor; /** < Maior valor presente na matriz */
 
 	/* Conteúdo da matriz */
-    MatrizCelula *celulas;
+    MatrizCelula *celulas; /** < Contéudo da matriz em forma de array */
 
 	/* Estruturas da matriz */
-    MatrizCelula **linhas;
+    MatrizCelula **linhas; /** < Ponteiros para as posições do vetor de celulas que define as linhas */
 } Matriz, *ptrMatriz;
 
 /* ------------------ Matriz Structure Methods ----------------- */

@@ -1,0 +1,840 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho AlgebraLinear: Referência ao ficheiro tipos/fracao.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho AlgebraLinear
+   &#160;<span id="projectnumber">0.7</span>
+   </div>
+   <div id="projectbrief">TrabalhodeAlgebraLinear</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_f4ce1884c8e0f9e11adc99eddbcc94ed.html">tipos</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estruturas de Dados</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Definições de tipos</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro fracao.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estrutura Fracao, util para matemática.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">../utils/utils.h</a>&quot;</code><br />
+</div>
+<p><a href="fracao_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estruturas de Dados</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstr_fracao.html">strFracao</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:affbb97f4929b7a3f24efb31e9ca3d991"><td class="memItemLeft" align="right" valign="top"><a id="affbb97f4929b7a3f24efb31e9ca3d991"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FRACAO_MAIOR</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:affbb97f4929b7a3f24efb31e9ca3d991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e6294ea129232a0d2c59267d18b643b"><td class="memItemLeft" align="right" valign="top"><a id="a3e6294ea129232a0d2c59267d18b643b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FRACAO_IGUAL</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a3e6294ea129232a0d2c59267d18b643b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe6928d1ca85731e8e5fc637ac6656b"><td class="memItemLeft" align="right" valign="top"><a id="a2fe6928d1ca85731e8e5fc637ac6656b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FRACAO_MENOR</b>&#160;&#160;&#160;-1</td></tr>
+<tr class="separator:a2fe6928d1ca85731e8e5fc637ac6656b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bdb43246f375866ec455c1e9fb03c82"><td class="memItemLeft" align="right" valign="top"><a id="a4bdb43246f375866ec455c1e9fb03c82"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FRACAO_ERRO</b>&#160;&#160;&#160;-2</td></tr>
+<tr class="separator:a4bdb43246f375866ec455c1e9fb03c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaee8ed178ae9c62477ab76e7c7f486d"><td class="memItemLeft" align="right" valign="top"><a id="aaaee8ed178ae9c62477ab76e7c7f486d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>COMPARA_IGUAL</b>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:aaaee8ed178ae9c62477ab76e7c7f486d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a106d321c899f392e01660439a947c"><td class="memItemLeft" align="right" valign="top"><a id="ae7a106d321c899f392e01660439a947c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>COMPARA_MAIOR</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ae7a106d321c899f392e01660439a947c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8578f64b823fa9bdbf243344b1fa3b72"><td class="memItemLeft" align="right" valign="top"><a id="a8578f64b823fa9bdbf243344b1fa3b72"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>COMPARA_MAIOR_IGUAL</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a8578f64b823fa9bdbf243344b1fa3b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f857b5c7c38c51c6ee8f428af4b11e"><td class="memItemLeft" align="right" valign="top"><a id="a80f857b5c7c38c51c6ee8f428af4b11e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>COMPARA_MENOR</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a80f857b5c7c38c51c6ee8f428af4b11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac656dce91404e7744034ae2f33b462e2"><td class="memItemLeft" align="right" valign="top"><a id="ac656dce91404e7744034ae2f33b462e2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>COMPARA_MENOR_IGUAL</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ac656dce91404e7744034ae2f33b462e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a004336a4dfec76cda0b64cfc1865c551"><td class="memItemLeft" align="right" valign="top"><a id="a004336a4dfec76cda0b64cfc1865c551"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FRACAO_DIGITO_SEPARADOR</b>&#160;&#160;&#160;'/'</td></tr>
+<tr class="separator:a004336a4dfec76cda0b64cfc1865c551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a706cca4e82aec5b67f1745037ad0d867"><td class="memItemLeft" align="right" valign="top"><a id="a706cca4e82aec5b67f1745037ad0d867"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FRACAO_DIGITO_SEPARADOR_FIM</b>&#160;&#160;&#160;' '</td></tr>
+<tr class="separator:a706cca4e82aec5b67f1745037ad0d867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa35713812fbe2fa681700ffa4567949d"><td class="memItemLeft" align="right" valign="top"><a id="aa35713812fbe2fa681700ffa4567949d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FRACAO_MAX_DIGITOS</b></td></tr>
+<tr class="separator:aa35713812fbe2fa681700ffa4567949d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Definições de tipos</h2></td></tr>
+<tr class="memitem:ab037d95b6b56a646d66cb076e38f5e96"><td class="memItemLeft" align="right" valign="top"><a id="ab037d95b6b56a646d66cb076e38f5e96"></a>
+typedef struct <a class="el" href="structstr_fracao.html">strFracao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Fracao</b></td></tr>
+<tr class="separator:ab037d95b6b56a646d66cb076e38f5e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a241913ee8b3fe624cab0e98ae45c9"><td class="memItemLeft" align="right" valign="top"><a id="aa7a241913ee8b3fe624cab0e98ae45c9"></a>
+typedef struct <a class="el" href="structstr_fracao.html">strFracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ptrFracao</b></td></tr>
+<tr class="separator:aa7a241913ee8b3fe624cab0e98ae45c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a0c81d53ba363f7cea3f717077aad608a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a0c81d53ba363f7cea3f717077aad608a">newFracao</a> (long long numerador, long long denominador)</td></tr>
+<tr class="memdesc:a0c81d53ba363f7cea3f717077aad608a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aloca uma nova fração.  <a href="#a0c81d53ba363f7cea3f717077aad608a">Mais...</a><br /></td></tr>
+<tr class="separator:a0c81d53ba363f7cea3f717077aad608a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac91128f63fa77ecadc99a22c95479213"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#ac91128f63fa77ecadc99a22c95479213">deleteFracao</a> (<a class="el" href="structstr_fracao.html">ptrFracao</a> *fracao)</td></tr>
+<tr class="memdesc:ac91128f63fa77ecadc99a22c95479213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desaloca uma fracao qualquer.  <a href="#ac91128f63fa77ecadc99a22c95479213">Mais...</a><br /></td></tr>
+<tr class="separator:ac91128f63fa77ecadc99a22c95479213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe398a24f56c8504f1acd731604cdeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#aabe398a24f56c8504f1acd731604cdeb">cloneFracao</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao)</td></tr>
+<tr class="memdesc:aabe398a24f56c8504f1acd731604cdeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clona uma fracao.  <a href="#aabe398a24f56c8504f1acd731604cdeb">Mais...</a><br /></td></tr>
+<tr class="separator:aabe398a24f56c8504f1acd731604cdeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ec12fc3e177dd891e3c959187fd4c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a27ec12fc3e177dd891e3c959187fd4c3">somaFracao</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao1, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao2)</td></tr>
+<tr class="memdesc:a27ec12fc3e177dd891e3c959187fd4c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma duas frações distintas.  <a href="#a27ec12fc3e177dd891e3c959187fd4c3">Mais...</a><br /></td></tr>
+<tr class="separator:a27ec12fc3e177dd891e3c959187fd4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92cde50fc574d7e432eb580154f1083e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a92cde50fc574d7e432eb580154f1083e">subtracaoFracao</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao1, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao2)</td></tr>
+<tr class="memdesc:a92cde50fc574d7e432eb580154f1083e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtrai duas frações distintas.  <a href="#a92cde50fc574d7e432eb580154f1083e">Mais...</a><br /></td></tr>
+<tr class="separator:a92cde50fc574d7e432eb580154f1083e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fd186557fe2eda81c7c73fb674e7714"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a4fd186557fe2eda81c7c73fb674e7714">produtoFracao</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao1, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao2)</td></tr>
+<tr class="memdesc:a4fd186557fe2eda81c7c73fb674e7714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica uma fração por outra.  <a href="#a4fd186557fe2eda81c7c73fb674e7714">Mais...</a><br /></td></tr>
+<tr class="separator:a4fd186557fe2eda81c7c73fb674e7714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa349ec7cd4cb9fb833c9e16a41d46e1a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#aa349ec7cd4cb9fb833c9e16a41d46e1a">multiplicacaoEscalarFracao</a> (long long escalar, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao)</td></tr>
+<tr class="memdesc:aa349ec7cd4cb9fb833c9e16a41d46e1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica uma fração por um escalar qualquer, o que resulta na multiplicação do escalar pelo numerador.  <a href="#aa349ec7cd4cb9fb833c9e16a41d46e1a">Mais...</a><br /></td></tr>
+<tr class="separator:aa349ec7cd4cb9fb833c9e16a41d46e1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22d034507f514b58e8c324458eafff12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a22d034507f514b58e8c324458eafff12">divisaoFracao</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao1, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao2)</td></tr>
+<tr class="memdesc:a22d034507f514b58e8c324458eafff12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide uma fração por outra.  <a href="#a22d034507f514b58e8c324458eafff12">Mais...</a><br /></td></tr>
+<tr class="separator:a22d034507f514b58e8c324458eafff12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e9fc4aa5e087628dcf689fec9d571d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#ad4e9fc4aa5e087628dcf689fec9d571d">divisaoFracaoEscalar</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao, long long escalar)</td></tr>
+<tr class="memdesc:ad4e9fc4aa5e087628dcf689fec9d571d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide uma fração por um escalar ou seja (n/d / e) o que é o mesmo que (n/d / e/1) o que é equivalente a (n/d * 1/e) logo a divisão por um escalar continua bem próxima da divisão entre frações já definida.  <a href="#ad4e9fc4aa5e087628dcf689fec9d571d">Mais...</a><br /></td></tr>
+<tr class="separator:ad4e9fc4aa5e087628dcf689fec9d571d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade83e754fc83ea6ea93d47525ea22bc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#ade83e754fc83ea6ea93d47525ea22bc7">divisaoEscalarFracao</a> (long long escalar, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao)</td></tr>
+<tr class="memdesc:ade83e754fc83ea6ea93d47525ea22bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Divide um escalar por uma fração ou seja (e / n/d) o que é o mesmo que (e/1 / n/d) o que é equivalente a (e/1 * d/n) logo a divisão por um escalar continua bem próxima da divisão entre frações já definida.  <a href="#ade83e754fc83ea6ea93d47525ea22bc7">Mais...</a><br /></td></tr>
+<tr class="separator:ade83e754fc83ea6ea93d47525ea22bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e2984e7c3055de924c3328b6a3dcb1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a9e2984e7c3055de924c3328b6a3dcb1c">trocaSinal</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao)</td></tr>
+<tr class="memdesc:a9e2984e7c3055de924c3328b6a3dcb1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Troca o sinal do numerador e denominador de uma fração aplicando assim o operador unário (-).  <a href="#a9e2984e7c3055de924c3328b6a3dcb1c">Mais...</a><br /></td></tr>
+<tr class="separator:a9e2984e7c3055de924c3328b6a3dcb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d8914b9ff1690bee5307d5ab7eb182"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a57d8914b9ff1690bee5307d5ab7eb182">comparaFracoes</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao1, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao2)</td></tr>
+<tr class="memdesc:a57d8914b9ff1690bee5307d5ab7eb182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara duas frações.  <a href="#a57d8914b9ff1690bee5307d5ab7eb182">Mais...</a><br /></td></tr>
+<tr class="separator:a57d8914b9ff1690bee5307d5ab7eb182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92fd31c24b542911c8e03b118fa61758"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a92fd31c24b542911c8e03b118fa61758">compararFracoes</a> (byte operador, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao1, <a class="el" href="structstr_fracao.html">Fracao</a> *fracao2)</td></tr>
+<tr class="memdesc:a92fd31c24b542911c8e03b118fa61758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dado um operador definido, essa função compara as duas frações com base nos operadores (&gt;, &gt;=, ==, &lt;, &lt;=), o retorno da função é a comparação de F1 e F2 com base no operador.  <a href="#a92fd31c24b542911c8e03b118fa61758">Mais...</a><br /></td></tr>
+<tr class="separator:a92fd31c24b542911c8e03b118fa61758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f627243aa1331f20244727f6d6b3fe8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a7f627243aa1331f20244727f6d6b3fe8">simplificarFracao</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao)</td></tr>
+<tr class="memdesc:a7f627243aa1331f20244727f6d6b3fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduz os termos de uma fração.  <a href="#a7f627243aa1331f20244727f6d6b3fe8">Mais...</a><br /></td></tr>
+<tr class="separator:a7f627243aa1331f20244727f6d6b3fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e290235409ea27555336ad2a4717366"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a2e290235409ea27555336ad2a4717366">leFracao</a> (void)</td></tr>
+<tr class="memdesc:a2e290235409ea27555336ad2a4717366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê uma fração da entrada padrão (STDIN).  <a href="#a2e290235409ea27555336ad2a4717366">Mais...</a><br /></td></tr>
+<tr class="separator:a2e290235409ea27555336ad2a4717366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde3240cc535cc387daa9c9030c3ec91"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#adde3240cc535cc387daa9c9030c3ec91">imprimeFracao</a> (<a class="el" href="structstr_fracao.html">Fracao</a> *fracao)</td></tr>
+<tr class="memdesc:adde3240cc535cc387daa9c9030c3ec91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime uma fração no formato n/d na saída padrão.  <a href="#adde3240cc535cc387daa9c9030c3ec91">Mais...</a><br /></td></tr>
+<tr class="separator:adde3240cc535cc387daa9c9030c3ec91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b70d4c4dc2d734986403272269c167e"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a5b70d4c4dc2d734986403272269c167e">MDC</a> (long long a, long long b)</td></tr>
+<tr class="memdesc:a5b70d4c4dc2d734986403272269c167e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encontra o maior divisor comum entre dois números.  <a href="#a5b70d4c4dc2d734986403272269c167e">Mais...</a><br /></td></tr>
+<tr class="separator:a5b70d4c4dc2d734986403272269c167e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b94253b261ef12eacfbf91777431390"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fracao_8h.html#a9b94253b261ef12eacfbf91777431390">MMC</a> (long long a, long long b)</td></tr>
+<tr class="memdesc:a9b94253b261ef12eacfbf91777431390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encontra o minimo multiplo comum entre dois números.  <a href="#a9b94253b261ef12eacfbf91777431390">Mais...</a><br /></td></tr>
+<tr class="separator:a9b94253b261ef12eacfbf91777431390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Estrutura Fracao, util para matemática. </p>
+<dl class="section author"><dt>Autor</dt><dd>Alana Bispo e Jeferson Lima </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>27 Jul 2018 TODO!!! </dd></dl>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="aabe398a24f56c8504f1acd731604cdeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabe398a24f56c8504f1acd731604cdeb">&#9670;&nbsp;</a></span>cloneFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* cloneFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clona uma fracao. </p>
+<p>Essa operação é válida para momentos aonde a referência da fração deve ser mantida porém seu conteúdo precise ser clonado ou seja é necessário fazer uma nova referência.</p>
+<p>cloneFracao Clona uma fracao </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao</td><td>Fracao a ser clonada </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para nova instancia da fracao </dd></dl>
+
+</div>
+</div>
+<a id="a57d8914b9ff1690bee5307d5ab7eb182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d8914b9ff1690bee5307d5ab7eb182">&#9670;&nbsp;</a></span>comparaFracoes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">byte comparaFracoes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compara duas frações. </p>
+<p>O resultado da comparação entre duas frações é um número que indica se a fração 1 (F1) é menor que a fração 2 (F1 &lt; F2) logo se (F1 &lt; F2) teremos -1 se (F1 &gt; F2) teremos 1 e caso (F1 == F2) teremos 0.</p>
+<p>comparaFracoes Compara duas fracoes </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao1</td><td>Fração 1 </td></tr>
+    <tr><td class="paramname">fracao2</td><td>Fração 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna -1 caso a fração 1 seja menor que a fração 2, 1 caso contrário e 0 se iguais </dd></dl>
+
+</div>
+</div>
+<a id="a92fd31c24b542911c8e03b118fa61758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92fd31c24b542911c8e03b118fa61758">&#9670;&nbsp;</a></span>compararFracoes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool compararFracoes </td>
+          <td>(</td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>operador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dado um operador definido, essa função compara as duas frações com base nos operadores (&gt;, &gt;=, ==, &lt;, &lt;=), o retorno da função é a comparação de F1 e F2 com base no operador. </p>
+<p>compararFracoes Compara duas frações usando um operador </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">operador</td><td>Operador </td></tr>
+    <tr><td class="paramname">fracao1</td><td>Fração 1 </td></tr>
+    <tr><td class="paramname">fracao2</td><td>Fração 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna true caso a operação seja verdade e falso caso contrário (pode ser erro verifique LOG) </dd></dl>
+
+</div>
+</div>
+<a id="ac91128f63fa77ecadc99a22c95479213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac91128f63fa77ecadc99a22c95479213">&#9670;&nbsp;</a></span>deleteFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool deleteFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">ptrFracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desaloca uma fracao qualquer. </p>
+<p>deleteFracao Desaloca uma fracao </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vetor</td><td>Ponteiro para a fracao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna true se foi possível deletar e falso caso contrário </dd></dl>
+
+</div>
+</div>
+<a id="ade83e754fc83ea6ea93d47525ea22bc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade83e754fc83ea6ea93d47525ea22bc7">&#9670;&nbsp;</a></span>divisaoEscalarFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* divisaoEscalarFracao </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>escalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divide um escalar por uma fração ou seja (e / n/d) o que é o mesmo que (e/1 / n/d) o que é equivalente a (e/1 * d/n) logo a divisão por um escalar continua bem próxima da divisão entre frações já definida. </p>
+<p>divisaoEscalarFracao Divisão de escalar por fração </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">escalar</td><td>Escalar </td></tr>
+    <tr><td class="paramname">fracao</td><td>Fração </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração resultado da divisão da fração pelo escalar </dd></dl>
+
+</div>
+</div>
+<a id="a22d034507f514b58e8c324458eafff12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22d034507f514b58e8c324458eafff12">&#9670;&nbsp;</a></span>divisaoFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* divisaoFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divide uma fração por outra. </p>
+<p>A divisão é igual a multiplicação, da fração 1 pela inversa da fração 2 logo sejam F1 n1/d1 e F2 n2/d2, F1 / F2 é igual a n1/d1 * d2/n2.</p>
+<p>divisaoFracao Divisão de frações </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao1</td><td>Fração 1 </td></tr>
+    <tr><td class="paramname">fracao2</td><td>Fração 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração resultado da divisão entre duas frações </dd></dl>
+
+</div>
+</div>
+<a id="ad4e9fc4aa5e087628dcf689fec9d571d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e9fc4aa5e087628dcf689fec9d571d">&#9670;&nbsp;</a></span>divisaoFracaoEscalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* divisaoFracaoEscalar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>escalar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Divide uma fração por um escalar ou seja (n/d / e) o que é o mesmo que (n/d / e/1) o que é equivalente a (n/d * 1/e) logo a divisão por um escalar continua bem próxima da divisão entre frações já definida. </p>
+<p>divisaoFracaoEscalar Divisao de Fração por escalar </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao</td><td>Fração </td></tr>
+    <tr><td class="paramname">escalar</td><td>Escalar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração resultado da divisao da fracao pelo escalar </dd></dl>
+
+</div>
+</div>
+<a id="adde3240cc535cc387daa9c9030c3ec91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde3240cc535cc387daa9c9030c3ec91">&#9670;&nbsp;</a></span>imprimeFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool imprimeFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime uma fração no formato n/d na saída padrão. </p>
+<p>imprimeFracao Imprime uma fração </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao</td><td>Fração a ser impressa </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna true caso tudo tenha ocorrido bem e falso caso contrário </dd></dl>
+
+</div>
+</div>
+<a id="a2e290235409ea27555336ad2a4717366"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e290235409ea27555336ad2a4717366">&#9670;&nbsp;</a></span>leFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* leFracao </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lê uma fração da entrada padrão (STDIN). </p>
+<p>Esta função assume que NÃO EXISTEM ESPAÇOS NA FRAÇÂO e que ela é sempre escrita na forma n/d sem espaços antes ou depois do sinal (/). Numeros negativos são aceitos tanto no numerador como no denominador.</p>
+<p>leFracao Lê fração </p><dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração vinda da entrada padrão </dd></dl>
+
+</div>
+</div>
+<a id="a5b70d4c4dc2d734986403272269c167e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b70d4c4dc2d734986403272269c167e">&#9670;&nbsp;</a></span>MDC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long MDC </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encontra o maior divisor comum entre dois números. </p>
+<p>Esta função esta otimizada e é uma contribuição do site Geeks for Geeks (link: <a href="https://www.geeksforgeeks.org/program-to-add-two-fractions/">https://www.geeksforgeeks.org/program-to-add-two-fractions/</a>) O fato dela estar otimizada faz com que a complexidade dela não torne a execução deste programa lenta se comparada as operações de ponto flutuante que podem ser executadas diretamente no processador as vezes até mesmo em um único ciclo de clock. Como funções recursivas tem como desvantagem ter que alocar os recursos referentes a ela a função abaixo está com uma pequena variação interativa, de forma a não comprometer a performance da aplicação.</p>
+<p>MDC MDC - Maior Divisor Comum </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Numero A </td></tr>
+    <tr><td class="paramname">b</td><td>Numero B </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna o maior divisor comum entre dois números A e B </dd></dl>
+
+</div>
+</div>
+<a id="a9b94253b261ef12eacfbf91777431390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b94253b261ef12eacfbf91777431390">&#9670;&nbsp;</a></span>MMC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long MMC </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encontra o minimo multiplo comum entre dois números. </p>
+<p>Para realizar essa operação utilizamos a propriedade MMC(a, b) * MDC(a, b) = a * b (link: <a href="https://math.stackexchange.com/questions/349858/easiest-and-most-complex-proof-of-gcd-a-b-times-operatornamelcm-a-b-a">https://math.stackexchange.com/questions/349858/easiest-and-most-complex-proof-of-gcd-a-b-times-operatornamelcm-a-b-a</a>) A ideia aqui é que o MMC(a,b) = (a * b) / MDC(a, b), a prova para esta propriedade é apresentada no artigo acima do StackExchange. Novamente o objetivo de utilizar esse tipo de operação é evitar ao máximo a perca de perfomance causada por algoritmos lentos ou mal otimizados.</p>
+<p>MMC MMC - Minimo Multiplo Comum </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Numero A </td></tr>
+    <tr><td class="paramname">b</td><td>Numero B </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna o minimo multiplo comum entre dois números A e B </dd></dl>
+
+</div>
+</div>
+<a id="aa349ec7cd4cb9fb833c9e16a41d46e1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa349ec7cd4cb9fb833c9e16a41d46e1a">&#9670;&nbsp;</a></span>multiplicacaoEscalarFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* multiplicacaoEscalarFracao </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>escalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplica uma fração por um escalar qualquer, o que resulta na multiplicação do escalar pelo numerador. </p>
+<p>produtoFracao Produto de fração por escalar </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao1</td><td>Fração 1 </td></tr>
+    <tr><td class="paramname">fracao2</td><td>Fração 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração resultado do produto das duas frações </dd></dl>
+
+</div>
+</div>
+<a id="a0c81d53ba363f7cea3f717077aad608a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c81d53ba363f7cea3f717077aad608a">&#9670;&nbsp;</a></span>newFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* newFracao </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>numerador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>denominador</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aloca uma nova fração. </p>
+<p>Uma fração é uma estrutura que contém um numerador e um denominador (numerador/denominador). Este objeto tem como objetivo evitar a perca de precisão após muitas operações utilizando o tipo double.</p>
+<p>newFracao Cria uma novo fração </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numerador</td><td>Numerador da fração </td></tr>
+    <tr><td class="paramname">denominador</td><td>Denominador da fração </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna o ponteiro para uma nova fração alocada </dd></dl>
+
+</div>
+</div>
+<a id="a4fd186557fe2eda81c7c73fb674e7714"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fd186557fe2eda81c7c73fb674e7714">&#9670;&nbsp;</a></span>produtoFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* produtoFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplica uma fração por outra. </p>
+<p>O resultado dessa multiplicação é basicamente a multiplicação dos termos da fração 1 pelos termos da fração 2.</p>
+<p>produtoFracao Produto de frações </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao1</td><td>Fração 1 </td></tr>
+    <tr><td class="paramname">fracao2</td><td>Fração 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração resultado do produto das duas frações </dd></dl>
+
+</div>
+</div>
+<a id="a7f627243aa1331f20244727f6d6b3fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f627243aa1331f20244727f6d6b3fe8">&#9670;&nbsp;</a></span>simplificarFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool simplificarFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reduz os termos de uma fração. </p>
+<p>O metodo de simplificar uma fração procura um termo comum entre o numerador e denominador e então divide ambos por este valor resultando assim numa fracao equivalente a fracao inicial porém com menores valores. Se a fracao nao puder ser simplificada ela nao sera modificada.</p>
+<p>simplificarFracao Reduz uma fração </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a27ec12fc3e177dd891e3c959187fd4c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ec12fc3e177dd891e3c959187fd4c3">&#9670;&nbsp;</a></span>somaFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* somaFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soma duas frações distintas. </p>
+<p>Se as frações tiverem denominadores diferentes primeiro se encontra um denominador em comum, se aplicam as transformações necessárias e então é efetuada a operação de adição entre as duas funções.</p>
+<p>somaFracao Soma de fracoes </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao1</td><td>Fração 1 </td></tr>
+    <tr><td class="paramname">fracao2</td><td>Fração 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração resultado da soma das duas frações </dd></dl>
+
+</div>
+</div>
+<a id="a92cde50fc574d7e432eb580154f1083e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92cde50fc574d7e432eb580154f1083e">&#9670;&nbsp;</a></span>subtracaoFracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* subtracaoFracao </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subtrai duas frações distintas. </p>
+<p>Se as frações tiverem denominadores diferentes primeiro se encontra um denominador em comum, se aplicam as transformações necessárias e então é efetuada a operação de subtração entre as duas funções.</p>
+<p>subtracaoFracao Subtração de fracoes </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao1</td><td>Fração 1 </td></tr>
+    <tr><td class="paramname">fracao2</td><td>Fração 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração resultado da subtração das duas frações </dd></dl>
+
+</div>
+</div>
+<a id="a9e2984e7c3055de924c3328b6a3dcb1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2984e7c3055de924c3328b6a3dcb1c">&#9670;&nbsp;</a></span>trocaSinal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_fracao.html">Fracao</a>* trocaSinal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_fracao.html">Fracao</a> *&#160;</td>
+          <td class="paramname"><em>fracao</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Troca o sinal do numerador e denominador de uma fração aplicando assim o operador unário (-). </p>
+<p>trocaSinal Realiza operação unária de menos numa fração </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fracao</td><td>Fração </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova fração porém com o sinal invertido </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 4 de Agosto de 2018 12:58:48 para Trabalho AlgebraLinear por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>
