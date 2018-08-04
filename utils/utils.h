@@ -1,6 +1,16 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+/**
+ * @file utils.h
+ * @author Alana Bispo e Jeferson Lima
+ * @date 27 Jul 2018
+ * @brief Metodos auxiliares para funções básicas.
+ *
+ * Este header define, metodos utils para qualquer projeto em C.
+ *
+ */
+
 #include "../tipos/matriz.h"
 
 #include <stdarg.h>

@@ -3,10 +3,9 @@
 
 #include <stdio.h>
 
-/**
- * Imprime a mensagem de suporte
- */
-void mostrarAjuda(){
+
+/* Mostra a ajuda do sistema */
+void mostrarAjuda(void){
     printf( "Como usar!\n"                                      \
             "\n"                                                \
             "usar:\tmatriz\n"                                   \

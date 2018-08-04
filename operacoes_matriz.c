@@ -8,18 +8,7 @@
 
 /*------------ Operacoes Structure Methods ------------ */
 
-/**
- *
- * Troca uma linha da matriz com outra da mesma. Esta operação elementar
- * apenas trocar o valor das linhas, não é possível modificar os valores
- * das mesmas nesta operação. Formato L1 <-> L2 .
- *
- * @brief operacaoTrocaLinha Troca os valores de uma linha com o de outra
- * @param matriz Matriz a ser utilizada na operação
- * @param linha1 Linha 1 da matriz que receberá a operação
- * @param linha2 Linha 2 da matriz que receberá a operação
- * @return Retorna true se a operação ocorreu bem e falso caso contrário
- */
+/* Troca de linhas */
 bool operacaoTrocaLinha(Matriz *matriz, unsigned int linha1, unsigned int linha2){
     /* Verifica se a matriz */
     if(matriz == NULL){
@@ -45,18 +34,7 @@ bool operacaoTrocaLinha(Matriz *matriz, unsigned int linha1, unsigned int linha2
     return true;
 }
 
-/**
- *
- * Multiplica uma linha por um escalar qualquer. Esta operação dada uma linha da matriz
- * multiplica a mesma por um escalar que pode ser positivo ou negativo. Este escalar
- * tem que ser diferente de 0. Formato L1 <- L1 * E .
- *
- * @brief operacaoMultiplicaPorEscalar Multiplica uma linha por um escalar
- * @param matriz Matriz que receberá a operação
- * @param linha Numero da linha que receberá a operação
- * @param escalar Número diferente de 0 a qual as celulas da linha receberão a operação
- * @return Retorna true se a operação não teve erros e falso caso contrário
- */
+/* Multiplica linha por escalar */
 bool operacaoMultiplicaPorEscalar(Matriz *matriz, unsigned int linha, double escalar){
     /* Checa se a matriz é válida */
     if(matriz == NULL){
@@ -92,21 +70,7 @@ bool operacaoMultiplicaPorEscalar(Matriz *matriz, unsigned int linha, double esc
     return true;
 }
 
-/**
- *
- * Soma uma linha a outra multiplicada por um escalar. Esta operação aplica uma soma
- * de uma linha com outra, com a outra linha podendo ser modificada por um escalar
- * no formato L1 <- L1 + E * L2. É importante lembrar que L1 nesse formato não pode
- * ser modificado nesta operação e somente L2 será multiplicado pelo escalar.
- * O escalar não pode ser igual a 0, porém pode ser um número negativo ou uma fração.
- *
- * @brief operacaoSomaEntreLinhas Soma uma linha a outra multiplicada por um escalar
- * @param matriz Matriz que irá receber a operação
- * @param linha_res Linha do resultado
- * @param linha_in Linha que será somada a linha que irá receber o resultado
- * @param escalar Escalar que irá ser multiplicado pela outra linha
- * @return Retorna true se a operação ocorreu bem, e falso caso contrário
- */
+/* Soma uma linha a outra multiplicada por um escalar */
 bool operacaoSomaEntreLinhas(Matriz *matriz, unsigned int linha_res, unsigned int linha_in, double escalar){
     /* Verifica se a matriz */
     if(matriz == NULL){
@@ -143,15 +107,7 @@ bool operacaoSomaEntreLinhas(Matriz *matriz, unsigned int linha_res, unsigned in
     return true;
 }
 
-/**
- *
- * Soma a matriz 1 a matriz 2 e retorna o resultado da expressão numa nova matriz.
- *
- * @brief somaMatriz Soma de matrizes
- * @param matriz1 Matriz 1
- * @param matriz2 Matriz 2
- * @return Retorna uma nova matriz com a soma das duas matrizes informadas
- */
+/* Soma de matrizes */
 Matriz* somaMatriz(Matriz *matriz1, Matriz *matriz2){
     /* Verifica se as matrizes são consistentes */
     if(matriz1 == NULL || matriz2 == NULL){
@@ -185,15 +141,7 @@ Matriz* somaMatriz(Matriz *matriz1, Matriz *matriz2){
 
 }
 
-/**
- *
- * Subtrai a matriz 1 da matriz 2 e retorna o resultado da expressão numa nova matriz.
- *
- * @brief subtracaoMatriz Subtração de matrizes
- * @param matriz1 Matriz 1
- * @param matriz2 Matriz 2
- * @return Nova matriz contendo a subtração das duas matrizes informadas
- */
+/* Subtração de matrizes */
 Matriz* subtracaoMatriz(Matriz *matriz1, Matriz *matriz2){
     /* Verifica se as matrizes são consistentes */
     if(matriz1 == NULL || matriz2 == NULL){
@@ -226,18 +174,7 @@ Matriz* subtracaoMatriz(Matriz *matriz1, Matriz *matriz2){
     return matriz_resultado;
 }
 
-/**
- *
- * Realiza o produto entre duas matrizes. O produto entre duas matrizes é
- * dado pela multiplicação das linhas de uma matriz com a coluna da outra.
- * No produto de matrizes a matriz resultante tem formato
- * A (n x k) <- M1 (n x m) . M2 (m x k)
- *
- * @brief produtoMatriz Produto de matrizes
- * @param matriz1 Matriz 1
- * @param matriz2 Matriz 2
- * @return Retorna uma nova matriz, resultado do produto entre as matrizes
- */
+/* Produto de matrizes */
 Matriz *produtoMatriz(Matriz *matriz1, Matriz *matriz2){
     /* Verifica se as matrizes são consistentes */
     if(matriz1 == NULL || matriz2 == NULL){
@@ -271,17 +208,7 @@ Matriz *produtoMatriz(Matriz *matriz1, Matriz *matriz2){
     return matriz_resultado;
 }
 
-/**
- *
- * Multiplica uma matriz por um escalar qualquer. A matriz resultante
- * será o resultado de todas as celulas dessa matriz multiplicada por esse
- * escalar.
- *
- * @brief multiplicacaoEscalarMatriz Multiplicação de matriz por escalar
- * @param matriz Matriz
- * @param escalar Escalar
- * @return Retorna uma nova matriz resultado da multiplicação desta pelo escalar
- */
+/* Multiplicação de matriz por escalar */
 Matriz *multiplicacaoEscalarMatriz(Matriz *matriz, double escalar){
     /* Verifica se as matrizes são consistentes */
     if(matriz == NULL){
@@ -308,16 +235,7 @@ Matriz *multiplicacaoEscalarMatriz(Matriz *matriz, double escalar){
     return matriz_resultado;
 }
 
-/**
- *
- * Transposta de uma matriz. Retorna a transposta de uma matriz
- * que é basicamente uma matriz cujas as linhas são as colunas
- * da matriz de entrada.
- *
- * @brief transpostaMatriz Realiza a operação transposta de uma matriz
- * @param matriz Matriz
- * @return Retorna uma nova matriz que representa a transposta desta
- */
+/* Transposta de uma matriz */
 Matriz *transpostaMatriz(Matriz *matriz){
     /* Verifica se as matrizes são consistentes */
     if(matriz == NULL){

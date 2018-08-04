@@ -19,15 +19,24 @@ typedef struct strVetor Vetor;
 /*                       Vetor  Structure                        */
 /* ------------------------------------------------------------- */
 
+
+/**
+ * @brief Vetor de n coordenadas.
+ *
+ * Este tipo define a estrutura matemática vetor. Um vetor de n coordenadas
+ * é uma estrutura similar a um array, porém diferentemente desta o Vetor
+ * propriamente dito tem propriedades matemáticas importantes
+ * por isso a existência deste.
+ */
 typedef struct strVetor{
 	/* Dimensão do vetor */
-    unsigned int dimensao;
+    unsigned int dimensao; /**< Dimensão é o número de coordenadas que um vetor possui. */
 
 	/* Dados */
-	double *coordenadas;
+    double *coordenadas; /**< As coordenadas são os valores ordenados em cada posição do vetor. */
 
     /* Id do vetor */
-    char *idVetor;
+    char *idVetor; /**< String que contém a identificação do vetor. */
 } Vetor, *ptrVetor;
 
 /* ------------------ Vetor Structure Methods ------------------ */
@@ -56,22 +65,35 @@ Vetor* newVetor(char *idVetor, unsigned int dimensao, double valores[]);
  */
 bool deleteVetor(ptrVetor *vetor);
 
-/* Clona um vetor */
+/**
+ *
+ * Clona um vetor qualquer. O resultado do clone é retornado por essa função
+ * em caso de erro é retornado um ponteiro NULL.
+ *
+ * @brief cloneVetor Clona um vetor
+ * @param vetor Vetor a ser clonado
+ * @return Ponteiro para vetor clonado
+ */
 Vetor* cloneVetor(Vetor *vetor);
 
 /* Soma dois vetores */
+// TODO
 Vetor* somaVetor(Vetor *vetor1, Vetor *vetor2);
 
 /* Subtrais dois vetores */
+// TODO
 Vetor* subtraiVetor(Vetor *vetor1, Vetor *vetor2);
 
 /* Produto interno entre dois vetores */
+// TODO
 double produtoInterno(Vetor *vetor1, Vetor *vetor2, bool *erro);
 
 /* Norma do vetor */
+// TODO
 double normaVetor(Vetor *vetor, bool *erro);
 
 /* Imprime vetor */
+// TODO
 void imprimeVetor(Vetor *vetor);
 
 /* ------------------------------------------------------------- */

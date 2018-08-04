@@ -20,7 +20,11 @@
 /*                         Funções Ajuda                         */
 /* ------------------------------------------------------------- */
 
-/* Mostra a ajuda do sistema */
+/**
+ * Imprime a mensagem de suporte
+ *
+ * @brief Mostra ajuda
+ */
 void mostrarAjuda(void);
 
 /* ------------------------------------------------------------- */

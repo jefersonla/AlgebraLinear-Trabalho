@@ -52,21 +52,7 @@ bool pivoteamentoParcial(Matriz *matriz, unsigned int linPivo, unsigned int colP
     return true;
 }
 
-/**
- *
- * Realiza o metodo de Gauss para encontrar as raizes de um sistema de equações. Essa função
- * assume que a matriz contém ao menos duas colunas e a última é sempre o resultado.
- * O retorno dessa função é um vetor de doubles com a dimensão do número de colunas - 1
- * de todas as raizes dessa equação, caso o resultado não seja possível o resultado é nulo
- * e caso existam múltiplas sóluções o retorno é nulo também. Esses casos podem ser melhor
- * tratados no futuro. O procedimento para execução do metodo de Gauss é o metodo de Gauss
- * com pivotamento a fim de evitar divisões por zero. Antes de executar o algoritmo é checado
- * se a matriz é quadradada, e temos uma matriz aumentada
- *
- * @brief operacaoGaussMatriz Executa o metodo de Gauss para encontrar as raizes do sistema de equação
- * @param matriz Matriz com o sistema de equações lineares
- * @return Retorna um vetor com os valores únicos do sistema de equação, ou nulo caso contrário
- */
+/* Executa o metodo de Gauss para encontrar as raizes do sistema de equação */
 Vetor* operacaoGaussMatriz(Matriz *matriz){
     /* Verifica se a matriz é válida */
     if(matriz == NULL){
@@ -196,17 +182,7 @@ Vetor* operacaoGaussMatriz(Matriz *matriz){
     return vetor_resposta;
 }
 
-/**
- *
- * Realiza o metodo de Gauss-Jordan para encontrar as raizes de um sistema de equações.
- * Essa função aplica o algoritmo de Gauus-Jordan para encontrar as raizes do sistema de equação.
- * Analisando os dois metodos a maior diferença de um sistema para o outro é que não precisamos
- * aplicar o
- *
- * @brief operacaoGausJordanMatriz Executa o metodo de Gauss-Jordan para encontrar as raizes do sistema de equação
- * @param matriz Matriz com o sistema de equações lineares
- * @return Retorna um vetor com os valores únicos do sistema de equação, ou nulo caso contrário
- */
+/* Executa metodo de Gauss-Jordan para encontrar as raizes do sistema de equação */
 Vetor* operacaoGausJordanMatriz(Matriz *matriz){
     /* Verifica se a matriz é válida */
     if(matriz == NULL){

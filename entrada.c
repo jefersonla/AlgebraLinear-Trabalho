@@ -11,12 +11,7 @@
 #include <string.h>
 #include <math.h>
 
-/**
- *
- * Exibe o menu de opções para o usuario.
- *
- * @brief Exibe o menu
- */
+/* Mostra o menu de opções */
 void mostraMenu(void){
     printf("::: Menu :::\n\n"
            "1 > Inserir Matriz\n"
@@ -30,13 +25,7 @@ void mostraMenu(void){
            "0 > Sair\n");
 }
 
-/**
- *
- * Menu de opções elementares, sobre as linhas de uma matriz.
- * Essas opções são executadas conforme entrada do usuario.
- *
- * @brief menuOpcoesElementares Menu opções elementares
- */
+/* Menu opções elementares */
 void menuOpcoesElementares(void){
     printf("::: Operacoes Elementares :::\n\n"
            "1 > Troca entre linhas (L1 <-> L2)\n"
@@ -45,13 +34,7 @@ void menuOpcoesElementares(void){
            "0 > Voltar\n");
 }
 
-/**
- *
- * Menu de operações aritméticas entre matrizes.
- * Essas opções são executadas entre matrizes definidas pelo usuario.
- *
- * @brief menuOpcoesAritmeticas Menu de operações aritméticas
- */
+/* Menu de operações, aritmeticas entre matrizes. */
 void menuOpcoesAritmeticas(void){
     printf("::: Operacoes Aritmeticas :::\n\n"
            "1 > Soma de matrizes (M <- M1 + M2)\n"
@@ -75,15 +58,7 @@ void menuOperacoesComplexas(void){
            "0 > Voltar\n");
 }
 
-/**
- *
- * Insere uma matriz definida pelo usuario a lista de matrizes.
- * Essa matriz poderá ser utilizada para fins futuros, como operações
- * entre matrizes, ou entre linhas de uma matriz.
- *
- * @brief inserirMatriz Insere uma matriz a lista de matrizes
- * @param listaMatrizes Lista contendo todas as matrizes já cadastradas
- */
+/* Inseri matriz a lista de matrizes */
 void inserirMatriz(Lista *listaMatrizes){
     unsigned int nLinhas;
     unsigned int nColunas;
@@ -143,13 +118,7 @@ void inserirMatriz(Lista *listaMatrizes){
     deleteMatriz(ptr_matriz);
 }
 
-/**
- *
- * Lista todas as matrizes presentes na memória.
- *
- * @brief listarMatrizes Lista todas as matrizes presentes na memória
- * @param listaMatrizes Lista de matrizes presente na memória
- */
+/* Listar matrizes já inseridas */
 void listarMatrizes(Lista *listaMatrizes){
     /* Checa se a lista de matrizes é válida */
     if(listaMatrizes == NULL){
@@ -187,16 +156,7 @@ void deletarMatriz(Lista *listaMatrizes){
     removeNoLista(listaMatrizes, (int)indiceRemover);
 }
 
-/**
- *
- * Clona as matrizes presentes na memória, qualquer matriz pode ser clonada
- * e seu id sempre será o próximo ID disponível. O objetivo aqui é permitir
- * que um usuario possa utilizar uma instância antiga da matriz para operações
- * futuras.
- *
- * @brief clonarMatriz Clonar matriz presentes na memória
- * @param listaMatrizes Lista com todas as matrizes do sistema
- */
+/* Clonar matriz presentes na memória */
 void clonarMatriz(Lista *listaMatrizes){
     NoLista *noMatriz;
     unsigned int idMatriz;
@@ -675,21 +635,7 @@ void transpostaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoO
     }
 }
 
-/**
- *
- * Realiza operações aritméticas entre matrizes. As operações permitidas
- * são:
- * - Soma
- * - Subtração
- * - Produto
- * - Multiplicação por escalar
- * - Transposta
- * - Inversa -- TODO
- * - Divisão -- TODO
- *
- * @brief operacoesEntreMatrizes Executa operações (soma, multiplicação, ...) entre matrizes
- * @param listaMatrizes Lista de matrizes
- */
+/* Executa operações (soma, multiplicação, ...) entre matrizes */
 void operacoesEntreMatrizes(Lista *listaMatrizes){
     unsigned int operacao;
     unsigned int salvaResultadoOperacao;
@@ -1001,17 +947,7 @@ void encontrarBaseMatriz(Lista *listaMatrizes){
     printInfo("TODO!");
 }
 
-/**
- *
- * Menu de operações que envolvem escalonamento. Por padrão essas funções aqui
- * estão sinalizadas com o nome de operações complexas, porém o que temos na
- * verdade é um conjunto de metodos algebricos para solução de problemas comuns
- * como é o caso de encontrar o kernel de uma matriz, encontrar a solução de
- * equações lineares e afins.
- *
- * @brief operacaoMatrizComplexas Realiza operações complexas, que envolvem escalonamento
- * @param listaMatrizes Lista de matrizes disponiveis na memoria
- */
+/* Realiza operações complexas, que envolvem escalonamento */
 void operacaoMatrizComplexas(Lista *listaMatrizes){
     unsigned int operacao;
 
@@ -1073,15 +1009,7 @@ void operacaoMatrizComplexas(Lista *listaMatrizes){
     quebraLinha();
 }
 
-/**
- *
- * Realiza a operação de troca entre duas linhas, com base na linha informada
- * pelo usuario e duas linhas de uma matriz já cadastrada. No caso da falta da
- * matriz ou das linhas informadas a aplicação volta ao menu anterior.
- *
- * @brief operacaoMatrizTrocaLinha Realiza a operação elementar de troca entre linhas
- * @param listaMatrizes Lista com todas as matrizes do sistema
- */
+/* Executa a operação de troca entre linhas */
 void operacaoMatrizTrocaLinha(NoLista *noMatriz){
     unsigned int l1, l2;
 
@@ -1332,13 +1260,7 @@ void operacoesMatriz(Lista *listaMatrizes){
     quebraLinha();
 }
 
-/**
- *
- * Modo de entrada interativa, neste modo o usuario tem um menu e pode realizar
- * diversas operações sobre as matrizes armazenadas nesse sistema
- * 
- * @brief Ativa o modo de entrada de usuario
- */
+/* Pega a entrada do usuario */
 void loopModoCLI(void){
     printf("::: Modo de entrada de usuario :::\n\n");
 

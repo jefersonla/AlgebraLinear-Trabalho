@@ -9,18 +9,7 @@
 
 /*------------ Fracao Structure Methods ------------ */
 
-/**
- *
- * Aloca uma nova fração. Uma fração é uma estrutura que contém
- * um numerador e um denominador (numerador/denominador).
- * Este objeto tem como objetivo evitar a perca de precisão
- * após muitas operações utilizando o tipo double.
- *
- * @brief newFracao Cria uma novo fração
- * @param numerador Numerador da fração
- * @param denominador Denominador da fração
- * @return Retorna o ponteiro para uma nova fração alocada
- */
+/* Cria uma novo fracao */
 Fracao* newFracao(long long numerador, long long denominador){
     /* Denominador não pode ser 0 */
     if(denominador == 0){
