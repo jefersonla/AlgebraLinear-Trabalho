@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho AlgebraLinear: Referência ao ficheiro operacoes_matriz.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho AlgebraLinear
+   &#160;<span id="projectnumber">0.7</span>
+   </div>
+   <div id="projectbrief">TrabalhodeAlgebraLinear</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro operacoes_matriz.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Operacoes simples entre matrizes.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;tipos/matriz.h&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+</div>
+<p><a href="operacoes__matriz_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ae1e01752ccf82610365a9af19b5f67ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#ae1e01752ccf82610365a9af19b5f67ff">operacaoTrocaLinha</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz, unsigned int linha1, unsigned int linha2)</td></tr>
+<tr class="memdesc:ae1e01752ccf82610365a9af19b5f67ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Troca uma linha da matriz com outra da mesma.  <a href="#ae1e01752ccf82610365a9af19b5f67ff">Mais...</a><br /></td></tr>
+<tr class="separator:ae1e01752ccf82610365a9af19b5f67ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a530b45e63d7743d1cdc458432af8c3d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#a530b45e63d7743d1cdc458432af8c3d0">operacaoMultiplicaPorEscalar</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz, unsigned int linha, double escalar)</td></tr>
+<tr class="memdesc:a530b45e63d7743d1cdc458432af8c3d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica uma linha por um escalar qualquer.  <a href="#a530b45e63d7743d1cdc458432af8c3d0">Mais...</a><br /></td></tr>
+<tr class="separator:a530b45e63d7743d1cdc458432af8c3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125aedcbd3397bf44fb62eebce57f750"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#a125aedcbd3397bf44fb62eebce57f750">operacaoSomaEntreLinhas</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz, unsigned int linha_res, unsigned int linha_in, double escalar)</td></tr>
+<tr class="memdesc:a125aedcbd3397bf44fb62eebce57f750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma uma linha a outra multiplicada por um escalar.  <a href="#a125aedcbd3397bf44fb62eebce57f750">Mais...</a><br /></td></tr>
+<tr class="separator:a125aedcbd3397bf44fb62eebce57f750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae93c41de8b677be576a1d8760ce6945b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#ae93c41de8b677be576a1d8760ce6945b">somaMatriz</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz1, <a class="el" href="structstr_matriz.html">Matriz</a> *matriz2)</td></tr>
+<tr class="memdesc:ae93c41de8b677be576a1d8760ce6945b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma a matriz 1 a matriz 2 e retorna o resultado da expressão numa nova matriz.  <a href="#ae93c41de8b677be576a1d8760ce6945b">Mais...</a><br /></td></tr>
+<tr class="separator:ae93c41de8b677be576a1d8760ce6945b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a941afda5095c01d669e4cfd1d624195c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#a941afda5095c01d669e4cfd1d624195c">subtracaoMatriz</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz1, <a class="el" href="structstr_matriz.html">Matriz</a> *matriz2)</td></tr>
+<tr class="memdesc:a941afda5095c01d669e4cfd1d624195c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtrai a matriz 1 da matriz 2 e retorna o resultado da expressão numa nova matriz.  <a href="#a941afda5095c01d669e4cfd1d624195c">Mais...</a><br /></td></tr>
+<tr class="separator:a941afda5095c01d669e4cfd1d624195c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ba3ff86da5feeb4dfb3f4105e85ef9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#a1ba3ff86da5feeb4dfb3f4105e85ef9e">produtoMatriz</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz1, <a class="el" href="structstr_matriz.html">Matriz</a> *matriz2)</td></tr>
+<tr class="memdesc:a1ba3ff86da5feeb4dfb3f4105e85ef9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza o produto entre duas matrizes.  <a href="#a1ba3ff86da5feeb4dfb3f4105e85ef9e">Mais...</a><br /></td></tr>
+<tr class="separator:a1ba3ff86da5feeb4dfb3f4105e85ef9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0370ca82b31d482f4c922d84c648450"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#ae0370ca82b31d482f4c922d84c648450">multiplicacaoEscalarMatriz</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz, double escalar)</td></tr>
+<tr class="memdesc:ae0370ca82b31d482f4c922d84c648450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplica uma matriz por um escalar qualquer.  <a href="#ae0370ca82b31d482f4c922d84c648450">Mais...</a><br /></td></tr>
+<tr class="separator:ae0370ca82b31d482f4c922d84c648450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a99814db11a0c04a85a9a241a761c11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="operacoes__matriz_8h.html#a1a99814db11a0c04a85a9a241a761c11">transpostaMatriz</a> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz)</td></tr>
+<tr class="memdesc:a1a99814db11a0c04a85a9a241a761c11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposta de uma matriz.  <a href="#a1a99814db11a0c04a85a9a241a761c11">Mais...</a><br /></td></tr>
+<tr class="separator:a1a99814db11a0c04a85a9a241a761c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac95fe90264d9efbeac7c52c81751c2e3"><td class="memItemLeft" align="right" valign="top"><a id="ac95fe90264d9efbeac7c52c81751c2e3"></a>
+<a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>inversaMatriz</b> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz)</td></tr>
+<tr class="separator:ac95fe90264d9efbeac7c52c81751c2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aae5d4785cdcb3bcf9109c745033088"><td class="memItemLeft" align="right" valign="top"><a id="a8aae5d4785cdcb3bcf9109c745033088"></a>
+<a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>divisaoMatriz</b> (<a class="el" href="structstr_matriz.html">Matriz</a> *matriz1, <a class="el" href="structstr_matriz.html">Matriz</a> *matriz2)</td></tr>
+<tr class="separator:a8aae5d4785cdcb3bcf9109c745033088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Operacoes simples entre matrizes. </p>
+<dl class="section author"><dt>Autor</dt><dd>Alana Bispo e Jeferson Lima </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>27 Jul 2018 Contém as operações mais básicas entre matrizes como as quatro operações, algumas operações de representação e as operações elementares nas linhas de uma matriz. Para maiores informações sobre essas funções ver os links abaixo.</dd></dl>
+<dl class="section see"><dt>Veja também</dt><dd><a href="http://www.professores.uff.br/anamluz/wp-content/uploads/sites/36/2017/07/41.pdf">http://www.professores.uff.br/anamluz/wp-content/uploads/sites/36/2017/07/41.pdf</a> </dd>
+<dd>
+<a href="http://www.mat.ufmg.br/~rodney/notas_de_aula/matrizes.pdf">http://www.mat.ufmg.br/~rodney/notas_de_aula/matrizes.pdf</a> </dd></dl>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="ae0370ca82b31d482f4c922d84c648450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0370ca82b31d482f4c922d84c648450">&#9670;&nbsp;</a></span>multiplicacaoEscalarMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_matriz.html">Matriz</a>* multiplicacaoEscalarMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>escalar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplica uma matriz por um escalar qualquer. </p>
+<p>A matriz resultante será o resultado de todas as celulas dessa matriz multiplicada por esse escalar.</p>
+<p>multiplicacaoEscalarMatriz Multiplicação de matriz por escalar </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz </td></tr>
+    <tr><td class="paramname">escalar</td><td>Escalar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova matriz resultado da multiplicação desta pelo escalar </dd></dl>
+
+</div>
+</div>
+<a id="a530b45e63d7743d1cdc458432af8c3d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530b45e63d7743d1cdc458432af8c3d0">&#9670;&nbsp;</a></span>operacaoMultiplicaPorEscalar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operacaoMultiplicaPorEscalar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>linha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>escalar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multiplica uma linha por um escalar qualquer. </p>
+<p>Esta operação dada uma linha da matriz multiplica a mesma por um escalar que pode ser positivo ou negativo. Este escalar tem que ser diferente de 0. Formato L1 &lt;- L1 * E .</p>
+<p>operacaoMultiplicaPorEscalar Multiplica uma linha por um escalar </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz que receberá a operação </td></tr>
+    <tr><td class="paramname">linha</td><td>Numero da linha que receberá a operação </td></tr>
+    <tr><td class="paramname">escalar</td><td>Número diferente de 0 a qual as celulas da linha receberão a operação </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna true se a operação não teve erros e falso caso contrário </dd></dl>
+
+</div>
+</div>
+<a id="a125aedcbd3397bf44fb62eebce57f750"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a125aedcbd3397bf44fb62eebce57f750">&#9670;&nbsp;</a></span>operacaoSomaEntreLinhas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operacaoSomaEntreLinhas </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>linha_res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>linha_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>escalar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soma uma linha a outra multiplicada por um escalar. </p>
+<p>Esta operação aplica uma soma de uma linha com outra, com a outra linha podendo ser modificada por um escalar no formato L1 &lt;- L1 + E * L2. É importante lembrar que L1 nesse formato não pode ser modificado nesta operação e somente L2 será multiplicado pelo escalar. O escalar não pode ser igual a 0, porém pode ser um número negativo ou uma fração.</p>
+<p>operacaoSomaEntreLinhas Soma uma linha a outra multiplicada por um escalar </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz que irá receber a operação </td></tr>
+    <tr><td class="paramname">linha_res</td><td>Linha do resultado </td></tr>
+    <tr><td class="paramname">linha_in</td><td>Linha que será somada a linha que irá receber o resultado </td></tr>
+    <tr><td class="paramname">escalar</td><td>Escalar que irá ser multiplicado pela outra linha </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna true se a operação ocorreu bem, e falso caso contrário </dd></dl>
+
+</div>
+</div>
+<a id="ae1e01752ccf82610365a9af19b5f67ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1e01752ccf82610365a9af19b5f67ff">&#9670;&nbsp;</a></span>operacaoTrocaLinha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool operacaoTrocaLinha </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>linha1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>linha2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Troca uma linha da matriz com outra da mesma. </p>
+<p>Esta operação elementar apenas trocar o valor das linhas, não é possível modificar os valores das mesmas nesta operação. Formato L1 &lt;-&gt; L2 .</p>
+<p>operacaoTrocaLinha Troca os valores de uma linha com o de outra </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz a ser utilizada na operação </td></tr>
+    <tr><td class="paramname">linha1</td><td>Linha 1 da matriz que receberá a operação </td></tr>
+    <tr><td class="paramname">linha2</td><td>Linha 2 da matriz que receberá a operação </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna true se a operação ocorreu bem e falso caso contrário </dd></dl>
+
+</div>
+</div>
+<a id="a1ba3ff86da5feeb4dfb3f4105e85ef9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ba3ff86da5feeb4dfb3f4105e85ef9e">&#9670;&nbsp;</a></span>produtoMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_matriz.html">Matriz</a>* produtoMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza o produto entre duas matrizes. </p>
+<p>O produto entre duas matrizes é dado pela multiplicação das linhas de uma matriz com a coluna da outra. No produto de matrizes a matriz resultante tem formato A (n x k) &lt;- M1 (n x m) . M2 (m x k)</p>
+<p>produtoMatriz Produto de matrizes </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz1</td><td>Matriz 1 </td></tr>
+    <tr><td class="paramname">matriz2</td><td>Matriz 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova matriz, resultado do produto entre as matrizes </dd></dl>
+
+</div>
+</div>
+<a id="ae93c41de8b677be576a1d8760ce6945b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae93c41de8b677be576a1d8760ce6945b">&#9670;&nbsp;</a></span>somaMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_matriz.html">Matriz</a>* somaMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soma a matriz 1 a matriz 2 e retorna o resultado da expressão numa nova matriz. </p>
+<p>somaMatriz Soma de matrizes </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz1</td><td>Matriz 1 </td></tr>
+    <tr><td class="paramname">matriz2</td><td>Matriz 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova matriz com a soma das duas matrizes informadas </dd></dl>
+
+</div>
+</div>
+<a id="a941afda5095c01d669e4cfd1d624195c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a941afda5095c01d669e4cfd1d624195c">&#9670;&nbsp;</a></span>subtracaoMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_matriz.html">Matriz</a>* subtracaoMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subtrai a matriz 1 da matriz 2 e retorna o resultado da expressão numa nova matriz. </p>
+<p>subtracaoMatriz Subtração de matrizes </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz1</td><td>Matriz 1 </td></tr>
+    <tr><td class="paramname">matriz2</td><td>Matriz 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Nova matriz contendo a subtração das duas matrizes informadas </dd></dl>
+
+</div>
+</div>
+<a id="a1a99814db11a0c04a85a9a241a761c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a99814db11a0c04a85a9a241a761c11">&#9670;&nbsp;</a></span>transpostaMatriz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structstr_matriz.html">Matriz</a>* transpostaMatriz </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structstr_matriz.html">Matriz</a> *&#160;</td>
+          <td class="paramname"><em>matriz</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transposta de uma matriz. </p>
+<p>Retorna a transposta de uma matriz que é basicamente uma matriz cujas as linhas são as colunas da matriz de entrada.</p>
+<p>transpostaMatriz Realiza a operação transposta de uma matriz </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matriz</td><td>Matriz </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna uma nova matriz que representa a transposta desta </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 4 de Agosto de 2018 12:35:21 para Trabalho AlgebraLinear por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

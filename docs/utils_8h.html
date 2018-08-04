@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho AlgebraLinear: Referência ao ficheiro utils/utils.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Trabalho AlgebraLinear
+   &#160;<span id="projectnumber">0.7</span>
+   </div>
+   <div id="projectbrief">TrabalhodeAlgebraLinear</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_cbdb8362360e11eafe2fa3bc74cf0ffd.html">utils</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Definições de tipos</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro utils.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Metodos auxiliares para funções básicas.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;../tipos/matriz.h&quot;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+</div>
+<p><a href="utils_8h_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a5610e1a14a721df92b20718471c3c46f"><td class="memItemLeft" align="right" valign="top"><a id="a5610e1a14a721df92b20718471c3c46f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>QUOTE</b>(_VAR)&#160;&#160;&#160;#_VAR</td></tr>
+<tr class="separator:a5610e1a14a721df92b20718471c3c46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bc3511613cc07533380cba921e22592"><td class="memItemLeft" align="right" valign="top"><a id="a0bc3511613cc07533380cba921e22592"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TO_STRING</b>(VAR)&#160;&#160;&#160;QUOTE(VAR)</td></tr>
+<tr class="separator:a0bc3511613cc07533380cba921e22592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219b62fed8625797eb1d253aef4e990b"><td class="memItemLeft" align="right" valign="top"><a id="a219b62fed8625797eb1d253aef4e990b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>variavelEntre</b>(VAR,  A,  B)&#160;&#160;&#160;(A &gt;= VAR &amp;&amp; VAR &lt;= B)</td></tr>
+<tr class="separator:a219b62fed8625797eb1d253aef4e990b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a949d155079432eb438cf36a666d9fd13"><td class="memItemLeft" align="right" valign="top"><a id="a949d155079432eb438cf36a666d9fd13"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>secureFree</b>(VAR)&#160;&#160;&#160;do{ free(VAR); VAR = NULL; } while(false)</td></tr>
+<tr class="separator:a949d155079432eb438cf36a666d9fd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae94d3b5eb944325bc803ff7e01fd93c5"><td class="memItemLeft" align="right" valign="top"><a id="ae94d3b5eb944325bc803ff7e01fd93c5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>secureStringSize</b>(VAR)&#160;&#160;&#160;(strlen(VAR) + SECURE_STRING_TERMINATOR)</td></tr>
+<tr class="separator:ae94d3b5eb944325bc803ff7e01fd93c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db51ba8084fed88738856442e883f75"><td class="memItemLeft" align="right" valign="top"><a id="a5db51ba8084fed88738856442e883f75"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>secureStringCopy</b>(DEST,  SRC)&#160;&#160;&#160;do{ strncpy(DEST, SRC, secureStringSize(SRC)); DEST[secureStringSize(SRC) - 1] = 0; }while(false)</td></tr>
+<tr class="separator:a5db51ba8084fed88738856442e883f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a140df395926294221ae2b19f58883947"><td class="memItemLeft" align="right" valign="top"><a id="a140df395926294221ae2b19f58883947"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>printMsg</b>(TYPE,  FORMAT, ...)&#160;&#160;&#160;fprintf(stderr, &quot;[&quot; TYPE &quot;] [%s:%d] &quot; FORMAT &quot;\n&quot;, __FILE__, __LINE__, ##__VA_ARGS__)</td></tr>
+<tr class="separator:a140df395926294221ae2b19f58883947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1eb9e3278f134dcbb22b48dc5c95b1"><td class="memItemLeft" align="right" valign="top"><a id="a7e1eb9e3278f134dcbb22b48dc5c95b1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>printFatalError</b>(FORMAT, ...)&#160;&#160;&#160;printMsg(&quot;FATAL ERROR&quot;, FORMAT, ##__VA_ARGS__)</td></tr>
+<tr class="separator:a7e1eb9e3278f134dcbb22b48dc5c95b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a599b75a8bb6745322afe24030f762b37"><td class="memItemLeft" align="right" valign="top"><a id="a599b75a8bb6745322afe24030f762b37"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>printError</b>(FORMAT, ...)&#160;&#160;&#160;printMsg(&quot;ERROR&quot;, FORMAT, ##__VA_ARGS__)</td></tr>
+<tr class="separator:a599b75a8bb6745322afe24030f762b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10afca467739dd635ceb3346b6232951"><td class="memItemLeft" align="right" valign="top"><a id="a10afca467739dd635ceb3346b6232951"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>printWarning</b>(FORMAT, ...)&#160;&#160;&#160;printMsg(&quot;WARNING&quot;, FORMAT, ##__VA_ARGS__)</td></tr>
+<tr class="separator:a10afca467739dd635ceb3346b6232951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aec04456dd28313432cedb1350818ba"><td class="memItemLeft" align="right" valign="top"><a id="a5aec04456dd28313432cedb1350818ba"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>printInfo</b>(FORMAT, ...)&#160;&#160;&#160;printMsg(&quot;INFO&quot;, FORMAT, ##__VA_ARGS__)</td></tr>
+<tr class="separator:a5aec04456dd28313432cedb1350818ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae296bc956cef4e2699f6597c00a802fc"><td class="memItemLeft" align="right" valign="top"><a id="ae296bc956cef4e2699f6597c00a802fc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>printTodo</b>(FORMAT, ...)&#160;&#160;&#160;printMsg(&quot;TODO&quot;, FORMAT, ##__VA_ARGS__)</td></tr>
+<tr class="separator:ae296bc956cef4e2699f6597c00a802fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13455ad964dfa3aea6cc7d065f3dfe1"><td class="memItemLeft" align="right" valign="top"><a id="ab13455ad964dfa3aea6cc7d065f3dfe1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>quebraLinha</b>()&#160;&#160;&#160;printf(&quot;\n&quot;);</td></tr>
+<tr class="separator:ab13455ad964dfa3aea6cc7d065f3dfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18626cace021d2719cd03285b090558c"><td class="memItemLeft" align="right" valign="top"><a id="a18626cace021d2719cd03285b090558c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>doubleIgualZero</b>(NUM)&#160;&#160;&#160;(fabs(NUM) &lt;= 10e-7)</td></tr>
+<tr class="separator:a18626cace021d2719cd03285b090558c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Definições de tipos</h2></td></tr>
+<tr class="memitem:a331be856ee819bee7ec068d1236a3007"><td class="memItemLeft" align="right" valign="top"><a id="a331be856ee819bee7ec068d1236a3007"></a>
+typedef signed char&#160;</td><td class="memItemRight" valign="bottom"><b>byte</b></td></tr>
+<tr class="separator:a331be856ee819bee7ec068d1236a3007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:af8a47ed01cf194619e2afc639a195305"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#af8a47ed01cf194619e2afc639a195305">swapMatrizCelula</a> (MatrizCelula *a, MatrizCelula *b)</td></tr>
+<tr class="memdesc:af8a47ed01cf194619e2afc639a195305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Troca os valores entre as celulas de uma matriz.  <a href="#af8a47ed01cf194619e2afc639a195305">Mais...</a><br /></td></tr>
+<tr class="separator:af8a47ed01cf194619e2afc639a195305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbe1325ba03416436bfdf2c8f1952d70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#adbe1325ba03416436bfdf2c8f1952d70">imprimeColunaFixa</a> (char *buf, MatrizCelula a, int tamColuna)</td></tr>
+<tr class="memdesc:adbe1325ba03416436bfdf2c8f1952d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime um número com um número fixado de digitos, ou seja imprime um numero para colunas de tamanho fixado.  <a href="#adbe1325ba03416436bfdf2c8f1952d70">Mais...</a><br /></td></tr>
+<tr class="separator:adbe1325ba03416436bfdf2c8f1952d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Metodos auxiliares para funções básicas. </p>
+<dl class="section author"><dt>Autor</dt><dd>Alana Bispo e Jeferson Lima </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>27 Jul 2018 Este header define, metodos utils para qualquer projeto em C. </dd></dl>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="adbe1325ba03416436bfdf2c8f1952d70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbe1325ba03416436bfdf2c8f1952d70">&#9670;&nbsp;</a></span>imprimeColunaFixa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imprimeColunaFixa </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrizCelula&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tamColuna</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime um número com um número fixado de digitos, ou seja imprime um numero para colunas de tamanho fixado. </p>
+<p>imprimeColunaFixa Imprime um numero com uma quantidade especifica de digitos </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>Buffer para armazenar a string do numero </td></tr>
+    <tr><td class="paramname">num</td><td>Numero a ser impresso </td></tr>
+    <tr><td class="paramname">tamColuna</td><td>Tamanho da coluna do número em questão </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af8a47ed01cf194619e2afc639a195305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8a47ed01cf194619e2afc639a195305">&#9670;&nbsp;</a></span>swapMatrizCelula()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swapMatrizCelula </td>
+          <td>(</td>
+          <td class="paramtype">MatrizCelula *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MatrizCelula *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Troca os valores entre as celulas de uma matriz. </p>
+<p>swapMatrizCelula Troca os valores entre celulas de uma matriz </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Primeiro valor </td></tr>
+    <tr><td class="paramname">b</td><td>Segundo valor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 4 de Agosto de 2018 12:35:21 para Trabalho AlgebraLinear por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>

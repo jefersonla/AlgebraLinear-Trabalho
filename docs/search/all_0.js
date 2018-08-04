@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['strlista',['strLista',['../structstr_lista.html',1,'']]],
-  ['strmatriz',['strMatriz',['../structstr_matriz.html',1,'']]],
-  ['strnolista',['strNoLista',['../structstr_no_lista.html',1,'']]],
-  ['strvetor',['strVetor',['../structstr_vetor.html',1,'']]]
+  ['clonarmatriz',['clonarMatriz',['../entrada_8h.html#aadac44c67be52950e4bdd03712ece4b3',1,'entrada.c']]],
+  ['coordenadas',['coordenadas',['../structstr_vetor.html#a315997ad674f00d9eb9374a84cb73c40',1,'strVetor']]]
 ];

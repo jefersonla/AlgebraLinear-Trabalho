@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['strfracao',['strFracao',['../structstr_fracao.html',1,'']]],
   ['strlista',['strLista',['../structstr_lista.html',1,'']]],
   ['strmatriz',['strMatriz',['../structstr_matriz.html',1,'']]],
   ['strnolista',['strNoLista',['../structstr_no_lista.html',1,'']]],
