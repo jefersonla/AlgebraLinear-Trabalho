@@ -47,8 +47,16 @@ $(EXECUTABLE): $(LIBS_SRC) $(LIBS_HEADERS)
 
 # Gera documentação do projeto
 docs:
-	@printf  "Gerando documentacao"
-	doxygen Doxyfile.conf
+	@printf "Removendo documentacao antiga"
+	rm -rf ./docs/
+	@printf "Criando pasta para documentacao"
+	mkdir ./docs
+	@printf "Gerando documentacao"
+	doxygen ./Doxyfile.conf
+	@printf "Alternando pasta da documentacao"
+	mv ./docs/html/* ./docs/
+	@printf "Removendo pasta de docs auxiliar"
+	rmdir ./docs/html
 
 # Realiza os testes nos executaveis
 #check: test1 test2 test3
