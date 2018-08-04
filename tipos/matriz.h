@@ -18,18 +18,18 @@
 /* ------------------------------------------------------------- */
 
 /* Tipos de matriz */
-#define MATRIZ_VAZIA 0 /** < Define uma matriz vazia, ou seja com 0 em todos os valores */
-#define MATRIZ_CONSTANTE 1 /** < Define uma matriz constante que terá o valor recebido pela função */
-#define MATRIZ_IDENTIDADE 2 /** < Define a matriz identidade aonde na diagonal principal teremos valor 1 */
-#define MATRIZ_VALORES 3 /** < Define uma matriz que sera inicializada pelos valores passados por parametro */
+#define MATRIZ_VAZIA 0 /**< Define uma matriz vazia, ou seja com 0 em todos os valores */
+#define MATRIZ_CONSTANTE 1 /**< Define uma matriz constante que terá o valor recebido pela função */
+#define MATRIZ_IDENTIDADE 2 /**< Define a matriz identidade aonde na diagonal principal teremos valor 1 */
+#define MATRIZ_VALORES 3 /**< Define uma matriz que sera inicializada pelos valores passados por parametro */
 
 /* Tamanho do range de tipos */
-#define MATRIZ_TIPO_MIN 0 /** < Tipo de matriz minimo é a matriz vazia logo 0 */
-#define MATRIZ_TIPO_MAX 3 /** < Tipo máximo da matriz é a matriz valores logo 3 */
+#define MATRIZ_TIPO_MIN 0 /**< Tipo de matriz minimo é a matriz vazia logo 0 */
+#define MATRIZ_TIPO_MAX 3 /**< Tipo máximo da matriz é a matriz valores logo 3 */
 
 /* Tamanho do espaçador */
-#define TAM_ESPACADOR 3 /** < Tamanho do espaço entre as colunas na impressão de colunas */
-#define TAM_PONTO_FLUTUANTE 3 /** < Define quantos caracteres cada double terá */
+#define TAM_ESPACADOR 3 /**< Tamanho do espaço entre as colunas na impressão de colunas */
+#define TAM_PONTO_FLUTUANTE 3 /**< Define quantos caracteres cada double terá */
 
 /* ------------------------------------------------------------- */
 /*                     Prototype definitions                     */
@@ -70,18 +70,18 @@ typedef double MatrizCelula;
  */
 typedef struct strMatriz{
 	/* Dimensões da matriz */
-    int nLinhas; /** < Número de linhas da matriz */
-    int nColunas; /** < Número de colunas da matriz */
-    int nCelulas; /** < Número de celulas da matriz */
+    int nLinhas; /**< Número de linhas da matriz */
+    int nColunas; /**< Número de colunas da matriz */
+    int nCelulas; /**< Número de celulas da matriz */
 
     /* Maior valor da matriz */
-    MatrizCelula maiorValor; /** < Maior valor presente na matriz */
+    MatrizCelula maiorValor; /**< Maior valor presente na matriz */
 
 	/* Conteúdo da matriz */
-    MatrizCelula *celulas; /** < Contéudo da matriz em forma de array */
+    MatrizCelula *celulas; /**< Contéudo da matriz em forma de array */
 
 	/* Estruturas da matriz */
-    MatrizCelula **linhas; /** < Ponteiros para as posições do vetor de celulas que define as linhas */
+    MatrizCelula **linhas; /**< Ponteiros para as posições do vetor de celulas que define as linhas */
 } Matriz, *ptrMatriz;
 
 /* ------------------ Matriz Structure Methods ----------------- */
