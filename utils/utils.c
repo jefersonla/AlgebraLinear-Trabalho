@@ -30,3 +30,16 @@ void imprimeColunaFixa(char *buf, MatrizCelula num, int tamColuna){
     /* Imprime o numero formatado */
     printf("%s", buf);
 }
+
+/* Hash para computar parametros */
+unsigned long long hashDjb2(char *str){
+    unsigned long hash = 5381;
+    unsigned long c;
+
+    /* Checa pela string */
+    while ((c = (unsigned long)(*str++)) != '\0')
+        /* hash * 33 + c */
+        hash = ((hash << 5) + hash) + c;
+
+    return hash;
+}

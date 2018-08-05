@@ -57,6 +57,19 @@
 #define SALVAR_NA_MATRIZ_ENTRADA 1
 #define SALVAR_NOVA_MATRIZ 2
 
+/* Parametro --cli - Ativa modo de linha de comando */
+#define PARAMETRO_CLI 0x310B47AF57
+
+/* Parametro --ajuda | --help - Mostra a ajuda de como usar a aplicação */
+#define PARAMETRO_AJUDA 0xD0A0FBCBD7A4
+#define PARAMETRO_HELP 0x65274403B28
+
+/* Parametro --matriz - Define uma matriz qualquer no sistema */
+#define PARAMETRO_MATRIZ 0x1AE4C090A187D6
+
+/* Parametro --kernel - Encontra o kernel da matriz definida anteriormente */
+#define PARAMETRO_KERNEL 0x1AE4C08C3E6E40
+
 /* ------------------------------------------------------------- */
 /*                      Estruturas  Globais                      */
 /* ------------------------------------------------------------- */
@@ -324,6 +337,20 @@ void transpostaMatrizOperacao(Lista *listaMatrizes, unsigned int salvaResultadoO
  * @param listaMatrizes Lista de matrizes disponiveis na memoria
  */
 void operacaoMatrizComplexas(Lista *listaMatrizes);
+
+/**
+ *
+ * Le uma matriz passada como parametro através da linha de comando, perceba
+ * que este metodo difere dos metodos anteriores que usam uma interface de linha
+ * de comando ou CLI, esse metodo apenas recebe o resultado e aplica.
+ *
+ * @brief parametroMatriz Le uma matriz passada como parametro pela linha de comando
+ * @param narg Numero do argumento atual
+ * @param argc Contador de argumentos total
+ * @param argv Vetor de argumentos passados como parametro para a funcao
+ * @return Retorna uma matriz recebida por passagem de parametros
+ */
+Matriz* parametroMatriz(int *narg, int argc, char *argv[]);
 
 /* ------------------------------------------------------------- */
 

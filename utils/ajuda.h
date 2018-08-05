@@ -37,6 +37,13 @@
  */
 void mostrarAjuda(void);
 
+/**
+ * Mensagem de copyright
+ *
+ * @brief Exibe mensagem de copyright
+ */
+void mostrarCopyright(void);
+
 /* ------------------------------------------------------------- */
 
 #endif

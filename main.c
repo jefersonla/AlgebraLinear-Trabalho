@@ -2,7 +2,7 @@
 
 /** Desenvolvido por Alana Bispo                         **/
 /**              e   Jeferson Lima                       **/
-/** Versão      0.7                                      **/
+/** Versão      1.0                                      **/
 /** Linguagem   C                                        **/
 /** Licença     MIT                                      **/
 /** Descrição:  Aplicação para demonstrar o conceito de  **/
@@ -21,7 +21,9 @@
 /** **************************************************** **/
 /**         LEIA O README PARA MAIS INFORMAÇÔES          **/
 /** **************************************************** **/
+#include "operacoes_complexas.h"
 #include "utils/ajuda.h"
+#include "utils/utils.h"
 #include "entrada.h"
 
 #include <stdio.h>
@@ -39,22 +41,63 @@ int main(int argc, char *argv[]){
             "Developed by Alana Bispo e Jeferson Lima\n"       \
             "\n");
 
-   
+    /* Variaveis temporarias */
+    Matriz *matriz_tmp = NULL;
+    Vetor *vetor_tmp = NULL;
+    Vetor** vetores_tmp = NULL;
+    unsigned int tamanho_vetores_tmp;
 
-    /* Verifica os parametros */
-    switch(argc){
-        case 1:
+    /* Percorre a lista de parametros */
+    int i, j;
+    for(i = 0; i < argc; i++){
+        /* Pega o parametro corrente */
+        unsigned long long parametro = hashDjb2(argv[i]);
+
+        /* Verifica os parametros */
+        switch(parametro){
+
+        case PARAMETRO_CLI:
             loopModoCLI();
-        break;
-    
+            break;
+
+        case PARAMETRO_AJUDA:
+        case PARAMETRO_HELP:
+            mostrarAjuda();
+            mostrarCopyright();
+            break;
+
+        case PARAMETRO_MATRIZ:
+            matriz_tmp = parametroMatriz(&i, argc, argv);
+            imprimeMatriz(matriz_tmp);
+            break;
+
+        case PARAMETRO_KERNEL:
+            vetores_tmp = operacaoKernelMatriz(matriz_tmp, &tamanho_vetores_tmp);
+            for(j = 0; j < (int)tamanho_vetores_tmp; j++){
+                imprimeVetor(vetores_tmp[j]);
+                printf("\n");
+            }
+            break;
+
         default:
-            printf( "Número incorreto de parametros!\n"   \
-                    "\n"                                  \
+            printf( "Parâmetro inválido!\n"   \
+                    "\n"                      \
             );
             mostrarAjuda();
+            mostrarCopyright();
 
             return EXIT_FAILURE;
+        }
+
     }
 
+    /* Execução sem parametros não é válida */
+    if(argc == 0){
+        mostrarAjuda();
+        mostrarCopyright();
+        return EXIT_FAILURE;
+    }
+
+    /* Finaliza a aplicação com sucesso */
     return EXIT_SUCCESS;
 }

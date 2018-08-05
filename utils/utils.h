@@ -81,4 +81,15 @@ void swapMatrizCelula(MatrizCelula *a, MatrizCelula *b);
  */
 void imprimeColunaFixa(char *buf, MatrizCelula a, int tamColuna);
 
+/**
+ *
+ * This algorithm was first reported by Dan Bernstein many years ago in comp.lang.c .
+ * Algoritmo para gerar hashs Djb2. Utilitário para parametros de uma funcao.
+ *
+ * @brief Hash Djb2 para computar parametros de uma funcao.
+ * @param str String de entrada.
+ * @return Retorna o hash de uma dada string
+ */
+unsigned long long hashDjb2(char *str);
+
 #endif

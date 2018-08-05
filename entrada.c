@@ -5,6 +5,7 @@
 #include "utils/utils.h"
 #include "operacoes_matriz.h"
 #include "operacoes_complexas.h"
+#include "utils/ajuda.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -1329,6 +1330,41 @@ void loopModoCLI(void){
     /* Desaloca a lista de matrizes */
     deleteLista(&listaMatrizes);
 
-    printf("::: Obrigado por utilizar a aplicação :::\n"
-           "Desenvolvido por Alana Bispo e Jeferson Lima\n");
+    mostrarCopyright();
+}
+
+/* Le uma matriz passada como parametro pela linha de comando */
+Matriz* parametroMatriz(int *narg, int argc, char *argv[]){
+    /* Checa se a matriz foi informada corretamente */
+    if(((*narg) + 2) >= argc){
+        printFatalError("Erro no formato. --matriz n m a11 a12 a13 ... ann");
+        exit(EXIT_FAILURE);
+    }
+
+    /* Pega as dimensões da matriz */
+    int nLinhas = atoi(argv[(*narg) + 1]);
+    int nColunas = atoi(argv[(*narg) + 2]);
+
+    /* Cria uma matriz vazia */
+    Matriz *nova_matriz = newMatriz(nLinhas, nColunas, MATRIZ_VAZIA, NULL);
+
+    /* Verifica se a matriz alocada é válida */
+    if(nova_matriz == NULL){
+        printError("ERROS AO ALOCAR A NOVA MATRIZ!");
+        return NULL;
+    }
+
+    /* Pega os valores restantes na linha de comando */
+    int i, j, c;
+    for(i = 0, c = (*narg) + 3; i < nLinhas && c < argc; i++)
+        for(j = 0; j < nColunas && c < argc; j++, c++)
+            nova_matriz->linhas[i][j] = atof(argv[c]);
+
+    /* Atualiza o maior valor */
+    atualizaMaiorValorMatriz(nova_matriz);
+
+    /* Atualiza o valor para a posição do parametro após ler tudo */
+    (*narg) = c;
+
+    return nova_matriz;
 }
